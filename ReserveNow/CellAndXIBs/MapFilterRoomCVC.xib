@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="CircularAir-Bold.otf">
+            <string>CircularAirPro-Bold</string>
+        </array>
+        <array key="CircularAir-Book.otf">
+            <string>CircularAirPro-Book</string>
+        </array>
+        <array key="makent1.ttf">
+            <string>makent1</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="MapFilterRoomCVC" reuseIdentifier="MapFilterRoomCVC" id="7Ca-Hr-rK8" customClass="MapFilterRoomCVC" customModule="ReserveNow" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="404" height="113"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="404" height="113"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pXF-rG-D1P">
+                        <rect key="frame" x="82" y="-7.6666666666666643" width="240" height="128.33333333333334"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NOZ-d1-zbS">
+                        <rect key="frame" x="0.0" y="0.0" width="121.33333333333333" height="113"/>
+                        <color key="backgroundColor" red="0.81960784310000001" green="0.83137254900000002" blue="0.86869506419999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uuk-a2-iTF">
+                        <rect key="frame" x="0.0" y="0.0" width="404" height="3"/>
+                        <color key="backgroundColor" red="0.16078431369999999" green="0.59607843140000005" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="3" id="ZUL-YS-1fu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cJ-2d-5f3">
+                        <rect key="frame" x="374" y="13" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="1cJ-2d-5f3" secondAttribute="height" id="SQk-g3-Z9U"/>
+                            <constraint firstAttribute="height" constant="20" id="VIz-M6-TcL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="makent1" family="makent1" pointSize="18"/>
+                        <state key="normal" image="heart_normal.png"/>
+                    </button>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MkO-DR-sxI">
+                        <rect key="frame" x="131.33333333333337" y="13" width="237.66666666666663" height="90"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fOX-KX-Wez">
+                                <rect key="frame" x="0.0" y="0.0" width="237.66666666666666" height="15"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="U" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iP8-td-pAL">
+                                        <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="SHc-3J-gwp"/>
+                                            <constraint firstAttribute="height" constant="15" id="klt-s9-2VT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="makent1" family="makent1" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GzT-CC-rfS">
+                                        <rect key="frame" x="19.999999999999986" y="0.0" width="217.66666666666663" height="15"/>
+                                        <fontDescription key="fontDescription" name="CircularAirPro-Book" family="Circular Air Pro" pointSize="11"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="wuv-R8-Xj7"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="daq-7k-LnO">
+                                <rect key="frame" x="0.0" y="25" width="237.66666666666666" height="15"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p2y-04-PsO">
+                                        <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="p2y-04-PsO" secondAttribute="height" multiplier="1:1" id="2oA-kr-ArM"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eL3-BT-a3H">
+                                        <rect key="frame" x="19.999999999999986" y="0.0" width="217.66666666666663" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="Ucw-Dl-7ie"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="CircularAirPro-Bold" family="Circular Air Pro" pointSize="11"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmk-Kk-gN3">
+                                <rect key="frame" x="0.0" y="50" width="237.66666666666666" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="zOR-Ji-XCc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CircularAirPro-Bold" family="Circular Air Pro" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rob-Ke-ysg">
+                                <rect key="frame" x="0.0" y="75" width="237.66666666666666" height="15"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="GhF-n5-9HM">
+                                        <rect key="frame" x="0.0" y="0.0" width="44.333333333333336" height="15"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBD-8f-RHa">
+                                                <rect key="frame" x="0.0" y="0.0" width="27.333333333333332" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="mjo-fm-JHr"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="CircularAirPro-Book" family="Circular Air Pro" pointSize="11"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_instant_book" translatesAutoresizingMaskIntoConstraints="NO" id="guy-9U-Mkc">
+                                                <rect key="frame" x="29.333333333333314" y="0.0" width="15" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="15" id="0Ig-cV-nFk"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="E5o-4R-xS6"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GhF-n5-9HM" secondAttribute="trailing" constant="10" id="Ic1-DA-oUT"/>
+                                    <constraint firstItem="GhF-n5-9HM" firstAttribute="top" secondItem="rob-Ke-ysg" secondAttribute="top" id="bgf-jb-GSO"/>
+                                    <constraint firstItem="GhF-n5-9HM" firstAttribute="leading" secondItem="rob-Ke-ysg" secondAttribute="leading" id="ldx-i6-CIF"/>
+                                    <constraint firstAttribute="bottom" secondItem="GhF-n5-9HM" secondAttribute="bottom" id="zlO-v0-JdV"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                    </stackView>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="NOZ-d1-zbS" secondAttribute="bottom" id="9Tz-NE-SMA"/>
+                <constraint firstItem="1cJ-2d-5f3" firstAttribute="leading" secondItem="MkO-DR-sxI" secondAttribute="trailing" constant="5" id="9lm-UQ-2ua"/>
+                <constraint firstItem="NOZ-d1-zbS" firstAttribute="top" secondItem="7Ca-Hr-rK8" secondAttribute="top" id="Akc-eX-TK9"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="MkO-DR-sxI" secondAttribute="bottom" constant="10" id="GgC-fh-cbz"/>
+                <constraint firstItem="pXF-rG-D1P" firstAttribute="height" secondItem="7Ca-Hr-rK8" secondAttribute="height" multiplier="1.13274" id="Iz4-Ly-4Vx"/>
+                <constraint firstItem="NOZ-d1-zbS" firstAttribute="leading" secondItem="7Ca-Hr-rK8" secondAttribute="leading" id="J63-ZP-Eve"/>
+                <constraint firstItem="MkO-DR-sxI" firstAttribute="leading" secondItem="NOZ-d1-zbS" secondAttribute="trailing" constant="10" id="NvD-po-vMm"/>
+                <constraint firstItem="Uuk-a2-iTF" firstAttribute="leading" secondItem="7Ca-Hr-rK8" secondAttribute="leading" id="VpN-t7-6yT"/>
+                <constraint firstItem="pXF-rG-D1P" firstAttribute="width" secondItem="7Ca-Hr-rK8" secondAttribute="width" multiplier="0.594059" id="Vpp-nt-dBh"/>
+                <constraint firstItem="1cJ-2d-5f3" firstAttribute="top" secondItem="MkO-DR-sxI" secondAttribute="top" id="WCK-4u-6ML"/>
+                <constraint firstAttribute="trailing" secondItem="Uuk-a2-iTF" secondAttribute="trailing" id="WTo-fh-8S1"/>
+                <constraint firstItem="Uuk-a2-iTF" firstAttribute="top" secondItem="7Ca-Hr-rK8" secondAttribute="top" id="YuM-FL-H1Z"/>
+                <constraint firstItem="pXF-rG-D1P" firstAttribute="centerY" secondItem="7Ca-Hr-rK8" secondAttribute="centerY" id="hzw-Za-qyi"/>
+                <constraint firstAttribute="trailing" secondItem="1cJ-2d-5f3" secondAttribute="trailing" constant="10" id="ohg-ao-gja"/>
+                <constraint firstItem="NOZ-d1-zbS" firstAttribute="width" secondItem="7Ca-Hr-rK8" secondAttribute="width" multiplier="0.3" id="rmj-HV-YJN"/>
+                <constraint firstItem="pXF-rG-D1P" firstAttribute="centerX" secondItem="7Ca-Hr-rK8" secondAttribute="centerX" id="t0b-OV-Rb6"/>
+                <constraint firstItem="MkO-DR-sxI" firstAttribute="top" secondItem="Uuk-a2-iTF" secondAttribute="bottom" constant="10" id="u3N-YR-boo"/>
+            </constraints>
+            <size key="customSize" width="404" height="127"/>
+            <connections>
+                <outlet property="covideImageView" destination="p2y-04-PsO" id="bfx-3H-POk"/>
+                <outlet property="instantBookIV" destination="guy-9U-Mkc" id="mLi-SZ-4AE"/>
+                <outlet property="priceLabel" destination="fBD-8f-RHa" id="hlH-zE-pPW"/>
+                <outlet property="ratingLabel" destination="iP8-td-pAL" id="9f8-pR-jry"/>
+                <outlet property="ratingStackView" destination="fOX-KX-Wez" id="yMA-em-Rqz"/>
+                <outlet property="reviewCountLabel" destination="GzT-CC-rfS" id="8w8-aR-qEy"/>
+                <outlet property="roomImageView" destination="NOZ-d1-zbS" id="iLv-yL-QFy"/>
+                <outlet property="selectionLabel" destination="Uuk-a2-iTF" id="5hX-KY-rdj"/>
+                <outlet property="subTitleLabel" destination="dmk-Kk-gN3" id="jmX-lC-sNY"/>
+                <outlet property="titleLabel" destination="eL3-BT-a3H" id="0EQ-3y-rZs"/>
+                <outlet property="whishListButtonOutlet" destination="1cJ-2d-5f3" id="Mnb-3h-3Et"/>
+            </connections>
+            <point key="canvasLocation" x="126.08695652173914" y="45.870535714285715"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="heart_normal.png" width="64" height="64"/>
+        <image name="ic_instant_book" width="15.479000091552734" height="20.128000259399414"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

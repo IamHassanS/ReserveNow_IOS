@@ -1,0 +1,18 @@
+
+// MARK:  ---------- Keys and Identifiers ----------------
+USER_APP_NAME        = Makent
+USER_BUNDLE_ID       = com.trioangle.makent
+GOOGLE_MAP_KEY       = AIzaSyCOGVqC9Up95kQNvd_WWtBXI-YY1d7Y2Ng
+GOOGLE_PLACES_KEY    = AIzaSyCOGVqC9Up95kQNvd_WWtBXI-YY1d7Y2Ng
+
+// MARK:  ---------- Application Version and App URL ----------------
+USER_VERSION         = 2.3.9
+USER_BUILD           = 1.0
+APP_URL              = https:/\/\makentservice.trioangledemo.com/salalahrent/public/
+
+// MARK:  ---------- Social Login Credentials ----------------
+FBID                 = Enter your key
+GOOGLESIGNIN_KEY     = Enter your key
+REVERSEDCLIENT_ID    = Enter your key
+GOOGLE_APP_ID        = Enter your key
+GOOGLE_CLIENT_ID     = Enter your key
