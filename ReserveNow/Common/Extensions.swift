@@ -4,6 +4,8 @@ import MobileCoreServices
 
 let ThemeColors : JSON? = infoPlist?.value(for: .ThemeColors)
 
+
+
 class Fonts:NSObject{
     static let CIRCULAR_BOLD = "CircularAirPro-Bold"
     static let CIRCULAR_LIGHT = "CircularAirPro-Light"
@@ -23,16 +25,26 @@ enum CustomFont {
     var instance:UIFont {
         switch self {
         case .bold(size: let size):
-            return UIFont(name: Fonts.CIRCULAR_BOLD, size: size)!
+            return UIFont(name: Fonts.CIRCULAR_BOLD, size: size) ?? UIFont.systemFont(ofSize: 14, weight: .medium)
         case .light(size: let size):
-            return UIFont(name: Fonts.CIRCULAR_LIGHT, size: size)!
+            return UIFont(name: Fonts.CIRCULAR_LIGHT, size: size) ?? UIFont.systemFont(ofSize: 14, weight: .medium)
         case .medium(size: let size):
-            return UIFont(name: Fonts.CIRCULAR_BOOK, size: size)!
+            return UIFont(name: Fonts.CIRCULAR_BOOK, size: size) ?? UIFont.systemFont(ofSize: 14, weight: .medium)
             
         case .logo(size: let size):
-            return UIFont(name: Fonts.MAKENT_LOGO_FONT1, size: size)!
+            return UIFont(name: Fonts.MAKENT_LOGO_FONT1, size: size) ?? UIFont.systemFont(ofSize: 14, weight: .medium)
         }
     }
+
+}
+extension CGFloat {
+    static let EXTRALARGE :CGFloat = 52
+    static let LARGE :CGFloat = 35
+    static let HEADER:CGFloat = 20
+    static let SUBHEADER:CGFloat = 16
+    static let BODY:CGFloat = 14
+    static let SMALL:CGFloat = 12
+    static let TINY:CGFloat = 10
 }
 
 
@@ -202,3 +214,24 @@ extension URL {
    
 }
 
+extension Array{
+    
+    var isNotEmpty : Bool{
+        return !self.isEmpty
+    }
+    
+    func value(atSafe index : Int) -> Element?{
+        guard self.indices.contains(index) else {return nil}
+        return self[index]
+    }
+    func find(includedElement: @escaping ((Element) -> Bool)) -> Int? {
+        for arg in self.enumerated(){
+            let (index,item) = arg
+            if includedElement(item) {
+                return index
+            }
+        }
+        
+        return nil
+    }
+}

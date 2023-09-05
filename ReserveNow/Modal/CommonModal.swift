@@ -24,6 +24,11 @@ class BaseModel : Codable{
         statuscode = try values.decodeIfPresent(String.self, forKey: .statuscode)
         lists = try values.decodeIfPresent(Array.self, forKey: .lists)
     }
+    init() {
+        successmessage = ""
+        statuscode = ""
+        lists = [Lists]()
+    }
     
 
 }
@@ -47,6 +52,11 @@ class Lists: Codable {
         Title = try values.decodeIfPresent(String.self, forKey: .Title)
         Key = try values.decodeIfPresent(String.self, forKey: .Key)
         
+    }
+    
+    init() {
+        Title = ""
+        Key = ""
     }
 }
     

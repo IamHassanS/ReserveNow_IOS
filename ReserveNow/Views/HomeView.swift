@@ -40,13 +40,23 @@ class HomeView: BaseView {
              initViews()
             //cellRegistration()
             // toLoadData()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            Shared.instance.removeLoader(in: self)
-        }
+ 
         }
     
     func setupUI() {
-        Shared.instance.showLoader(in: self)
+//        self.homeVc.presentAlertWithTitle(title: "Reserve Now", message: "Hello", options: "Ok","Calcel", completion: {
+//            (optionss) in
+//            switch optionss {
+//            case 0: break
+//               // self.menuVC.callLogoutAPI()
+//            case 1: break
+//               // self.hideMenuAndDismiss()
+//            //self.menuVC.dismiss(animated: false, completion: nil)
+//            default:
+//                break
+//            }
+//        })
+       
         bottomCurveView.elevate(4, shadowColor: .lightGray, opacity: 0.5)
         bottomCurveView.setSpecificCornersForTop(cornerRadius: self.bottomCurveView.height / 10)
         bookNoewView.elevate(4, shadowColor: .lightGray, opacity: 0.5)

@@ -42,8 +42,8 @@ class HomeVc: BaseViewController {
             "Region": "North-West region",
             "city": "Saint Petersburg"
             ] as [String : Any]
-      //  let dbconfig = DataBaseConfigure(addressDict: addressDict, tagsDict: tagsDict, restaurantDict: restaurantDict)
-       //  dbconfig.toRetriveData()
+        let dbconfig = DataBaseConfigure(addressDict: addressDict, tagsDict: tagsDict, restaurantDict: restaurantDict)
+         dbconfig.toUploadData()
     }
     
     

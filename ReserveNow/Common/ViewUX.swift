@@ -88,6 +88,51 @@ extension UIView {
     @objc public func triggerSwipeDownActionHandleBlocks() {
         self.actionHandleBlocks(.swipe_down)
     }
+    
+    open
+    func addAction(for type: closureActions ,
+                   Action action:@escaping() -> Void) {
+        self.isUserInteractionEnabled = true
+        self.actionHandleBlocks(type,action:action)
+        switch type{
+        case .none:
+            return
+        case .tap:
+            let gesture = UITapGestureRecognizer()
+            gesture.addTarget(self,
+                              action: #selector(triggerTapActionHandleBlocks))
+            self.isUserInteractionEnabled = true
+            self.addGestureRecognizer(gesture)
+        case .swipe_left:
+            let gesture = UISwipeGestureRecognizer()
+            gesture.direction = UISwipeGestureRecognizer.Direction.left
+            gesture.addTarget(self,
+                              action: #selector(triggerSwipeLeftActionHandleBlocks))
+            self.isUserInteractionEnabled = true
+            self.addGestureRecognizer(gesture)
+        case .swipe_right:
+            let gesture = UISwipeGestureRecognizer()
+            gesture.direction = UISwipeGestureRecognizer.Direction.right
+            gesture.addTarget(self,
+                              action: #selector(triggerSwipeRightActionHandleBlocks))
+            self.isUserInteractionEnabled = true
+            self.addGestureRecognizer(gesture)
+        case .swipe_up:
+            let gesture = UISwipeGestureRecognizer()
+            gesture.direction = UISwipeGestureRecognizer.Direction.up
+            gesture.addTarget(self,
+                              action: #selector(triggerSwipeUpActionHandleBlocks))
+            self.isUserInteractionEnabled = true
+            self.addGestureRecognizer(gesture)
+        case .swipe_down:
+            let gesture = UISwipeGestureRecognizer()
+            gesture.direction = UISwipeGestureRecognizer.Direction.down
+            gesture.addTarget(self,
+                              action: #selector(triggerSwipeDownActionHandleBlocks))
+            self.isUserInteractionEnabled = true
+            self.addGestureRecognizer(gesture)
+        }
+    }
 }
 
 

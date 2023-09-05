@@ -11,7 +11,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     let makentTabBarCtrler = MainTabBarVC()
-
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -19,7 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         if let windowScene = scene as? UIWindowScene {
              let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = makentTabBarCtrler
+            let splashView = SplashVC.initWithStory()
+            window.rootViewController = splashView
              self.window = window
              window.makeKeyAndVisible()
          }
@@ -55,6 +57,37 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+    }
+    
+    func generateMakentLoginFlowChange(tabIcon: Int) -> UITabBarController
+    {
+
+       makentTabBarCtrler.guestTabBarSetup(tabIcon)
+       
+        return makentTabBarCtrler
+    }
+    
+    func setTabbarForSwithUsers()
+    {
+
+        let splashVc = self.generateMakentLoginFlowChange(tabIcon: 0)
+       // splashVc.settabbar()
+        let navControler = UINavigationController(rootViewController: splashVc)
+        self.window?.rootViewController?.presentInFullScreen(navControler, animated: true, completion: nil)
+    }
+    
+    func generateMakentHostTabbarController() -> UITabBarController
+    {
+        
+        
+      //  self.setsemantic()
+        self.makentTabBarCtrler.guestTabBarSetup()
+        window?.rootViewController = makentTabBarCtrler
+     
+        //self.window?.makeKeyAndVisible()
+       // self.pushNotificationHanlder?.regiserForRemoteNotification()
+
+        return makentTabBarCtrler
     }
 
 

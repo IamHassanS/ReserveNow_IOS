@@ -9,9 +9,10 @@ class Shared {
     static let instance = Shared()
     fileprivate let preference = UserDefaults.standard
    // let delegate = UIApplication.shared.delegate as! AppDelegate
-
+   var user_logged_in = true
     
     fileprivate var gifLoaders : [UIView:GifLoaderValue] = [:]
+    var hotels = Hotels()
     
 }
 //MARK:- UserDefaults property observers

@@ -18,8 +18,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4U-wV-dMu">
+                                <rect key="frame" x="0.0" y="47.000000000000007" width="393" height="76.666666666666686"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bvs-N4-viC">
+                                        <rect key="frame" x="15.000000000000004" y="7.6666666666666607" width="61.333333333333343" height="61.333333333333343"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sidemenu" translatesAutoresizingMaskIntoConstraints="NO" id="hvc-l7-sMq">
+                                                <rect key="frame" x="0.0" y="0.0" width="61.333333333333336" height="61.333333333333336"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="hvc-l7-sMq" firstAttribute="centerX" secondItem="Bvs-N4-viC" secondAttribute="centerX" id="391-LR-0oa"/>
+                                            <constraint firstItem="hvc-l7-sMq" firstAttribute="width" secondItem="Bvs-N4-viC" secondAttribute="width" id="8gE-DS-UPI"/>
+                                            <constraint firstItem="hvc-l7-sMq" firstAttribute="centerY" secondItem="Bvs-N4-viC" secondAttribute="centerY" id="MP6-FC-qdM"/>
+                                            <constraint firstItem="hvc-l7-sMq" firstAttribute="height" secondItem="Bvs-N4-viC" secondAttribute="height" id="ecD-7L-nI3"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Bvs-N4-viC" firstAttribute="leading" secondItem="W4U-wV-dMu" secondAttribute="leading" constant="15" id="5hH-Se-uVr"/>
+                                    <constraint firstItem="Bvs-N4-viC" firstAttribute="width" secondItem="W4U-wV-dMu" secondAttribute="height" multiplier="0.8" id="D7b-sb-40E"/>
+                                    <constraint firstItem="Bvs-N4-viC" firstAttribute="centerY" secondItem="W4U-wV-dMu" secondAttribute="centerY" id="MrV-1d-huX"/>
+                                    <constraint firstItem="Bvs-N4-viC" firstAttribute="height" secondItem="W4U-wV-dMu" secondAttribute="height" multiplier="0.8" id="RCD-rH-BoE"/>
+                                </constraints>
+                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FCP-zL-Jg5">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="123.66666666666669" width="393" height="728.33333333333326"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Pq-LQ-NaN">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="1100"/>
@@ -29,10 +56,10 @@
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JoX-IW-wWw">
-                                                <rect key="frame" x="0.0" y="440" width="393" height="77"/>
+                                                <rect key="frame" x="0.0" y="439.99999999999994" width="393" height="77.000000000000057"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Riya, Explore nearby restaurants" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKm-eT-rbE">
-                                                        <rect key="frame" x="15" y="28.333333333333314" width="310.66666666666669" height="20.333333333333329"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello User, Explore nearby restaurants" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKm-eT-rbE">
+                                                        <rect key="frame" x="15" y="28.333333333333371" width="312.66666666666669" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -142,10 +169,14 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="W4U-wV-dMu" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" id="4mj-ie-rK3"/>
+                            <constraint firstItem="FCP-zL-Jg5" firstAttribute="top" secondItem="W4U-wV-dMu" secondAttribute="bottom" id="AFW-td-Efe"/>
                             <constraint firstItem="FCP-zL-Jg5" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="CEO-6C-ZFa"/>
-                            <constraint firstItem="FCP-zL-Jg5" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Hwj-K7-Af8"/>
                             <constraint firstItem="FCP-zL-Jg5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="L7q-y0-ymi"/>
                             <constraint firstAttribute="bottom" secondItem="FCP-zL-Jg5" secondAttribute="bottom" id="McB-An-26z"/>
+                            <constraint firstItem="W4U-wV-dMu" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.09" id="iws-cf-1HI"/>
+                            <constraint firstItem="W4U-wV-dMu" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" multiplier="0.2" id="nWE-Mh-aFp"/>
+                            <constraint firstItem="W4U-wV-dMu" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="vrR-FJ-UxT"/>
                         </constraints>
                         <connections>
                             <outlet property="baseScrollView" destination="FCP-zL-Jg5" id="yL2-x3-2PX"/>
@@ -155,6 +186,7 @@
                             <outlet property="exploreLayout" destination="F1C-2W-24r" id="wUZ-3S-20t"/>
                             <outlet property="headerView" destination="35b-EB-kjR" id="grk-CA-BgC"/>
                             <outlet property="holderView" destination="7Pq-LQ-NaN" id="bQ5-uL-FST"/>
+                            <outlet property="menuHolderView" destination="Bvs-N4-viC" id="ldR-i9-7M4"/>
                         </connections>
                     </view>
                     <connections>
@@ -167,6 +199,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Sidemenu" width="100" height="100"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

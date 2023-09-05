@@ -86,6 +86,8 @@ class ReservationView: BaseView {
     
     @IBOutlet weak var sixPerCountLbl: UILabel!
     @IBOutlet weak var fourPerCountLbl: UILabel!
+    
+    
     var reserveVc: ReservationVc!
     var tableType: TableType = .fourPerson
     var IncresedCount = 1
@@ -230,7 +232,10 @@ class ReservationView: BaseView {
             
         }
         
-        
+        bookTableView.addTap {
+            let vc = BookingDetailsVC.initWithStory()
+            self.reserveVc.navigationController?.pushViewController(vc, animated: true)
+        }
         
         
     }

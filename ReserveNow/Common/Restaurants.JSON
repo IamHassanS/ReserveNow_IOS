@@ -5,4 +5,53 @@
 //  Created by trioangle on 04/09/23.
 //
 
-import Foundation
+
+{
+    "restautant" :  {
+        "name": "Grand Royal",
+        "suggested": true,
+        "address": [
+            "longitude": "30.31527",
+            "latitude": "59.93688",
+            "formatted1": "Nevskiy prospekt 10, Saint Petersburg",
+            "formatted2": "Russian Federation"
+        ],
+        "tags": [
+            "fish": true,
+            "italian": true,
+            "friends": true
+        ],
+        "category": "$$$$",
+        "description": "Lorem ipsum dolor si.",
+        "shortDescription": "an",
+        "collectionName": "Relaxing with friends",
+        "distance": "1324",
+        "country": "Russian Federation",
+        "Region": "North-West region",
+        "city": "Saint Petersburg"
+    },
+    {
+       "name": "Grand Marriot",
+       "suggested": true,
+       "address": [
+        "longitude": "30.31527",
+        "latitude": "59.93688",
+        "formatted1": "Nevskiy prospekt 10, Saint Petersburg",
+        "formatted2": "Russian Federation"
+    ],
+       "tags": [
+        "fish": true,
+        "italian": true,
+        "friends": true
+    ],
+       "category": "$$$$",
+       "description": "Lorem ipsum dolor si.",
+       "shortDescription": "an",
+       "collectionName": "Relaxing with friends",
+       "distance": "1324",
+       "country": "Russian Federation",
+       "Region": "North-West region",
+       "city": "Saint Petersburg"
+   }
+    
+}

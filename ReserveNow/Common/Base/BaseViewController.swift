@@ -8,6 +8,9 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+
+
+    var sceneDelegate: SceneDelegate!
     
     fileprivate var _baseView : BaseView? {
         return self.view as? BaseView
@@ -21,6 +24,8 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
+        
         self._baseView?.didLoad(baseVC: self)
     }
     
@@ -126,6 +131,29 @@ extension UIViewController{
         }
 
         return false
+    }
+    
+    func presentAlertWithTitle(title: String,
+                               message: String,
+                               options: String...,
+                               completion: @escaping (Int) -> Void) {
+        //TRVicky
+        let commonAlert = CommonAlert()
+        
+        commonAlert.setupAlert(alert: title,
+                               alertDescription: message,
+                               okAction: options.first?.replacingOccurrences(of: "ð", with: "") ?? "",
+                               cancelAction: options.count > 1 ? options.last : nil )
+        commonAlert.addAdditionalOkAction(isForSingleOption: options.count == 1) {
+            completion(0)
+        }
+        if options.count > 1 {
+            commonAlert.addAdditionalCancelAction {
+                completion(1)
+            }
+            
+        }
+
     }
     
 }

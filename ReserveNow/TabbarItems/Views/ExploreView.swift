@@ -7,6 +7,31 @@
 
 import Foundation
 import UIKit
+
+extension ExploreView: MenuResponseProtocol {
+    func routeToView(_ view: UIViewController) {
+        print("")
+    }
+    
+    func callAdminForManualBooking() {
+        print("")
+    }
+    
+    func openThemeActionSheet() {
+        print("")
+    }
+    
+    func changeFont() {
+        print("")
+    }
+    
+    func routeToHome(_ view: UIViewController) {
+        print("")
+    }
+    
+    
+}
+
 class ExploreView: BaseView {
     
     var exploreVC: ExploreVC!
@@ -21,6 +46,9 @@ class ExploreView: BaseView {
     @IBOutlet weak var categoryLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var collectionViewExplore: UICollectionView!
     @IBOutlet weak var collectionViewCategory: UICollectionView!
+    
+    @IBOutlet weak var menuHolderView: UIView!
+    
     override func didLoad(baseVC: BaseViewController) {
         
         
@@ -34,10 +62,20 @@ class ExploreView: BaseView {
         cellregistration()
         toLOadData()
         setupUI()
+        initView()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             Shared.instance.removeLoader(in: self)
         }
         }
+    
+    func initView() {
+        menuHolderView.addTap {
+            print("::>--Tapped-->::")
+            let menuvc = MenuVC.initWithStory(self)
+            self.exploreVC.modalPresentationStyle = .overCurrentContext
+            self.exploreVC.present(menuvc, animated: true)
+        }
+    }
     
     func setupUI() {
         if let layout = self.collectionViewExplore.collectionViewLayout as? UICollectionViewFlowLayout {

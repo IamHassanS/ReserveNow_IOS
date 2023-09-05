@@ -30,6 +30,14 @@ class Address: Codable {
         self.longitude = try container.decodeIfPresent(String.self, forKey: .longitude)
     }
     
+    init() {
+    formatted1 = String()
+        formatted2 = String()
+    latitude = String()
+        longitude  = String()
+        
+    }
+    
 }
 
 class Hotels: Codable {
@@ -44,6 +52,7 @@ class Hotels: Codable {
     let name: String?
     let shortDescription: String?
     let suggested: String?
+  //  let image: String?
     
     
     enum CodingKeys: String, CodingKey {
@@ -59,6 +68,7 @@ class Hotels: Codable {
         case name = "name"
         case shortDescription = "shortDescription"
         case suggested = "suggested"
+      //  case image = "image"
 
     }
 
@@ -75,7 +85,24 @@ class Hotels: Codable {
         self.name = try container.decodeIfPresent(String.self, forKey: .name)
         self.shortDescription = try container.decodeIfPresent(String.self, forKey: .shortDescription)
         self.suggested = try container.decodeIfPresent(String.self, forKey: .suggested)
+       // self.image = try container.decodeIfPresent(String.self, forKey: .image)
     }
+    
+    init() {
+    region = String()
+    address = Address()
+    category = String()
+    city = String()
+    collectionName = String()
+    country = String()
+    description = String()
+    distance = Int()
+    name = String()
+    shortDescription = String()
+    suggested = String()
+
+    }
+ 
 }
 
 class DataBaseConfigure {
@@ -95,8 +122,21 @@ class DataBaseConfigure {
     }
     
     func toUploadData() {
+      //  let coreData = coreData()
+        do {
+           // let jsonData = try JSONSerialization.data(withJSONObject: self.restaurantDict) as! NSDictionary
+          //  let jsonArray = jsonData.value(forKey: "")
+          //  let instance = try JSONDecoder().decode(Hotels.self, from: jsonData)
+          //  print(instance)
+          //  Shared.instance.hotels = instance
+        } catch {
+            print(error)
+        }
         let restaurantsRef = self.dataBase.child("restaurants")
-        restaurantsRef.setValue(restaurantDict)
+        let url = Bundle.main.path(forResource: "Restaurants", ofType: "json")
+        //let data = try! Data(contentsOf: URL(string: url?) ?? URL())
+        
+      //  restaurantsRef.setValue(data)
     }
     
      func remove() {
@@ -125,8 +165,10 @@ class DataBaseConfigure {
     }
     
     func toRetriveData() {
+        Shared.instance.showLoaderInWindow()
         dataBase.child("restaurants").observeSingleEvent(of: .value, with: { (snapshot) in
                 if snapshot.exists(){
+                    Shared.instance.removeLoaderInWindow()
                   //  print(snapshot.value)
                     guard let value = snapshot.value as? JSON else { return }
                     print(value)
@@ -134,10 +176,12 @@ class DataBaseConfigure {
                         let jsonData = try JSONSerialization.data(withJSONObject: value)
                         let instance = try JSONDecoder().decode(Hotels.self, from: jsonData)
                         print(instance)
+                        Shared.instance.hotels = instance
                     } catch {
                         print(error)
                     }
                 }else{
+                    Shared.instance.removeLoaderInWindow()
                     return
                    // self.toUploadData()
                 }

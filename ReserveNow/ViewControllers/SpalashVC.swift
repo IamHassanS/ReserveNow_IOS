@@ -10,7 +10,7 @@ import UIKit
 
 class SplashVC: BaseViewController{
     
-    var appDelegate = UIApplication.shared.delegate as! AppDelegate
+ 
     
     @IBOutlet var splashView: SplashView!
     var isFirstTimeLaunch : Bool = false
@@ -28,7 +28,13 @@ class SplashVC: BaseViewController{
     
     func callCheckVersion(){
         
-        AppDelegate.shared.setTabbarForSwithUsers()
+       // SceneDelegate.shared.setTabbarForSwithUsers()
+        
+        if let sceneDelegate = self.view?.window?.windowScene?.delegate as? SceneDelegate {
+          
+            sceneDelegate.setTabbarForSwithUsers()
+            
+        }
         
 //        var paramDict = JSON()
 //        paramDict = ["version": AppVersion ?? 1, "device_type" : "1"]

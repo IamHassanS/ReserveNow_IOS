@@ -9,6 +9,10 @@ class BaseView: UIView{
     }
     
     func didLoad(baseVC : BaseViewController){
+        
+        if let sceneDelegate = self.window?.windowScene?.delegate as? SceneDelegate {
+            self.baseVc?.sceneDelegate = sceneDelegate
+        }
         self.backBtn?.setImage(UIImage(named: "back"), for: .normal)
         self.backBtn?.setTitle(nil, for: .normal)
         self.baseVc = baseVC

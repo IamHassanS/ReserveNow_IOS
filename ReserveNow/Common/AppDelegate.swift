@@ -23,12 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-       // FirebaseApp.configure()
-        self.window = UIWindow(frame:UIScreen.main.bounds)
+        FirebaseApp.configure()
+      //  self.window = UIWindow(frame:UIScreen.main.bounds)
       //  self.initializeObjects(for: application, usingOptions: launchOptions)
-    //    self.initializeModules()
-       // self.makeSplashView(isFirstTime: true)
-       // setTabbarForSwithUsers()
+       // self.initializeModules()
+        //self.makeSplashView(isFirstTime: true)
+       
         return true
     }
 
@@ -321,199 +321,58 @@ extension AppDelegate {
     {
         let splashView = SplashVC.initWithStory()
         splashView.isFirstTimeLaunch = isFirstTime
-        window!.rootViewController = splashView
-        window!.makeKeyAndVisible()
+        window?.rootViewController = splashView
+        window?.makeKeyAndVisible()
     }
     
 
         
        //MARK: - Tabbar functionalities
         
-        func generateMakentLoginFlowChange(tabIcon: Int) -> UITabBarController
-        {
-         //getMainPage == "customer" ||
-//            let getMainPage =  userDefaults.object(forKey: "getmainpage") as? NSString
-//            if getMainPage == "customer" || Constants().GETVALUE(keyname: USER_ACCESS_TOKEN) != "" {
-//                print("getMainPage", getMainPage)
-//                print("Token", Constants().GETVALUE(keyname: USER_ACCESS_TOKEN))
-//                Shared.instance.user_logged_in = true
-//            } else {
-//                Shared.instance.user_logged_in = false
-//            }
-//            self.lastSelectedIndex = tabIcon
-//            self.setSemantic()
-//            if isHost ?? false {
-//                makentTabBarCtrler.setupHostTabBar(tabIcon)
-//            } else {
-//                makentTabBarCtrler.guestTabBarSetup(tabIcon)
-//            }
-           makentTabBarCtrler.guestTabBarSetup(tabIcon)
-           
-            return makentTabBarCtrler
-        }
+
         
         func setSemantic(){
             UIView.appearance().semanticContentAttribute = Language.getCurrentLanguage().getSemantic
             self.makentTabBarCtrler.tabBar.semanticContentAttribute = Language.getCurrentLanguage().getSemantic
         }
         
-        func setTabbarForSwithUsers()
-        {
-            
-            //∂reset_dates
-          //  self.resetFilersDates()
-//
-//            let getMainPage =  userDefaults.object(forKey: "getmainpage") as? NSString
-//            if getMainPage == "customer" || Constants().GETVALUE(keyname: USER_ACCESS_TOKEN) != "" {
-//                print("getMainPage", getMainPage)
-//                print("Token", Constants().GETVALUE(keyname: USER_ACCESS_TOKEN))
-//                Shared.instance.user_logged_in = true
-//            } else {
-//                Shared.instance.user_logged_in = false
-//            }
-//            //self.lastSelectedIndex = tabIcon
-//            self.setSemantic()
-//            //makentTabBarCtrler.guestTabBarSetup(tabIcon)
-//    //        window?.rootViewController = makentTabBarCtrler
-//    //        self.window?.makeKeyAndVisible()
-//
-//
-//            var SetHost = Constants().GETVALUE(keyname: Switch_To_Host) == "" ? switchHostEnum.Guest.rawValue : Constants().GETVALUE(keyname: Switch_To_Host)
-//
-//            Constants().STOREVALUE(value: SetHost, keyname: Switch_To_Host)
-//
-//            var IsHost = Constants().GETVALUE(keyname: Switch_To_Host)
-//
-//            IsHost == switchHostEnum.Guest.rawValue ? self.generateMakentLoginFlowChange(tabIcon: 0) : self.generateMakentHostTabbarController()
-//            tabBarHeight = (self.makentTabBarCtrler.tabBar.frame.height)
-            
-            let splashVc = self.generateMakentLoginFlowChange(tabIcon: 0)
-           // splashVc.settabbar()
-            let navControler = UINavigationController(rootViewController: splashVc)
-            self.window?.rootViewController?.presentInFullScreen(navControler, animated: true, completion: nil)
-            
-            
-            
-//            self.pushNotificationHanlder?.regiserForRemoteNotification()
-//          let mainTabBarCtrler =  self.generateMakentLoginFlowChange(tabIcon: 0)
-//
-//            window = UIWindow(frame: UIScreen.main.bounds)
-//            window?.rootViewController = mainTabBarCtrler
-//            self.window?.makeKeyAndVisible()
-         
-         
-            
-        }
-        
-        func generateMakentHostTabbarController() -> UITabBarController
-        {
-            
-            
-            self.setsemantic()
-            self.makentTabBarCtrler.guestTabBarSetup()
-            window?.rootViewController = makentTabBarCtrler
-         
-            //self.window?.makeKeyAndVisible()
-            self.pushNotificationHanlder?.regiserForRemoteNotification()
+    func generateMakentLoginFlowChange(tabIcon: Int) -> UITabBarController
+    {
 
-            return makentTabBarCtrler
-        }
+       makentTabBarCtrler.guestTabBarSetup(tabIcon)
+       
+        return makentTabBarCtrler
+    }
+    
+    func setTabbarForSwithUsers()
+    {
+
+        let splashVc = self.generateMakentLoginFlowChange(tabIcon: 0)
+       // splashVc.settabbar()
+        let navControler = UINavigationController(rootViewController: splashVc)
+        self.window?.rootViewController?.presentInFullScreen(navControler, animated: true, completion: nil)
+    }
+    
+    func generateMakentHostTabbarController() -> UITabBarController
+    {
+        
+        
+      //  self.setsemantic()
+        self.makentTabBarCtrler.guestTabBarSetup()
+        window?.rootViewController = makentTabBarCtrler
+     
+        //self.window?.makeKeyAndVisible()
+       // self.pushNotificationHanlder?.regiserForRemoteNotification()
+
+        return makentTabBarCtrler
+    }
+        
+
         
         func setsemantic() {
             UIView.appearance().semanticContentAttribute = Language.getCurrentLanguage().getSemantic
             self.makentTabBarCtrler.tabBar.semanticContentAttribute = Language.getCurrentLanguage().getSemantic
         }
-        
-     //   func logOutDidFinish()
-//        {
-//            //MARK: REMOVE CORE DATA VALUES
-//    //        CoreDataSupport.sharedInstance.migrateCoreData()
-//    //        arrWishListData.removeAll()
-//
-//
-//            if let controllersArray = self.makentTabBarCtrler.viewControllers {
-//
-//
-//                for tempVC: UIViewController in controllersArray
-//                {
-//                    tempVC.removeFromParent()
-//                }
-//            }
-//            LocalStorage.shared.setSting(.access_token)
-//
-//
-//            LocalStorage.shared.setSting(.full_name)
-//            LocalStorage.shared.setSting(.first_name)
-//            LocalStorage.shared.setSting(.last_name)
-//            LocalStorage.shared.setSting(.user_image)
-//            LocalStorage.shared.setInt(.userID)
-//            LocalStorage.shared.setSting(.user_birthday)
-//
-//    //        SharedVariables.sharedInstance.userToken = ""
-//            Shared.instance.showBadgeOnChat = false
-//            showBadgeOnChat(Show: true)
-//            Constants().STOREVALUE(value: "", keyname: USER_ACCESS_TOKEN)
-//            LocalStorage.shared.setSting(.localCurrencySymbol)
-//            LocalStorage.shared.setSting(.orgCurrencySymbol)
-//            userDefaults.set("", forKey:"getmainpage")
-//            userDefaults.synchronize()
-//    //        self.resetFilersDates()
-//    //        self.lastPageMaintain = ""
-//
-//            let SetHost = switchHostEnum.Guest.rawValue
-//
-//            Constants().STOREVALUE(value: SetHost, keyname: Switch_To_Host)
-//
-//            var IsHost = Constants().GETVALUE(keyname: Switch_To_Host)
-//
-//
-//            self.generateMakentLoginFlowChange(tabIcon: 0, false)
-//        }
-        
-        
-        
-//        func showBadgeOnChat(Show: Bool) {
-//
-//            var lang = Language.getCurrentLanguage().getLocalizedInstance()
-//
-//            self.makentTabBarCtrler.tabBar.items?.forEach({ (item) in
-//                if item.title == lang.inbox_Title.capitalized {
-//
-//                    if Show {
-//                        item.badgeColor = .red
-//                        item.badgeValue = ""
-//                    }else {
-//
-//                        item.badgeColor = nil
-//                        item.badgeValue = nil
-//                    }
-//
-//
-//
-//                }
-//            })
-//
-//
-//
-//        }
-        
-//        func showBadgeOnReservation(Show: Bool) {
-//
-//            var lang = Language.getCurrentLanguage().getLocalizedInstance()
-//
-//            self.makentTabBarCtrler.tabBar.items?.forEach({ (item) in
-//                if item.title == lang.reser_Tit.capitalized{
-//                    if Show {
-//                        item.badgeColor = .red
-//                        item.badgeValue = ""
-//                    }else {
-//                        print("")
-//                    }
-//                }
-//            })
-//        }
-        
-
     
 }
 
