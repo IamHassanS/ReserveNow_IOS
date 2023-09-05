@@ -94,3 +94,319 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 
+
+//MARK: - Toast Creation
+extension SceneDelegate {
+    /// Display Toast Message
+
+    func createToastMessage(_ strMessage:String,
+                            bgColor: UIColor = .white,
+                            textColor: UIColor = .white, isFromSearch: Bool? = false, isFromWishList: Bool? = false)
+    {
+        guard let keyWindow = UIApplication.shared.connectedScenes
+                .filter({$0.activationState == .foregroundActive || $0.activationState == .background || $0.activationState == .foregroundInactive})
+                .compactMap({$0 as? UIWindowScene})
+                .first?.windows
+                .filter({$0.isKeyWindow}).first else { return }
+        var lblMessage = UILabel()
+        var backgroundHolderView=UIView()
+        backgroundHolderView.isUserInteractionEnabled = false
+        if !isFromSearch! && !isFromWishList! {
+            lblMessage=UILabel(frame: CGRect(x: 0,
+                                                y: keyWindow.frame.height + 70,
+                                                width: keyWindow.frame.size.width,
+                                                height: 70))
+        } else if isFromSearch!{
+            
+            
+            
+            lblMessage=UILabel(frame: CGRect(x: 0,
+                                                y: keyWindow.frame.size.height -  keyWindow.frame.size.height / 20,
+                                                width: keyWindow.frame.size.width,
+                                             height: keyWindow.frame.size.height / 20))
+        } else if isFromWishList! {
+            backgroundHolderView=UIView(frame: CGRect(x: (keyWindow.width / 1.2) / 2 - (keyWindow.width / 1.2) / 2.5,
+                                                      y: keyWindow.frame.size.height -  keyWindow.frame.size.height / 10 - (keyWindow.frame.size.height/20),
+                                                      width: keyWindow.frame.size.width/1.2,
+                                                   height: keyWindow.frame.size.height / 10))
+            lblMessage.clipsToBounds = true
+            lblMessage.frame=backgroundHolderView.bounds
+//                UILabel(frame: CGRect(x: backgroundHolderView.left + 5,
+//                                                 y: backgroundHolderView.top + 5,
+//                                                 width: backgroundHolderView.width - 10,
+//                                                 height: backgroundHolderView.height - 10))
+        }
+        lblMessage.tag = 500
+        lblMessage.text = strMessage
+        lblMessage.textAlignment = NSTextAlignment.center
+        lblMessage.numberOfLines = 0
+        lblMessage.layer.shadowOffset = CGSize(width:0, height:1.0);
+        lblMessage.layer.shadowOpacity = 0.5;
+        lblMessage.layer.shadowRadius = 1.0;
+        moveLabelToYposition(lblMessage)
+        if !isFromSearch! && !isFromWishList! {
+            lblMessage.textColor = .white
+            lblMessage.backgroundColor = .cyan
+            lblMessage.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+            lblMessage.layer.shadowColor = UIColor.darkGray.cgColor
+            moveLabelToYposition(lblMessage,
+                                 win: keyWindow)
+            keyWindow.addSubview(lblMessage)
+           
+        } else if isFromSearch!{
+            lblMessage.textColor = .label
+            lblMessage.backgroundColor = .systemBackground
+            lblMessage.font = UIFont.systemFont(ofSize: 14, weight: .light)
+            lblMessage.layer.shadowColor = UIColor.darkGray.cgColor
+            moveSearchLabelToYposition(lblMessage,
+                                       win: keyWindow)
+            keyWindow.addSubview(lblMessage)
+        } else if isFromWishList! {
+            lblMessage.textColor = .systemGreen
+           // lblMessage.backgroundColor = .systemBackground
+            lblMessage.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+            backgroundHolderView.cornerRadius = backgroundHolderView.height / 4
+            backgroundHolderView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
+            backgroundHolderView.layer.borderWidth = 0.5
+            backgroundHolderView.layer.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.8).cgColor
+           // backgroundHolderView.layer.cornerRadius =  backgroundHolderView.height / 6
+           // backgroundHolderView.elevate(2, radius:  backgroundHolderView.height / 4)
+            keyWindow.addSubview(backgroundHolderView)
+            backgroundHolderView.addSubview(lblMessage)
+            moveWishlistToastToYposition(backgroundHolderView,
+                                       win: keyWindow)
+            
+        }
+    }
+    
+    func onWishListCloseAnimation(_ holderView:UIView,
+                          win: UIWindow) {
+        UIView.animate(withDuration: 2,
+                       delay: 3.5,
+                       options: .curveEaseInOut,
+                       animations: { () -> Void in
+            holderView.frame = CGRect(x: (win.width / 1.2) / 2 - (win.width / 1.2) / 2.5,
+                                     y: win.frame.size.height +  win.frame.size.height / 10 + (win.frame.size.height/20),
+                                     width: win.frame.size.width/1.2,
+                                  height: win.frame.size.height / 10)
+        }, completion: { (finished: Bool) -> Void in
+            holderView.removeFromSuperview()
+        })
+    }
+    
+    func moveWishlistToastToYposition(_ holderView:UIView,
+                              win: UIWindow) {
+        UIView.animate(withDuration: 0.9,
+                       delay: 0.0,
+                       options: .curveEaseInOut,
+                       animations: { () -> Void in
+            holderView.frame = CGRect(x: (win.width / 1.2) / 2 - (win.width / 1.2) / 2.5,
+                                      y: win.frame.size.height -  win.frame.size.height / 10 - (win.frame.size.height/20),
+                                      width: win.frame.size.width/1.2,
+                                   height: win.frame.size.height / 10)
+        }, completion: { (finished: Bool) -> Void in
+            self.onWishListCloseAnimation(holderView,
+                                   win: win)
+        })
+    }
+    
+    func moveSearchLabelToYposition(_ lblView:UILabel,
+                              win: UIWindow) {
+        UIView.animate(withDuration: 0.9,
+                       delay: 0.0,
+                       options: .curveEaseInOut,
+                       animations: { () -> Void in
+            lblView.frame = CGRect(x: 0,
+                                   y: (win.frame.size.height) - win.frame.size.height / 20 ,
+                                   width: win.frame.size.width,
+                                   height: win.frame.size.height / 20)
+        }, completion: { (finished: Bool) -> Void in
+            self.onSearchCloseAnimation(lblView,
+                                   win: win)
+        })
+    }
+    func onSearchCloseAnimation(_ lblView:UILabel,
+                          win: UIWindow) {
+        UIView.animate(withDuration: 0.3,
+                       delay: 3.5,
+                       options: .curveEaseInOut,
+                       animations: { () -> Void in
+            lblView.frame = CGRect(x: 0,
+                                   y:  (win.frame.size.height) + win.frame.size.height / 20,
+                                   width: (win.frame.size.width),
+                                   height: win.frame.size.height / 20)
+        }, completion: { (finished: Bool) -> Void in
+            lblView.removeFromSuperview()
+        })
+    }
+
+
+    
+    func moveLabelToYposition(_ lblView:UILabel)
+    {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions(), animations: { () -> Void in
+            lblView.frame = CGRect(x: 0, y: (self.window?.frame.size.height)!-70, width: (UIApplication.shared.keyWindow?.frame.size.width)!, height: 70)
+            }, completion: { (finished: Bool) -> Void in
+                self.onCloseAnimation(lblView)
+        })
+    }
+    
+    func onCloseAnimation(_ lblView:UILabel)
+    {
+        UIView.animate(withDuration: 0.3, delay: 3.5, options: UIView.AnimationOptions(), animations: { () -> Void in
+            lblView.frame = CGRect(x: 0, y: (self.window?.frame.size.height)!+70, width: (UIApplication.shared.keyWindow?.frame.size.width)!, height: 70)
+            }, completion: { (finished: Bool) -> Void in
+                lblView.removeFromSuperview()
+        })
+    }
+    
+    func createToastMessage(_ strMessage:String,
+                            bgColor: UIColor = .GuestThemeColor,
+                            textColor: UIColor = .GuestThemeColor) {
+        if #available(iOS 13.0, *) {
+            guard let keyWindow = UIApplication.shared.connectedScenes
+                    .filter({$0.activationState == .foregroundActive || $0.activationState == .background || $0.activationState == .foregroundInactive})
+                    .compactMap({$0 as? UIWindowScene})
+                    .first?.windows
+                    .filter({$0.isKeyWindow}).first else { return }
+            let lblMessage=UILabel(frame: CGRect(x: 0,
+                                                 y: keyWindow.frame.height + 70,
+                                                 width: keyWindow.frame.size.width,
+                                                 height: 70))
+            lblMessage.tag = 500
+//            lblMessage.text = NetworkManager.instance.isNetworkReachable ? strMessage : "N0 internet connection" //CommonError.connection.localizedDescription
+            lblMessage.text = strMessage
+            lblMessage.textColor = .white
+            lblMessage.backgroundColor = .GuestThemeColor
+            //lblMessage.font = ToastTheme.MessageText.font
+            lblMessage.textAlignment = NSTextAlignment.center
+            lblMessage.numberOfLines = 0
+            //lblMessage.layer.shadowColor = .GuestThemeColor.cgColor;
+            lblMessage.layer.shadowOffset = CGSize(width:0, height:1.0);
+            lblMessage.layer.shadowOpacity = 0.5;
+            lblMessage.layer.shadowRadius = 1.0;
+            moveLabelToYposition(lblMessage,
+                                 win: keyWindow)
+            keyWindow.addSubview(lblMessage)
+        } else {
+            guard let window = UIApplication.shared.keyWindow else{return}
+            let lblMessage=UILabel(frame: CGRect(x: 0,
+                                                 y: window.frame.size.height + 70,
+                                                 width: window.frame.size.width,
+                                                 height: 70))
+            lblMessage.tag = 500
+//            lblMessage.text = NetworkManager.instance.isNetworkReachable ? strMessage : "N0 internet connection" //CommonError.connection.localizedDescription
+            lblMessage.text = strMessage
+            lblMessage.textColor = .white
+            lblMessage.backgroundColor = .GuestThemeColor
+            //lblMessage.font = ToastTheme.MessageText.font
+            lblMessage.textAlignment = NSTextAlignment.center
+            lblMessage.numberOfLines = 0
+            //lblMessage.layer.shadowColor = .GuestThemeColor.color.cgColor;
+            lblMessage.layer.shadowOffset = CGSize(width:0, height:1.0);
+            lblMessage.layer.shadowOpacity = 0.5;
+            lblMessage.layer.shadowRadius = 1.0;
+            moveLabelToYposition(lblMessage,
+                                 win: window)
+            window.addSubview(lblMessage)
+        }
+    }
+    
+    func createToastMessageForAlamofire(_ strMessage : String,
+                                        bgColor: UIColor = .GuestThemeColor,
+                                        textColor: UIColor = .GuestThemeColor,
+                                        forView:UIView) {
+        let lblMessage=UILabel(frame: CGRect(x: 0,
+                                             y: (forView.frame.size.height)+70,
+                                             width: (forView.frame.size.width),
+                                             height: 70))
+        lblMessage.tag = 500
+    //    lblMessage.text = NetworkManager.instance.isNetworkReachable ? strMessage : "N0 internet connection"//CommonError.connection.localizedDescription
+        lblMessage.textColor = .white
+        lblMessage.backgroundColor = .GuestThemeColor
+        //lblMessage.font = ToastTheme.MessageText.font
+        lblMessage.textAlignment = NSTextAlignment.center
+        lblMessage.numberOfLines = 0
+        //lblMessage.layer.shadowColor = .GuestThemeColor.color.cgColor;
+        lblMessage.layer.shadowOffset = CGSize(width:0, height:1.0);
+        lblMessage.layer.shadowOpacity = 0.5;
+        lblMessage.layer.shadowRadius = 1.0;
+        downTheToast(lblView: lblMessage,
+                     forView: forView)
+        UIApplication.shared.keyWindow?.addSubview(lblMessage)
+    }
+    
+    func downTheToast(lblView:UILabel,
+                      forView:UIView) {
+        UIView.animate(withDuration: 0.3,
+                       delay: 0.0,
+                       options: .curveEaseInOut ,
+                       animations: { () -> Void in
+            lblView.frame = CGRect(x: 0,
+                                   y: (forView.frame.size.height)-70,
+                                   width: (forView.frame.size.width),
+                                   height: 70)
+        }, completion: { (finished: Bool) -> Void in
+            self.closeTheToast(lblView,
+                               forView: forView)
+        })
+    }
+    
+    func closeTheToast(_ lblView:UILabel,
+                       forView:UIView) {
+        UIView.animate(withDuration: 0.3,
+                       delay: 3.5,
+                       options: .curveEaseInOut,
+                       animations: { () -> Void in
+            lblView.frame = CGRect(x: 0,
+                                   y: (forView.frame.size.height)+70,
+                                   width: (forView.frame.size.width),
+                                   height: 70)
+        }, completion: { (finished: Bool) -> Void in
+            lblView.removeFromSuperview()
+        })
+    }
+    /// Show the Animation
+    func moveLabelToYposition(_ lblView:UILabel,
+                              win: UIWindow) {
+        UIView.animate(withDuration: 0.3,
+                       delay: 0.0,
+                       options: .curveEaseInOut,
+                       animations: { () -> Void in
+            lblView.frame = CGRect(x: 0,
+                                   y: (win.frame.size.height)-70,
+                                   width: win.frame.size.width,
+                                   height: 70)
+        }, completion: { (finished: Bool) -> Void in
+            self.onCloseAnimation(lblView,
+                                  win: win)
+        })
+    }
+    // MARK: - close the Animation
+    func onCloseAnimation(_ lblView:UILabel,
+                          win: UIWindow) {
+        UIView.animate(withDuration: 0.3,
+                       delay: 3.5,
+                       options: .curveEaseInOut,
+                       animations: { () -> Void in
+            lblView.frame = CGRect(x: 0,
+                                   y: (win.frame.size.height)+70,
+                                   width: (win.frame.size.width),
+                                   height: 70)
+        }, completion: { (finished: Bool) -> Void in
+            lblView.removeFromSuperview()
+        })
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+     //   self.pushNotificationHanlder?.regiserForRemoteNotification()
+    }
+    
+}
+
+    
+    
+    
+    
+

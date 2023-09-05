@@ -15,7 +15,7 @@ class HomeViewModal: BaseViewModel {
                 result(.success(json))
                 dump(json)
             }).responseFailure({ (error) in
-                AppDelegate.shared.createToastMessage(error)
+            //    AppDelegate.shared.createToastMessage(error)
             })
     }
 }

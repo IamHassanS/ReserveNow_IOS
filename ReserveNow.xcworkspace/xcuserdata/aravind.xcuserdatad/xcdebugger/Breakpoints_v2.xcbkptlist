@@ -65,6 +65,36 @@
                   endingLineNumber = "73"
                   offsetFromSymbolStart = "92">
                </Location>
+               <Location
+                  uuid = "70FF1AC2-060B-42A4-8CD5-CBBD9CEF393F - 29cb2ec020d99b7b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReserveNow.ExploreView.initView() -&gt; ()"
+                  moduleName = "ReserveNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trioangle/Documents/Service/ReserveNow_IOS/ReserveNow/TabbarItems/Views/ExploreView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "70FF1AC2-060B-42A4-8CD5-CBBD9CEF393F - 47fbe43f64d3fec6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in ReserveNow.ExploreView.initView() -&gt; ()"
+                  moduleName = "ReserveNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trioangle/Documents/Service/ReserveNow_IOS/ReserveNow/TabbarItems/Views/ExploreView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "92">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -199,6 +229,36 @@
                   moduleName = "ReserveNow"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/trioangle/Desktop/ReserveNow/ReserveNow/Modal/UploadJSON.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
+                  offsetFromSymbolStart = "416">
+               </Location>
+               <Location
+                  uuid = "97AAF63E-09A3-4E14-9121-6534BD94AE47 - 97f06c037cef4d24"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReserveNow.DataBaseConfigure.toUploadData() -&gt; ()"
+                  moduleName = "ReserveNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trioangle/Documents/Service/ReserveNow_IOS/ReserveNow/Modal/UploadJSON.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
+                  offsetFromSymbolStart = "172">
+               </Location>
+               <Location
+                  uuid = "97AAF63E-09A3-4E14-9121-6534BD94AE47 - 97f06c037cef4d24"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReserveNow.DataBaseConfigure.toUploadData() -&gt; ()"
+                  moduleName = "ReserveNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trioangle/Documents/Service/ReserveNow_IOS/ReserveNow/Modal/UploadJSON.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "136"
@@ -347,6 +407,21 @@
                   endingLineNumber = "135"
                   offsetFromSymbolStart = "36">
                </Location>
+               <Location
+                  uuid = "6303D64A-26B6-404D-8745-9222C4F81913 - 97f06c037cef4d05"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReserveNow.DataBaseConfigure.toUploadData() -&gt; ()"
+                  moduleName = "ReserveNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trioangle/Documents/Service/ReserveNow_IOS/ReserveNow/Modal/UploadJSON.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "36">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -410,7 +485,197 @@
                   endingLineNumber = "135"
                   offsetFromSymbolStart = "36">
                </Location>
+               <Location
+                  uuid = "3D946BC1-F3A9-4D05-945B-AC47A71A51EF - 97f06c037cef4d05"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReserveNow.DataBaseConfigure.toUploadData() -&gt; ()"
+                  moduleName = "ReserveNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trioangle/Documents/Service/ReserveNow_IOS/ReserveNow/Modal/UploadJSON.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "36">
+               </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2334C2CD-0FAD-40A8-AA05-21779230C1F5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/TabbarItems/Views/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "didTapLoginBtn(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2334C2CD-0FAD-40A8-AA05-21779230C1F5 - aa81fa46e4c9fb9b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReserveNow.LoginVIew.didTapLoginBtn(Any) -&gt; ()"
+                  moduleName = "ReserveNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trioangle/Documents/Service/ReserveNow_IOS/ReserveNow/TabbarItems/Views/LoginView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "2334C2CD-0FAD-40A8-AA05-21779230C1F5 - aa81fa46e4c9fb9b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReserveNow.LoginVIew.didTapLoginBtn(Any) -&gt; ()"
+                  moduleName = "ReserveNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trioangle/Documents/Service/ReserveNow_IOS/ReserveNow/TabbarItems/Views/LoginView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "312">
+               </Location>
+               <Location
+                  uuid = "2334C2CD-0FAD-40A8-AA05-21779230C1F5 - aa81fa46e4c9fb9b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReserveNow.LoginVIew.didTapLoginBtn(Any) -&gt; ()"
+                  moduleName = "ReserveNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trioangle/Documents/Service/ReserveNow_IOS/ReserveNow/TabbarItems/Views/LoginView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "716">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C0FB9EA7-F61A-42BC-A5FE-8745219422BE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/TabbarItems/Views/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "didTapLoginBtn(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C0FB9EA7-F61A-42BC-A5FE-8745219422BE - aa81fa46e4c9fb74"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReserveNow.LoginVIew.didTapLoginBtn(Any) -&gt; ()"
+                  moduleName = "ReserveNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trioangle/Documents/Service/ReserveNow_IOS/ReserveNow/TabbarItems/Views/LoginView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "908">
+               </Location>
+               <Location
+                  uuid = "C0FB9EA7-F61A-42BC-A5FE-8745219422BE - 2173d7efb0e0c56c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ReserveNow.LoginVIew.didTapLoginBtn(Any) -&gt; ()"
+                  moduleName = "ReserveNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trioangle/Documents/Service/ReserveNow_IOS/ReserveNow/TabbarItems/Views/LoginView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "76">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4E6E4D83-01D5-4C34-80C3-98201D3ECF75"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/TabbarItems/Views/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "createAccount(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8A727255-6B29-487E-9553-4CE92CCCD102"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/TabbarItems/Views/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "createAccount(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D334A1BE-0013-4FDC-8A8D-722AB5EBA942"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/TabbarItems/Views/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "createAccount(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A55C906B-C659-415F-80EB-7EC6548F686E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/TabbarItems/Views/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "createAccount(_:_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

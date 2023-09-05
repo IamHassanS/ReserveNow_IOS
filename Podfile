@@ -8,7 +8,8 @@ target 'ReserveNow' do
 
   # Pods for ReserveNow
 #  pod 'FireStore'
-   pod 'Firebase/Core'
+  # pod 'Firebase/Core'
+   pod 'FirebaseAuth'
    pod 'Firebase/Database'
    pod 'Firebase/Messaging'
 #  pod 'GoogleAppMeasurement'

@@ -190,6 +190,7 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
         var ProfileTittle = "Profile"
         
         if token == "" {
+            FirstVC = LoginVC.initWithStory()
 //            let loginVC = LoginVc.initWithStory()
 //            loginVC.hidesBottomBarWhenPushed = true
 //            ProfileTittle = lang1.login_Title.capitalized
@@ -208,7 +209,7 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
         
                
         
-        
+    
         let nav5 = UINavigationController(rootViewController: FirstVC)
         
         let icon5 = UITabBarItem(title: ProfileTittle, image: UIImage(named: "ic_profile"), selectedImage: UIImage(named: "ic_profile"))

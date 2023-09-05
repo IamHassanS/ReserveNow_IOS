@@ -12,7 +12,6 @@ import MapKit
 class MapFilterVC: BaseViewController {
 
     @IBOutlet var mapFilterView: MapFilterView!
-    let appdelegate = UIApplication.shared.delegate as! AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()

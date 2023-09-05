@@ -275,7 +275,7 @@ final class ConnectionHandler : NSObject {
             if dataInKb > standardMinContentSize {
                 if Kbps < standardKbps {
                     print("å:::: Low Network Kbps : \(Kbps)")
-                    self.appDelegate.createToastMessage("LOW NETWORK")
+                  //  self.appDelegate.createToastMessage("LOW NETWORK")
                 } else {
                     print("å:::: Normal NetWork Kbps : \(Kbps)")
                 }

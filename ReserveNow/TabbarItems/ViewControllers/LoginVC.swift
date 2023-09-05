@@ -8,7 +8,8 @@
 import UIKit
 import MobileCoreServices
 
-class LoginVC: UIViewController {
+class LoginVC: BaseViewController {
+    @IBOutlet var loginView: LoginVIew!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +17,12 @@ class LoginVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
+    class func initWithStory() -> LoginVC {
+        let loginVC : LoginVC = UIStoryboard.TabBarItems.instantiateViewController()
+        return loginVC
+    }
 
     func chooseDocs() {
         let types = ["com.microsoft.word.doc","org.openxmlformats.wordprocessingml.document", kUTTypePDF as String]
