@@ -249,6 +249,10 @@
 		F2F0251C2AA8884B00951621 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0251A2AA8884B00951621 /* OTPView.swift */; };
 		F2F0251E2AA88BBD00951621 /* OTPValidationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0251D2AA88BBD00951621 /* OTPValidationVC.swift */; };
 		F2F025202AA88BDB00951621 /* OTPValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0251F2AA88BDB00951621 /* OTPValidationView.swift */; };
+		F2F025222AA895B700951621 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F025212AA895B700951621 /* UserInfoVC.swift */; };
+		F2F025242AA895E100951621 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F025232AA895E100951621 /* UserInfoView.swift */; };
+		F2F025292AA8A69800951621 /* userInfoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F025272AA8A69800951621 /* userInfoTVC.swift */; };
+		F2F0252A2AA8A69800951621 /* userInfoTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F025282AA8A69800951621 /* userInfoTVC.xib */; };
 		F2F116442A77C2BC00531FF7 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F116432A77C2BC00531FF7 /* PushNotificationManager.swift */; };
 		F2F116462A77C46700531FF7 /* NotificationEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F116452A77C46700531FF7 /* NotificationEnum.swift */; };
 		F2F116482A77E98100531FF7 /* SpalashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F116472A77E98100531FF7 /* SpalashVC.swift */; };
@@ -506,6 +510,10 @@
 		F2F0251A2AA8884B00951621 /* OTPView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 		F2F0251D2AA88BBD00951621 /* OTPValidationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPValidationVC.swift; sourceTree = "<group>"; };
 		F2F0251F2AA88BDB00951621 /* OTPValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPValidationView.swift; sourceTree = "<group>"; };
+		F2F025212AA895B700951621 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
+		F2F025232AA895E100951621 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		F2F025272AA8A69800951621 /* userInfoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userInfoTVC.swift; sourceTree = "<group>"; };
+		F2F025282AA8A69800951621 /* userInfoTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = userInfoTVC.xib; sourceTree = "<group>"; };
 		F2F116432A77C2BC00531FF7 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		F2F116452A77C46700531FF7 /* NotificationEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationEnum.swift; sourceTree = "<group>"; };
 		F2F116472A77E98100531FF7 /* SpalashVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpalashVC.swift; sourceTree = "<group>"; };
@@ -874,6 +882,7 @@
 				F247E6D12A1275B800D0C91D /* MapFilterVC.swift */,
 				F2FB9CF12A80BB0B00404662 /* BookingDetailsVC.swift */,
 				F2F0251D2AA88BBD00951621 /* OTPValidationVC.swift */,
+				F2F025212AA895B700951621 /* UserInfoVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -906,6 +915,7 @@
 				F247E6D32A12761E00D0C91D /* MapFilterView.swift */,
 				F2FB9CF32A80BB2600404662 /* BookingDetailsView.swift */,
 				F2F0251F2AA88BDB00951621 /* OTPValidationView.swift */,
+				F2F025232AA895E100951621 /* UserInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -932,14 +942,9 @@
 		F27BE8642A7A60BD003A49D9 /* CellandXIB */ = {
 			isa = PBXGroup;
 			children = (
+				F2F025262AA8A66B00951621 /* userInfoView */,
 				F2F025182AA8884000951621 /* OTPview */,
-				F27BE8652A7A60EE003A49D9 /* RestaurantsCVC.swift */,
-				F27BE8662A7A60EE003A49D9 /* RestaurantsCVC.xib */,
-				F27BE8692A7A6285003A49D9 /* CategoriesCVC.swift */,
-				F27BE86A2A7A6285003A49D9 /* CategoriesCVC.xib */,
-				F27BE86D2A7A8496003A49D9 /* HeaderTitle.swift */,
-				F27BE86E2A7A8496003A49D9 /* HeaderTitle.xib */,
-				F27BE8712A7A9037003A49D9 /* EmptyReusableView.swift */,
+				F2F025252AA8A64700951621 /* ExploreViiew */,
 			);
 			path = CellandXIB;
 			sourceTree = "<group>";
@@ -986,6 +991,29 @@
 				F2F025192AA8884B00951621 /* OTPView.xib */,
 			);
 			path = OTPview;
+			sourceTree = "<group>";
+		};
+		F2F025252AA8A64700951621 /* ExploreViiew */ = {
+			isa = PBXGroup;
+			children = (
+				F27BE8652A7A60EE003A49D9 /* RestaurantsCVC.swift */,
+				F27BE8662A7A60EE003A49D9 /* RestaurantsCVC.xib */,
+				F27BE8692A7A6285003A49D9 /* CategoriesCVC.swift */,
+				F27BE86A2A7A6285003A49D9 /* CategoriesCVC.xib */,
+				F27BE86D2A7A8496003A49D9 /* HeaderTitle.swift */,
+				F27BE86E2A7A8496003A49D9 /* HeaderTitle.xib */,
+				F27BE8712A7A9037003A49D9 /* EmptyReusableView.swift */,
+			);
+			path = ExploreViiew;
+			sourceTree = "<group>";
+		};
+		F2F025262AA8A66B00951621 /* userInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				F2F025272AA8A69800951621 /* userInfoTVC.swift */,
+				F2F025282AA8A69800951621 /* userInfoTVC.xib */,
+			);
+			path = userInfoView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1164,6 +1192,7 @@
 				F21EC9962A78D2B800B8ED40 /* down-arrow.png in Resources */,
 				F21EC9C92A78D2B800B8ED40 /* verifications_reviewed@2x.png in Resources */,
 				F21ECA2B2A78D2B800B8ED40 /* explore@2x.png in Resources */,
+				F2F0252A2AA8A69800951621 /* userInfoTVC.xib in Resources */,
 				F21EC9EE2A78D2B800B8ED40 /* upicon.png in Resources */,
 				F21EC9F02A78D2B800B8ED40 /* close_icon_lightgrey.png in Resources */,
 				F241A6F029EE57390058C6DF /* LaunchScreen.storyboard in Resources */,
@@ -1282,6 +1311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2F025242AA895E100951621 /* UserInfoView.swift in Sources */,
 				F27BE86B2A7A6285003A49D9 /* CategoriesCVC.swift in Sources */,
 				F241A70629EE5D0C0058C6DF /* HomeView.swift in Sources */,
 				F201D1882A6AC520009D848A /* APIResponseProtocol.swift in Sources */,
@@ -1313,6 +1343,7 @@
 				F201D18C2A6AC5BA009D848A /* PlistReader.swift in Sources */,
 				F2EC62142A7B81FA00C1D84D /* CustomClasses.swift in Sources */,
 				F2D7085A29EFBA7D0034ED71 /* ReservationView.swift in Sources */,
+				F2F025222AA895B700951621 /* UserInfoVC.swift in Sources */,
 				F27BE86F2A7A8497003A49D9 /* HeaderTitle.swift in Sources */,
 				F2F1164A2A77E9F000531FF7 /* SplashView.swift in Sources */,
 				F201D1842A6AC40F009D848A /* CodeHelpers.swift in Sources */,
@@ -1348,6 +1379,7 @@
 				F2D7085829EFB9470034ED71 /* ReservationVc.swift in Sources */,
 				F2F025202AA88BDB00951621 /* OTPValidationView.swift in Sources */,
 				F201D18A2A6AC586009D848A /* Constants.swift in Sources */,
+				F2F025292AA8A69800951621 /* userInfoTVC.swift in Sources */,
 				F2F0251E2AA88BBD00951621 /* OTPValidationVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

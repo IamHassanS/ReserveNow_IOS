@@ -90,4 +90,10 @@ class OTPValidationView: BaseView  {
         self.inputFieldHolderView.bringSubviewToFront(self.otpView)
         self.otpView.setToolBar(self.toolBar)
     }
+    
+    @IBAction func didTapNxtBtn(_ sender: Any) {
+        let infoVc = UserInfoVC.initWithStory()
+        self.otpValidationVC.navigationController?.pushViewController(infoVc, animated: true)
+    }
+    
 }
