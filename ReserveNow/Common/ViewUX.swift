@@ -407,3 +407,42 @@ extension UIImage {
         }
     }
 }
+extension UIView{
+    func shake(_ completion : @escaping ()->()){
+        let translationY : CGFloat = self.frame.width * 0.065
+        UIView.animateKeyframes(withDuration: 0.5, delay: 0, options: [.calculationModeLinear], animations: {
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.2, animations: {
+                self.transform =  CGAffineTransform(translationX: 0, y: 0)
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.2, animations: {
+                self.transform = CGAffineTransform(translationX: -translationY, y: 0)
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.4, relativeDuration: 0.2, animations: {
+                self.transform = CGAffineTransform(translationX: translationY, y: 0)
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.6, relativeDuration: 0.2, animations: {
+                self.transform = CGAffineTransform(translationX: -translationY, y: 0)
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.8, relativeDuration: 0.1, animations: {
+                self.transform = CGAffineTransform(translationX: translationY, y: 0)
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.9, relativeDuration: 0.1, animations: {
+                self.transform =  .identity
+            })
+        }) { (completed) in
+            if completed{
+                completion()
+            }
+        }
+    }
+}
+extension UIView{
+    func freeze(for time : DispatchTime = .now() + 2){
+        guard self.isUserInteractionEnabled else{return}
+        self.isUserInteractionEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: time) { [weak self] in
+            self?.isUserInteractionEnabled = true
+        }
+    }
+}

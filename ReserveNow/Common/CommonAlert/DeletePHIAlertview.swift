@@ -53,8 +53,9 @@ class CommonAlert:NSObject {
     
     fileprivate func addAlert()->DeletePHIAlertview {
         let commonAlertView: DeletePHIAlertview = Bundle.main.loadNibNamed("DeletePHIAlertview", owner: nil, options: nil)?.first as! DeletePHIAlertview
-       
-        let window = (UIApplication.shared.delegate as? AppDelegate)?.window
+         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene!.delegate as? SceneDelegate
+        let window = sceneDelegate!.window
        
         commonAlertView.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         window?.addSubview(commonAlertView)
@@ -64,7 +65,11 @@ class CommonAlert:NSObject {
     
     
     public func removeAlert() {
-        let window = (UIApplication.shared.delegate as? AppDelegate)?.window
+        
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+       let sceneDelegate = windowScene!.delegate as? SceneDelegate
+       let window = sceneDelegate!.window
+
         if let commonAlertView = window?.subviews.lastIndex(where: {$0 is DeletePHIAlertview}) {
             window?.subviews[commonAlertView].removeFromSuperview()
 //            commonAlertView.removeFromSuperview()
@@ -156,7 +161,9 @@ class CommonAlert:NSObject {
     // MARK: actions for ok buttons first setupAlert
      
     func addAdditionalOkAction(isForSingleOption:Bool, customAction:@escaping()->Void) {
-        let window = (UIApplication.shared.delegate as? AppDelegate)?.window
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+       let sceneDelegate = windowScene!.delegate as? SceneDelegate
+       let window = sceneDelegate!.window
         if let index = window?.subviews.lastIndex(where: {$0 is DeletePHIAlertview}) {
             
             if let commonAlertView = window?.subviews[index] as? DeletePHIAlertview {
@@ -177,7 +184,9 @@ class CommonAlert:NSObject {
     }
     
     func addAdditionalCancelAction( customAction:@escaping()->Void) {
-        let window = (UIApplication.shared.delegate as? AppDelegate)?.window
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+       let sceneDelegate = windowScene!.delegate as? SceneDelegate
+       let window = sceneDelegate!.window
         if let index = window?.subviews.lastIndex(where: {$0 is DeletePHIAlertview}) {
             
             if let commonAlertView = window?.subviews[index] as? DeletePHIAlertview {

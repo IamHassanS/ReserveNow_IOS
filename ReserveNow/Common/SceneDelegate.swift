@@ -125,10 +125,11 @@ extension SceneDelegate {
                                                 width: keyWindow.frame.size.width,
                                              height: keyWindow.frame.size.height / 20))
         } else if isFromWishList! {
-            backgroundHolderView=UIView(frame: CGRect(x: (keyWindow.width / 1.2) / 2 - (keyWindow.width / 1.2) / 2.5,
-                                                      y: keyWindow.frame.size.height -  keyWindow.frame.size.height / 10 - (keyWindow.frame.size.height/20),
-                                                      width: keyWindow.frame.size.width/1.2,
-                                                   height: keyWindow.frame.size.height / 10))
+            backgroundHolderView=UIView(frame: CGRect(x: keyWindow.width / 1.2 -  keyWindow.width / 1.2 / 1.1, y: keyWindow.bottom - keyWindow.height / 15 , width: keyWindow.width / 1.2, height: keyWindow.height / 20))
+//            UIView(frame: CGRect(x: (keyWindow.width / 1.2) / 2 - (keyWindow.width / 1.2) / 2.5,
+//                                                      y: keyWindow.frame.size.height -  keyWindow.frame.size.height / 15 - (keyWindow.frame.size.height/20),
+//                                                      width: keyWindow.frame.size.width/1.2,
+//                                                   height: keyWindow.frame.size.height / 15))
             lblMessage.clipsToBounds = true
             lblMessage.frame=backgroundHolderView.bounds
 //                UILabel(frame: CGRect(x: backgroundHolderView.left + 5,
@@ -140,10 +141,7 @@ extension SceneDelegate {
         lblMessage.text = strMessage
         lblMessage.textAlignment = NSTextAlignment.center
         lblMessage.numberOfLines = 0
-        lblMessage.layer.shadowOffset = CGSize(width:0, height:1.0);
-        lblMessage.layer.shadowOpacity = 0.5;
-        lblMessage.layer.shadowRadius = 1.0;
-        moveLabelToYposition(lblMessage)
+      //  moveLabelToYposition(lblMessage)
         if !isFromSearch! && !isFromWishList! {
             lblMessage.textColor = .white
             lblMessage.backgroundColor = .cyan
@@ -162,10 +160,10 @@ extension SceneDelegate {
                                        win: keyWindow)
             keyWindow.addSubview(lblMessage)
         } else if isFromWishList! {
-            lblMessage.textColor = .systemGreen
+            lblMessage.textColor = .black
            // lblMessage.backgroundColor = .systemBackground
             lblMessage.font = UIFont.systemFont(ofSize: 15, weight: .medium)
-            backgroundHolderView.cornerRadius = backgroundHolderView.height / 4
+            backgroundHolderView.cornerRadius = backgroundHolderView.height / 2
             backgroundHolderView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
             backgroundHolderView.layer.borderWidth = 0.5
             backgroundHolderView.layer.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.8).cgColor
@@ -185,30 +183,34 @@ extension SceneDelegate {
                        delay: 3.5,
                        options: .curveEaseInOut,
                        animations: { () -> Void in
-            holderView.frame = CGRect(x: (win.width / 1.2) / 2 - (win.width / 1.2) / 2.5,
-                                     y: win.frame.size.height +  win.frame.size.height / 10 + (win.frame.size.height/20),
-                                     width: win.frame.size.width/1.2,
-                                  height: win.frame.size.height / 10)
+            holderView.frame = CGRect(x: win.width / 1.2  - win.width / 1.2 / 1.1,
+                                            y: win.bottom + win.height / 15,
+                                            width: win.width / 1.2,
+                                         height: win.height / 15)
         }, completion: { (finished: Bool) -> Void in
             holderView.removeFromSuperview()
         })
     }
     
+    
     func moveWishlistToastToYposition(_ holderView:UIView,
                               win: UIWindow) {
-        UIView.animate(withDuration: 0.9,
+        UIView.animate(withDuration: 2,
                        delay: 0.0,
                        options: .curveEaseInOut,
                        animations: { () -> Void in
-            holderView.frame = CGRect(x: (win.width / 1.2) / 2 - (win.width / 1.2) / 2.5,
-                                      y: win.frame.size.height -  win.frame.size.height / 10 - (win.frame.size.height/20),
-                                      width: win.frame.size.width/1.2,
-                                   height: win.frame.size.height / 10)
+            holderView.frame = CGRect(x: win.width / 1.2 - win.width / 1.2 / 1.1,
+                                      y: win.bottom + win.height / 15,
+                                      width: win.width / 1.2,
+                                   height: win.height / 15)
+            
+            
         }, completion: { (finished: Bool) -> Void in
             self.onWishListCloseAnimation(holderView,
                                    win: win)
         })
     }
+
     
     func moveSearchLabelToYposition(_ lblView:UILabel,
                               win: UIWindow) {

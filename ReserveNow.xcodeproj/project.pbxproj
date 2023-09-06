@@ -245,6 +245,10 @@
 		F2EC62122A7B818200C1D84D /* DeletePHIAlertview.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2EC62102A7B818200C1D84D /* DeletePHIAlertview.xib */; };
 		F2EC62142A7B81FA00C1D84D /* CustomClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC62132A7B81FA00C1D84D /* CustomClasses.swift */; };
 		F2EC62162A7BE65500C1D84D /* TimelyEssential Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC62152A7BE65500C1D84D /* TimelyEssential Code.swift */; };
+		F2F0251B2AA8884B00951621 /* OTPView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F025192AA8884B00951621 /* OTPView.xib */; };
+		F2F0251C2AA8884B00951621 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0251A2AA8884B00951621 /* OTPView.swift */; };
+		F2F0251E2AA88BBD00951621 /* OTPValidationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0251D2AA88BBD00951621 /* OTPValidationVC.swift */; };
+		F2F025202AA88BDB00951621 /* OTPValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0251F2AA88BDB00951621 /* OTPValidationView.swift */; };
 		F2F116442A77C2BC00531FF7 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F116432A77C2BC00531FF7 /* PushNotificationManager.swift */; };
 		F2F116462A77C46700531FF7 /* NotificationEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F116452A77C46700531FF7 /* NotificationEnum.swift */; };
 		F2F116482A77E98100531FF7 /* SpalashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F116472A77E98100531FF7 /* SpalashVC.swift */; };
@@ -498,6 +502,10 @@
 		F2EC62102A7B818200C1D84D /* DeletePHIAlertview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeletePHIAlertview.xib; sourceTree = "<group>"; };
 		F2EC62132A7B81FA00C1D84D /* CustomClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClasses.swift; sourceTree = "<group>"; };
 		F2EC62152A7BE65500C1D84D /* TimelyEssential Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimelyEssential Code.swift"; sourceTree = "<group>"; };
+		F2F025192AA8884B00951621 /* OTPView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTPView.xib; sourceTree = "<group>"; };
+		F2F0251A2AA8884B00951621 /* OTPView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
+		F2F0251D2AA88BBD00951621 /* OTPValidationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPValidationVC.swift; sourceTree = "<group>"; };
+		F2F0251F2AA88BDB00951621 /* OTPValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPValidationView.swift; sourceTree = "<group>"; };
 		F2F116432A77C2BC00531FF7 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		F2F116452A77C46700531FF7 /* NotificationEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationEnum.swift; sourceTree = "<group>"; };
 		F2F116472A77E98100531FF7 /* SpalashVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpalashVC.swift; sourceTree = "<group>"; };
@@ -865,6 +873,7 @@
 				F2D7085B29EFC6CD0034ED71 /* TimeSelectotVc.swift */,
 				F247E6D12A1275B800D0C91D /* MapFilterVC.swift */,
 				F2FB9CF12A80BB0B00404662 /* BookingDetailsVC.swift */,
+				F2F0251D2AA88BBD00951621 /* OTPValidationVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -896,6 +905,7 @@
 				F2D7085D29EFC77B0034ED71 /* TimeSelectorView.swift */,
 				F247E6D32A12761E00D0C91D /* MapFilterView.swift */,
 				F2FB9CF32A80BB2600404662 /* BookingDetailsView.swift */,
+				F2F0251F2AA88BDB00951621 /* OTPValidationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -922,6 +932,7 @@
 		F27BE8642A7A60BD003A49D9 /* CellandXIB */ = {
 			isa = PBXGroup;
 			children = (
+				F2F025182AA8884000951621 /* OTPview */,
 				F27BE8652A7A60EE003A49D9 /* RestaurantsCVC.swift */,
 				F27BE8662A7A60EE003A49D9 /* RestaurantsCVC.xib */,
 				F27BE8692A7A6285003A49D9 /* CategoriesCVC.swift */,
@@ -966,6 +977,15 @@
 				F2EC62102A7B818200C1D84D /* DeletePHIAlertview.xib */,
 			);
 			path = CommonAlert;
+			sourceTree = "<group>";
+		};
+		F2F025182AA8884000951621 /* OTPview */ = {
+			isa = PBXGroup;
+			children = (
+				F2F0251A2AA8884B00951621 /* OTPView.swift */,
+				F2F025192AA8884B00951621 /* OTPView.xib */,
+			);
+			path = OTPview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1124,6 +1144,7 @@
 				F21ECA1D2A78D2B800B8ED40 /* setting_red.png in Resources */,
 				F21EC99B2A78D2B800B8ED40 /* map_price.png in Resources */,
 				F21EC9942A78D2B800B8ED40 /* lifesaver.png in Resources */,
+				F2F0251B2AA8884B00951621 /* OTPView.xib in Resources */,
 				F21EC9A12A78D2B800B8ED40 /* close_icon@2x.png in Resources */,
 				F21ECA292A78D2B800B8ED40 /* back_btn_white.png in Resources */,
 				F21EC9CA2A78D2B800B8ED40 /* receiver_indicator.png in Resources */,
@@ -1267,6 +1288,7 @@
 				F27BE8672A7A60EE003A49D9 /* RestaurantsCVC.swift in Sources */,
 				F21ECA372A78DE1900B8ED40 /* English.swift in Sources */,
 				F2FCE6FE2A7D172500105359 /* Themes.swift in Sources */,
+				F2F0251C2AA8884B00951621 /* OTPView.swift in Sources */,
 				F201D1862A6AC4D7009D848A /* APIEnums.swift in Sources */,
 				F21ECA4E2A792D6400B8ED40 /* ExploreView.swift in Sources */,
 				F2D2D6672AA5C6F200A6B574 /* Restaurants.JSON in Sources */,
@@ -1324,7 +1346,9 @@
 				F21ECA3B2A78DE2D00B8ED40 /* Tamil.swift in Sources */,
 				F2EC62072A7B7FC400C1D84D /* WelcomeVC.swift in Sources */,
 				F2D7085829EFB9470034ED71 /* ReservationVc.swift in Sources */,
+				F2F025202AA88BDB00951621 /* OTPValidationView.swift in Sources */,
 				F201D18A2A6AC586009D848A /* Constants.swift in Sources */,
+				F2F0251E2AA88BBD00951621 /* OTPValidationVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

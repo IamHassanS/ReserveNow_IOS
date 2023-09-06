@@ -10,7 +10,7 @@ import UIKit
 class BaseViewController: UIViewController {
 
 //    let appdelegate = UIApplication.shared.delegate as! AppDelegate
-    var sceneDelegate: SceneDelegate!
+    var sceneDelegate: SceneDelegate?
     
     fileprivate var _baseView : BaseView? {
         return self.view as? BaseView
@@ -24,11 +24,13 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let sceneDelegate = self.view?.window?.windowScene?.delegate as? SceneDelegate {
-          
-            self.sceneDelegate = sceneDelegate
-            
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+          let sceneDelegate = windowScene.delegate as? SceneDelegate
+               
+        else {
+          return
         }
+        self.sceneDelegate = sceneDelegate
         
         // Do any additional setup after loading the view.
 

@@ -16,6 +16,8 @@ enum NotificationEnum :String {
 
     case reported
     case messageReceived
+    case removeobserver
+    case UIKeyboardWillHideNotification
     
     func addObserver(_ observer:Any, selector: Selector){
         NotificationCenter.default.addObserver(observer, selector: selector, name: NSNotification.Name(rawValue: self.rawValue), object: nil)
@@ -38,6 +40,10 @@ enum NotificationEnum :String {
     }
     func postNotificationWithObject(_ object:AnyObject) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: self.rawValue), object: object, userInfo: nil)
+    }
+    
+    func removeAll(_ observer:Any) {
+        NotificationCenter.default.removeObserver(observer)
     }
     
    

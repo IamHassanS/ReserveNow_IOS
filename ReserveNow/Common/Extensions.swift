@@ -235,3 +235,24 @@ extension Array{
         return nil
     }
 }
+
+
+extension String {
+    var containsSpecialCharacter: Bool {
+        let regex = "^(?=.*[a-z])(?=."
+        + "*[A-Z])(?=.*\\d)"
+        + "(?=.*[-+_!@#$%^&*., ?]).+$"
+        let testString = NSPredicate(format:"SELF MATCHES %@", regex)
+        return testString.evaluate(with: self)
+    }
+    
+    
+    var isValidMail: Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: self)
+    }
+    
+}
+
+
