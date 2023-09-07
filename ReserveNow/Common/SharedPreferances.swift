@@ -13,7 +13,8 @@ class Shared {
     
     fileprivate var gifLoaders : [UIView:GifLoaderValue] = [:]
     var hotels = Hotels()
-    
+    var countryList = [CountryModel]()
+    var selectedPhoneCode: String = ""
 }
 //MARK:- UserDefaults property observers
 

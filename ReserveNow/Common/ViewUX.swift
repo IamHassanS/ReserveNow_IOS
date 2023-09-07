@@ -217,6 +217,11 @@ extension UIView {
         self.layer.cornerRadius = 12
         self.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner] // Top right corner, Top left corner respectively
     }
+    func removeSpecificCorner(){
+        self.clipsToBounds = true
+        self.layer.cornerRadius = 0
+        self.layer.maskedCorners = [] //
+    }
 }
 
 extension UIView {

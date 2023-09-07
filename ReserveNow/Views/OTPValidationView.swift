@@ -12,7 +12,7 @@ extension OTPValidationView: CheckStatusProtocol {
         print("Checked")
         let isActive : Bool
         if let _otp = self.otpView.otp{
-            isActive = _otp.count == 4//_otp == self.otpView.otp
+            isActive = _otp.count == 6//_otp == self.otpView.otp
         }else{
             isActive = false
         }
@@ -92,8 +92,19 @@ class OTPValidationView: BaseView  {
     }
     
     @IBAction func didTapNxtBtn(_ sender: Any) {
-        let infoVc = UserInfoVC.initWithStory()
-        self.otpValidationVC.navigationController?.pushViewController(infoVc, animated: true)
+        
+      //  AuthManager.shared.authenticatePhoneNumber(number: <#T##String#>, completion: <#T##(Bool) -> ()#>)
+        
+        AuthManager.shared.validateOTP(OTPcode:  self.otpView.otp!) { isValid in
+            if isValid {
+                let infoVc = UserInfoVC.initWithStory()
+                self.otpValidationVC.navigationController?.pushViewController(infoVc, animated: true)
+            } else {
+                self.otpView.invalidOTP()
+            }
+        }
+        
+      
     }
     
 }

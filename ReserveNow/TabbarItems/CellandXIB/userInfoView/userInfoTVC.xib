@@ -22,7 +22,7 @@
                         <rect key="frame" x="10" y="28.666666666666664" width="377" height="78.333333333333343"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9o7-xL-MAj">
-                                <rect key="frame" x="69" y="10.666666666666668" width="61.666666666666657" height="18"/>
+                                <rect key="frame" x="62.666666666666671" y="10.666666666666668" width="61.666666666666671" height="18"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -42,29 +42,37 @@
                             <constraint firstItem="BGK-Hl-CDY" firstAttribute="width" secondItem="NTt-Ip-RwI" secondAttribute="width" multiplier="0.9" id="o56-rK-TeF"/>
                         </constraints>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gearshape.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2SX-jg-F6L">
-                        <rect key="frame" x="11.666666666666664" y="5.9999999999999964" width="55.999999999999993" height="55.333333333333343"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="key.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2SX-jg-F6L">
+                        <rect key="frame" x="11.666666666666664" y="4.6666666666666607" width="55.999999999999993" height="58.333333333333329"/>
                         <color key="tintColor" red="0.14117647059999999" green="0.71372549019999998" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </imageView>
                 </subviews>
+                <color key="backgroundColor" systemColor="systemGray5Color"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="NTt-Ip-RwI" secondAttribute="bottom" constant="5" id="J7o-XZ-bwO"/>
                     <constraint firstItem="2SX-jg-F6L" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.6" id="YNa-fr-CsZ"/>
                     <constraint firstItem="NTt-Ip-RwI" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.95" id="Z7G-8Q-Paj"/>
                     <constraint firstItem="NTt-Ip-RwI" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ZkK-Ci-F5R"/>
                     <constraint firstItem="2SX-jg-F6L" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.5" id="btk-uv-8Wh"/>
-                    <constraint firstItem="9o7-xL-MAj" firstAttribute="leading" secondItem="2SX-jg-F6L" secondAttribute="trailing" constant="11.333333333333343" id="lNA-GI-Ebb"/>
+                    <constraint firstItem="9o7-xL-MAj" firstAttribute="leading" secondItem="2SX-jg-F6L" secondAttribute="trailing" constant="5" id="lNA-GI-Ebb"/>
                     <constraint firstItem="2SX-jg-F6L" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.5" id="pBd-3F-rGh"/>
                     <constraint firstItem="2SX-jg-F6L" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.2" id="qWm-VV-Gzc"/>
                     <constraint firstItem="NTt-Ip-RwI" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.7" id="zEe-7Q-EgY"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="holderView" destination="NTt-Ip-RwI" id="Fh4-LW-NJV"/>
+                <outlet property="iconImg" destination="2SX-jg-F6L" id="G57-Og-Xg8"/>
+            </connections>
             <point key="canvasLocation" x="377.86259541984731" y="21.83098591549296"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="gearshape.fill" catalog="system" width="128" height="123"/>
+        <image name="key.fill" catalog="system" width="82" height="128"/>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

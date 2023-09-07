@@ -191,6 +191,8 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
         
         if token == "" {
             FirstVC = LoginVC.initWithStory()
+            //UserInfoVC.initWithStory()
+            //LoginVC.initWithStory()
 //            let loginVC = LoginVc.initWithStory()
 //            loginVC.hidesBottomBarWhenPushed = true
 //            ProfileTittle = lang1.login_Title.capitalized

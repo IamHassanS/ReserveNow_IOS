@@ -10,11 +10,13 @@ import UIKit
 
 extension UserInfoView:  UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return images.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: userInfoTVC = tableView.dequeueReusableCell(withIdentifier: "userInfoTVC", for: indexPath) as! userInfoTVC
+      //  cell.iconImg.image = UIImage(named: "gearshape.fill")
+        
         return cell
     }
     
@@ -28,11 +30,17 @@ extension UserInfoView:  UITableViewDelegate, UITableViewDataSource {
 
 
 class UserInfoView: BaseView, UIGestureRecognizerDelegate {
+    @IBOutlet weak var navBack: UIButton!
    
+    @IBOutlet weak var optBtn: UIButton!
+    
     @IBOutlet weak var lblUserInfo: UILabel!
     @IBOutlet weak var contentTable: UITableView!
     @IBOutlet weak var tableHeaderView: UIView!
     var userInfoVC :  UserInfoVC!
+    var isExtended : Bool = false
+    let str = "A user profile is a collection of settings and information associated with a user. It contains critical information that is used to identify an individual, such as their name, age, portrait photograph and individual characteristics such as knowledge or expertise."
+    let images =   ["gearshape.fill", "person.crop.circle", "cloud.fill", "bubble.left.fill", "hand.raised.fill", "hourglass.end", "mobileverify", "key.fill"]
     override func didLoad(baseVC: BaseViewController) {
         super.didLoad(baseVC: baseVC)
         self.userInfoVC = baseVC as? UserInfoVC
@@ -47,9 +55,12 @@ class UserInfoView: BaseView, UIGestureRecognizerDelegate {
     
     func setupUI() {
         contentTable.register(UINib(nibName: "userInfoTVC", bundle: nil), forCellReuseIdentifier: "userInfoTVC")
+        navBack.setTitle("", for: .normal)
+        optBtn.setTitle("", for: .normal)
         contentTable.tableHeaderView = tableHeaderView
       //  toConfigureDynamicHeader()
-        setBioLabel(count: 50, str: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
+        setBioLabel(count: 50, str: str, isExtended: false)
+        toConfigureDynamicHeader()
     }
     
     func toConfigureDynamicHeader() {
@@ -73,6 +84,8 @@ class UserInfoView: BaseView, UIGestureRecognizerDelegate {
         tap.delegate = self
     }
     
+    
+    
     func getViewExactHeight(view:UIView)->UIView {
        
         let height = view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
@@ -86,19 +99,20 @@ class UserInfoView: BaseView, UIGestureRecognizerDelegate {
     
     @objc func labelAction(gesture: UITapGestureRecognizer)
        {
-           let str = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-           setBioLabel(count: str.count, str: str)
+           let str = self.str
+           setBioLabel(count: isExtended ? 50 : str.count, str: str, isExtended: !self.isExtended)
            toConfigureDynamicHeader()
-print("Tapped")
+     
+
        }
     
-    func setBioLabel(count: Int, str: String) {
+    func setBioLabel(count: Int, str: String, isExtended: Bool) {
+        self.isExtended = isExtended
         let first2Chars = String(str.prefix(count)) // first2Chars = "My"
       //  self.profileview.bioheight.constant = 100
-        let newStr = String(format: "%@..Read More", first2Chars)
+        let newStr = isExtended ? String(format: "%@..read less", first2Chars) :  String(format: "%@..read more", first2Chars)
         //                        print(newStr.count)
-        self.lblUserInfo.attributedText =  self.makeAttributeTextColor(originalText: newStr as NSString, normalText: first2Chars as NSString, attributeText: "..Read More", font: (UIFont.systemFont(ofSize: 14, weight: .regular)))
-       // toConfigureDynamicHeader()
+        self.lblUserInfo.attributedText =  self.makeAttributeTextColor(originalText: newStr as NSString, normalText: first2Chars as NSString, attributeText: isExtended ? "..read less" : "..read more", font: (UIFont.systemFont(ofSize: 14, weight: .regular)))
     }
     
     func makeAttributeTextColor(originalText : NSString ,normalText : NSString, attributeText : NSString , font : UIFont) -> NSMutableAttributedString

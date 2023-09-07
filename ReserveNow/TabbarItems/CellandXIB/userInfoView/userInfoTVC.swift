@@ -9,8 +9,13 @@ import UIKit
 
 class userInfoTVC: UITableViewCell {
 
+    @IBOutlet weak var iconImg: UIImageView!
+    @IBOutlet weak var holderView: UIView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        holderView.elevate(4)
+        holderView.layer.cornerRadius = 10
         // Initialization code
     }
 

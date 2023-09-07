@@ -38,6 +38,10 @@ class OTPView: UIView {
     @IBOutlet weak var tf2 : DeleteTextField!
     @IBOutlet weak var tf3 : DeleteTextField!
     @IBOutlet weak var tf4 : DeleteTextField!
+    
+    @IBOutlet weak var tf5: DeleteTextField!
+    
+    @IBOutlet weak var tf6: DeleteTextField!
     @IBOutlet weak var holderStackView : UIStackView!
     @IBOutlet weak var invalidOTPLbl : UILabel!
     var checkStatusDelegate  : CheckStatusProtocol?
@@ -45,8 +49,10 @@ class OTPView: UIView {
         if let text1 = tf1.text,
             let text2 = tf2.text,
             let text3 = tf3.text,
-            let text4 = tf4.text{
-            return text1+text2+text3+text4
+            let text4 = tf4.text,
+           let text5 = tf5.text,
+           let text6 = tf6.text{
+            return text1+text2+text3+text4+text5+text6
         }
         return nil
     }
@@ -60,16 +66,22 @@ class OTPView: UIView {
         self.tf2.delegate = self
         self.tf3.delegate = self
         self.tf4.delegate = self
+        self.tf5.delegate = self
+        self.tf6.delegate = self
         self.tf1.backSpaceDelegate = self
         self.tf2.backSpaceDelegate = self
         self.tf3.backSpaceDelegate = self
         self.tf4.backSpaceDelegate = self
+        self.tf5.backSpaceDelegate = self
+        self.tf6.backSpaceDelegate = self
         
         
         self.tf1.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         self.tf2.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         self.tf3.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         self.tf4.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        self.tf5.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        self.tf6.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         self.invalidOTPLbl.isHidden = true
         
         
@@ -94,6 +106,8 @@ class OTPView: UIView {
         self.tf2.text = ""
         self.tf3.text = ""
         self.tf4.text = ""
+        self.tf5.text = ""
+        self.tf6.text = ""
         self.tf1.becomeFirstResponder()
     }
     func setToolBar(_ bar : UIToolbar){
@@ -101,6 +115,8 @@ class OTPView: UIView {
         self.tf2.inputAccessoryView = bar
         self.tf3.inputAccessoryView = bar
         self.tf4.inputAccessoryView = bar
+        self.tf5.inputAccessoryView = bar
+        self.tf6.inputAccessoryView = bar
     }
     static func getView(with delegate : CheckStatusProtocol,using frame : CGRect) -> OTPView{
         let nib = UINib(nibName: "OTPView", bundle: nil)
@@ -122,6 +138,8 @@ extension OTPView : UITextFieldDelegate{
         let text2 = tf2.text ?? ""
         let text3 = tf3.text ?? ""
         let text4 = tf4.text ?? ""
+        let text5 = tf5.text ?? ""
+        let text6 = tf6.text ?? ""
        
         guard (textField.text ?? "").isEmpty else{return true}
         switch textField {
@@ -133,6 +151,10 @@ extension OTPView : UITextFieldDelegate{
             return !text1.isEmpty || !text2.isEmpty || !text4.isEmpty
         case self.tf4:
             return !text1.isEmpty || !text2.isEmpty || !text3.isEmpty
+        case self.tf5:
+            return !text1.isEmpty || !text2.isEmpty || !text3.isEmpty || !text4.isEmpty || !text6.isEmpty
+        case self.tf6:
+            return !text1.isEmpty || !text2.isEmpty || !text3.isEmpty || !text4.isEmpty || !text5.isEmpty
         default:
             return false
         }
@@ -153,6 +175,10 @@ extension OTPView : UITextFieldDelegate{
         case self.tf3:
             nextTF = self.tf4
         case self.tf4:
+            nextTF = self.tf5
+        case self.tf5:
+            nextTF = self.tf6
+        case self.tf6:
             fallthrough
         default:
             nextTF = nil
@@ -182,6 +208,10 @@ extension OTPView : UITextFieldDelegate{
             return true
             textField.text = ""
             switch textField{
+            case self.tf6:
+                self.tf5.becomeFirstResponder()
+            case self.tf5:
+                self.tf4.becomeFirstResponder()
             case self.tf4:
                 self.tf3.becomeFirstResponder()
             case self.tf3:
@@ -197,6 +227,10 @@ extension OTPView : UITextFieldDelegate{
         }
         if text.count == 0 && isBackSpace{
             switch textField{
+            case self.tf6:
+                self.tf5.becomeFirstResponder()
+            case self.tf5:
+                self.tf4.becomeFirstResponder()
             case self.tf4:
                 self.tf3.becomeFirstResponder()
             case self.tf3:
@@ -223,7 +257,13 @@ extension OTPView : UITextFieldDelegate{
         case self.tf3:
             self.tf4.becomeFirstResponder()
         case self.tf4:
+            self.tf5.becomeFirstResponder()
+        case self.tf5:
+            self.tf6.becomeFirstResponder()
+
+        case self.tf6:
             fallthrough
+
         default:
             self.endEditing(true)
             self.checkStatusDelegate?.checkStatus()
@@ -237,6 +277,12 @@ extension OTPView : TextFieldBackSpaceDelegate{
     func onBackSpaceTap(for textField: UITextField) {
         guard textField.text?.isEmpty ?? true else {return}
         switch textField {
+        case self.tf6:
+            self.tf5.text = ""
+            self.tf5.becomeFirstResponder()
+        case self.tf5:
+            self.tf4.text = ""
+            self.tf4.becomeFirstResponder()
         case self.tf4:
             self.tf3.text = ""
             self.tf3.becomeFirstResponder()
