@@ -20,8 +20,10 @@ class LoginVIew: BaseView {
     
     enum pageType {
         case login
-        case mobienumber
-        
+        case signup
+        case email
+        case phone
+        case def
         
     }
     
@@ -34,21 +36,66 @@ class LoginVIew: BaseView {
             signUpbtn.setTitle("Login", for: .normal)
             self.passwordValidationLbl.text = "Password should be alphanumeric, special character, min 8 char & max16, combination upper case."
             self.signinLbl.text = "Sign up with mobile"
+            self.backHolderView.isHidden = true
            // self.emailTF.becomeFirstResponder()
             
-        case .mobienumber:
-            self.pageType = .mobienumber
+        case .signup:
+            self.pageType = .signup
             self.mobileStack.isHidden = false
             self.credentialsStack.isHidden = true
+//            mobileSubEmailView.isHidden = false
+//            mobileSubPhoneView.isHidden = false
+//            orView.isHidden = false
+            signUpbtn.setTitle("Send OTP", for: .normal)
+            backHolderView.isHidden = true
+           
+        case .email:
+            self.pageType = .email
+            self.mobileStack.isHidden = false
+            self.credentialsStack.isHidden = true
+            mobileSubEmailView.isHidden = false
+            mobileSubPhoneView.isHidden = true
+            self.passwordValidationLbl.text = "Enter valid Email"
+            signUpbtn.setTitle("Send OTP", for: .normal)
+            orView.isHidden = true
+            self.signinLbl.text = "Already have an Account? then sign in."
+            backHolderView.isHidden = false
+            self.signUpEmailTF.becomeFirstResponder()
+        case .phone:
+            self.pageType = .phone
+            self.mobileStack.isHidden = false
+            self.credentialsStack.isHidden = true
+            mobileSubEmailView.isHidden = true
+            mobileSubPhoneView.isHidden = false
+            orView.isHidden = true
             self.passwordValidationLbl.text = "Enter valid Mobile number"
             signUpbtn.setTitle("Send OTP", for: .normal)
-           
             self.signinLbl.text = "Already have an Account? then sign in."
-            //self.phoneNumberFld.becomeFirstResponder()
+            self.phoneNumberFld.becomeFirstResponder()
+            backHolderView.isHidden = false
+        case .def:
+            self.pageType = .signup
+            self.mobileStack.isHidden = false
+            self.credentialsStack.isHidden = true
+            mobileSubEmailView.isHidden = false
+            mobileSubPhoneView.isHidden = false
+            orView.isHidden = false
+            signUpbtn.setTitle("Send OTP", for: .normal)
+            backHolderView.isHidden = true
         }
     }
     
+    @IBOutlet weak var backHolderView: UIView!
     @IBOutlet weak var topView: UIView!
+    
+    @IBOutlet weak var shoeHidePasswordView: UIView!
+    @IBOutlet weak var mobileSubEmailView: UIView!
+    
+    @IBOutlet weak var showPasswordHolderIV: UIImageView!
+    
+    
+    
+  
     
     @IBOutlet weak var mobileStack: UIStackView!
     @IBOutlet weak var credentialsStack: UIStackView!
@@ -60,16 +107,32 @@ class LoginVIew: BaseView {
     @IBOutlet weak var signinLbl: UILabel!
     @IBOutlet weak var phoneNumberFld: UITextField!
 
+    @IBOutlet weak var contentHolderVIew: UIView!
     @IBOutlet weak var phoneCodeView: UIView!
     @IBOutlet weak var phoneCodeLbl: UILabel!
     
+    @IBOutlet weak var orView: UIView!
+    @IBOutlet weak var signUpEmailTF: UITextField!
+    @IBOutlet weak var mobileSubPhoneView: UIView!
+    lazy var toolBar : UIToolbar = {
+        let tool = UIToolbar(frame: CGRect(origin: CGPoint.zero,
+                                              size: CGSize(width: self.frame.width,
+                                                           height: 30)))
+        let done = UIBarButtonItem(barButtonSystemItem: .done,
+                                   target: self,
+                                   action: #selector(self.doneAction))
+        tool.setItems([done], animated: true)
+        tool.sizeToFit()
+        return tool
+    }()
     var loginVc: LoginVC!
     var isPasswoordVerified = false
     var isEmailVerified = false
     var isMobileVerifed = false
+    var isSignupEmailVerified = false
     var isShowViewModified = Bool()
     var isHideViewModified = Bool()
-    var pageType : pageType = .mobienumber
+    var pageType : pageType = .signup
     override func didLoad(baseVC: BaseViewController) {
         super.didLoad(baseVC: baseVC)
         self.loginVc = baseVC as? LoginVC
@@ -78,17 +141,25 @@ class LoginVIew: BaseView {
         initNotifcations()
        
     }
-    
+    @objc func doneAction(){
+        isHideViewModified = false
+        isShowViewModified = false
+        self.endEditing(true)
+        self.checkButtonStatus(false)
+    }
     func  initData(){
         emailTF.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         passwordTF.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         phoneNumberFld.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-
+        signUpEmailTF.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         emailTF.delegate = self
         passwordTF.delegate = self
         phoneNumberFld.delegate = self
+        signUpEmailTF.delegate = self
+        phoneNumberFld.keyboardType = .numberPad
+        setToolBar(self.toolBar)
         signinLbl.addTap {
-            self.setPagetype(pageType: self.pageType == .login ? .mobienumber : .login)
+            self.setPagetype(pageType: self.pageType == .login ? .signup : .login)
             self.signinLbl.text = self.pageType == .login ? "Sign up with mobile" : "Already have an Account? then sign in."
         }
         
@@ -98,10 +169,30 @@ class LoginVIew: BaseView {
             vc.modalTransitionStyle = .coverVertical
             self.loginVc.navigationController?.present(vc, animated: true)
         }
+        phoneNumberFld.addTap {
+            self.setPagetype(pageType: .phone)
+        }
+        signUpEmailTF.addTap {
+            self.setPagetype(pageType: .email)
+        }
+        
+        backHolderView.addTap {
+            self.setPagetype(pageType: .def)
+        }
+        shoeHidePasswordView.addTap {
+            self.showPasswordHolderIV.image =  self.showPasswordHolderIV.image == UIImage(systemName: "eye") ?  UIImage(systemName: "eye.slash.fill") : UIImage(systemName: "eye")
+            self.passwordTF.isSecureTextEntry = self.showPasswordHolderIV.image == UIImage(systemName: "eye.slash.fill") ? true : false
+            
+        }
 
     }
 
-
+    func setToolBar(_ bar : UIToolbar){
+        self.phoneNumberFld.inputAccessoryView = bar
+        self.emailTF.inputAccessoryView = bar
+        passwordTF.inputAccessoryView = bar
+        signUpEmailTF.inputAccessoryView = bar
+    }
     
     
     func initNotifcations() {
@@ -109,9 +200,9 @@ class LoginVIew: BaseView {
 //        NotificationEnum.UIKeyboardWillShowNotification.addObserver(self, selector: "keyboardWillShow:")
 //        NotificationEnum.UIKeyboardWillHideNotification.addObserver(self, selector: "keyboardWillHide:")
         
-     //   NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
-    //    NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
     
@@ -131,9 +222,14 @@ class LoginVIew: BaseView {
  if emailTF.isFirstResponder && !isShowViewModified {
      isShowViewModified = true
      UIView.transition(with: credentialsStack, duration: 0.33,
-       options: [.curveEaseOut, .transitionFlipFromTop],
+       options: [.curveEaseOut],
+                       //, .transitionFlipFromTop
        animations: {
          self.credentialsStack.frame = frame
+         
+         self.contentHolderVIew.backgroundColor = .black.withAlphaComponent(0.5)
+         self.credentialsStack.alpha = 1
+         
        },
        completion: nil
      )
@@ -141,24 +237,29 @@ class LoginVIew: BaseView {
  } else if passwordTF.isFirstResponder && !isShowViewModified  {
      isShowViewModified = true
      UIView.transition(with: credentialsStack, duration: 0.33,
-       options: [.curveEaseOut, .transitionFlipFromTop],
+       options: [.curveEaseOut],
+                 //, .transitionFlipFromTop]
        animations: {
          self.credentialsStack.frame = frame
+         self.contentHolderVIew.backgroundColor = .black.withAlphaComponent(0.5)
+         self.credentialsStack.alpha = 1
        },
        completion: nil
      )
      print("")
- } else if phoneNumberFld.isFirstResponder && !isShowViewModified {
-     isShowViewModified = true
-     UIView.transition(with: mobileStack, duration: 0.33,
-       options: [.curveEaseOut, .transitionFlipFromTop],
-       animations: {
-         self.mobileStack.frame = frame
-       },
-       completion: nil
-     )
-
  }
+            
+//            else if phoneNumberFld.isFirstResponder && !isShowViewModified {
+//     isShowViewModified = true
+//     UIView.transition(with: mobileStack, duration: 0.33,
+//       options: [.curveEaseOut, .transitionFlipFromTop],
+//       animations: {
+//         self.mobileStack.frame = frame
+//       },
+//       completion: nil
+//     )
+//
+// }
         
         }
     }
@@ -171,9 +272,11 @@ class LoginVIew: BaseView {
  if emailTF.isFirstResponder && !isHideViewModified {
      isHideViewModified = true
      UIView.transition(with: credentialsStack, duration: 0.33,
-       options: [.curveEaseOut, .transitionFlipFromBottom],
+       options: [.curveEaseOut],
+                       //, .transitionFlipFromBottom
        animations: {
          self.credentialsStack.frame = frame
+         self.contentHolderVIew.backgroundColor = .white
        },
        completion: nil
      )
@@ -182,24 +285,27 @@ class LoginVIew: BaseView {
  } else if passwordTF.isFirstResponder && !isHideViewModified  {
      isHideViewModified = true
      UIView.transition(with: credentialsStack, duration: 0.33,
-       options: [.curveEaseOut, .transitionFlipFromBottom],
+       options: [.curveEaseOut],
        animations: {
+         //, .transitionFlipFromBottom
          self.credentialsStack.frame = frame
-       },
-       completion: nil
-     )
-     print("")
- } else if phoneNumberFld.isFirstResponder  && !isHideViewModified  {
-     isHideViewModified = true
-     UIView.transition(with: mobileStack, duration: 0.33,
-       options: [.curveEaseOut, .transitionFlipFromBottom],
-       animations: {
-         self.mobileStack.frame = frame
+         self.contentHolderVIew.backgroundColor = .white
        },
        completion: nil
      )
      print("")
  }
+     //else if phoneNumberFld.isFirstResponder  && !isHideViewModified  {
+//     isHideViewModified = true
+//     UIView.transition(with: mobileStack, duration: 0.33,
+//       options: [.curveEaseOut, .transitionFlipFromBottom],
+//       animations: {
+//         self.mobileStack.frame = frame
+//       },
+//       completion: nil
+//     )
+//     print("")
+// }
         }
     }
     
@@ -214,12 +320,13 @@ class LoginVIew: BaseView {
         signUpbtn.elevate(4)
         signUpbtn.layer.cornerRadius = signUpbtn.height / 2
         credentialsStack.elevate(4)
-        mobileStack.elevate(4)
+        mobileSubEmailView.elevate(4)
+        mobileSubPhoneView.elevate(4)
         mobileStack.isUserInteractionEnabled = true
         //passwordTF.isSecureTextEntry = true
         topView.setSpecificCornersForBottom(cornerRadius: 25)
       //  self.phoneNumberFld.keyboardType = .phonePad
-        self.setPagetype(pageType: .mobienumber)
+        self.setPagetype(pageType: .signup)
     }
     
     @IBAction func didTapLoginBtn(_ sender: Any) {
@@ -250,7 +357,7 @@ class LoginVIew: BaseView {
     }
     
     func callOTPPage() {
-        if self.pageType == .mobienumber {
+        if self.pageType == .phone {
             guard let number = self.phoneNumberFld.text , !number.isEmpty else {return}
             let validNumStr = Shared.instance.selectedPhoneCode == "" ? "+91\(number)" :  "\(Shared.instance.selectedPhoneCode)\(number)"
             AuthManager.shared.authenticatePhoneNumber(number: validNumStr) { isValid in
@@ -350,6 +457,20 @@ class LoginVIew: BaseView {
                     checkButtonStatus(false)
                 }
                 
+            } else if textField == self.signUpEmailTF {
+                guard let email = textField.text, !email.isEmpty else {
+                    
+                    return}
+                if email.isValidMail {
+                    self.isSignupEmailVerified = true
+                    passwordValidationLbl.isHidden = true
+                    checkButtonStatus(false)
+                } else {
+                    self.isSignupEmailVerified = false
+                    passwordValidationLbl.isHidden = false
+                    checkButtonStatus(false)
+                }
+                
             }
             
         }
@@ -374,8 +495,16 @@ extension LoginVIew: UITextFieldDelegate {
                 self.signUpbtn.isUserInteractionEnabled = false
                 
             }
-        } else if self.pageType == .mobienumber {
+        } else if self.pageType == .phone {
             if isMobileVerifed {
+                self.signUpbtn.alpha = 1
+                self.signUpbtn.isUserInteractionEnabled = true
+            } else {
+                self.signUpbtn.alpha = 0.5
+                self.signUpbtn.isUserInteractionEnabled = false
+            }
+        } else  if self.pageType == .email {
+            if isSignupEmailVerified {
                 self.signUpbtn.alpha = 1
                 self.signUpbtn.isUserInteractionEnabled = true
             } else {

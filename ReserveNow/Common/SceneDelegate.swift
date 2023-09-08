@@ -72,8 +72,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let splashVc = self.generateMakentLoginFlowChange(tabIcon: 0)
        // splashVc.settabbar()
-        let navControler = UINavigationController(rootViewController: splashVc)
-        self.window?.rootViewController?.presentInFullScreen(navControler, animated: true, completion: nil)
+    //    let navControler = UINavigationController(rootViewController: splashVc)
+       // self.window?.rootViewController?.presentInFullScreen(navControler, animated: true, completion: nil)
+        self.window?.rootViewController = splashVc
     }
     
     func generateMakentHostTabbarController() -> UITabBarController
