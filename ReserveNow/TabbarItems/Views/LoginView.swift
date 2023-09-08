@@ -50,6 +50,9 @@ class LoginVIew: BaseView {
     
     @IBOutlet weak var topView: UIView!
     
+    @IBOutlet weak var mobileSubEmailView: UIView!
+    
+    @IBOutlet weak var mobileSubPhoneView: UIView!
     @IBOutlet weak var mobileStack: UIStackView!
     @IBOutlet weak var credentialsStack: UIStackView!
     @IBOutlet weak var passwordValidationLbl: UILabel!
@@ -214,7 +217,8 @@ class LoginVIew: BaseView {
         signUpbtn.elevate(4)
         signUpbtn.layer.cornerRadius = signUpbtn.height / 2
         credentialsStack.elevate(4)
-        mobileStack.elevate(4)
+        mobileSubEmailView.elevate(4)
+        mobileSubPhoneView.elevate(4)
         mobileStack.isUserInteractionEnabled = true
         //passwordTF.isSecureTextEntry = true
         topView.setSpecificCornersForBottom(cornerRadius: 25)

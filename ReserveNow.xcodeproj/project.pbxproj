@@ -261,6 +261,7 @@
 		F2F116462A77C46700531FF7 /* NotificationEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F116452A77C46700531FF7 /* NotificationEnum.swift */; };
 		F2F116482A77E98100531FF7 /* SpalashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F116472A77E98100531FF7 /* SpalashVC.swift */; };
 		F2F1164A2A77E9F000531FF7 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F116492A77E9F000531FF7 /* SplashView.swift */; };
+		F2F23F272AAAE74700B08BA0 /* PopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F23F262AAAE74700B08BA0 /* PopoverVC.swift */; };
 		F2FB9CF22A80BB0B00404662 /* BookingDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB9CF12A80BB0B00404662 /* BookingDetailsVC.swift */; };
 		F2FB9CF42A80BB2600404662 /* BookingDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB9CF32A80BB2600404662 /* BookingDetailsView.swift */; };
 		F2FB9CF62A80C16500404662 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB9CF52A80C16500404662 /* SpinnerView.swift */; };
@@ -526,6 +527,7 @@
 		F2F116452A77C46700531FF7 /* NotificationEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationEnum.swift; sourceTree = "<group>"; };
 		F2F116472A77E98100531FF7 /* SpalashVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpalashVC.swift; sourceTree = "<group>"; };
 		F2F116492A77E9F000531FF7 /* SplashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		F2F23F262AAAE74700B08BA0 /* PopoverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverVC.swift; sourceTree = "<group>"; };
 		F2FB9CF12A80BB0B00404662 /* BookingDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailsVC.swift; sourceTree = "<group>"; };
 		F2FB9CF32A80BB2600404662 /* BookingDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailsView.swift; sourceTree = "<group>"; };
 		F2FB9CF52A80C16500404662 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
@@ -1006,6 +1008,7 @@
 		F2EC620E2A7B815C00C1D84D /* CommonAlert */ = {
 			isa = PBXGroup;
 			children = (
+				F2F23F252AAAE71D00B08BA0 /* ppopover */,
 				F2EC620F2A7B818200C1D84D /* DeletePHIAlertview.swift */,
 				F2EC62102A7B818200C1D84D /* DeletePHIAlertview.xib */,
 			);
@@ -1042,6 +1045,14 @@
 				F2F025282AA8A69800951621 /* userInfoTVC.xib */,
 			);
 			path = userInfoView;
+			sourceTree = "<group>";
+		};
+		F2F23F252AAAE71D00B08BA0 /* ppopover */ = {
+			isa = PBXGroup;
+			children = (
+				F2F23F262AAAE74700B08BA0 /* PopoverVC.swift */,
+			);
+			path = ppopover;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1404,6 +1415,7 @@
 				F241A70229EE58F10058C6DF /* ViewUX.swift in Sources */,
 				F2EC620D2A7B7FFB00C1D84D /* LoginView.swift in Sources */,
 				F2FB9CF62A80C16500404662 /* SpinnerView.swift in Sources */,
+				F2F23F272AAAE74700B08BA0 /* PopoverVC.swift in Sources */,
 				F201D1802A6AC3AA009D848A /* ConnectionHandler.swift in Sources */,
 				F21ECA3B2A78DE2D00B8ED40 /* Tamil.swift in Sources */,
 				F2EC62072A7B7FC400C1D84D /* WelcomeVC.swift in Sources */,

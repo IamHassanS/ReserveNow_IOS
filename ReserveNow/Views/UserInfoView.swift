@@ -16,6 +16,7 @@ extension UserInfoView:  UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: userInfoTVC = tableView.dequeueReusableCell(withIdentifier: "userInfoTVC", for: indexPath) as! userInfoTVC
       //  cell.iconImg.image = UIImage(named: "gearshape.fill")
+  
         
         return cell
     }
@@ -32,8 +33,9 @@ extension UserInfoView:  UITableViewDelegate, UITableViewDataSource {
 class UserInfoView: BaseView, UIGestureRecognizerDelegate {
     @IBOutlet weak var navBack: UIButton!
    
+    @IBOutlet weak var topNavView: UIView!
+    @IBOutlet weak var optView: UIView!
     @IBOutlet weak var optBtn: UIButton!
-    
     @IBOutlet weak var lblUserInfo: UILabel!
     @IBOutlet weak var contentTable: UITableView!
     @IBOutlet weak var tableHeaderView: UIView!
@@ -44,16 +46,29 @@ class UserInfoView: BaseView, UIGestureRecognizerDelegate {
     override func didLoad(baseVC: BaseViewController) {
         super.didLoad(baseVC: baseVC)
         self.userInfoVC = baseVC as? UserInfoVC
+        self.userInfoVC.navigationController?.setNavigationBarHidden(true, animated:true)
         initActions()
         setupUI()
         tapAction()
     }
     
     func initActions() {
+        self.addTap {
+ 
+        }
+        optBtn.addTarget(self, action: #selector(didTapOptBtn), for: .touchUpInside)
+
+    }
+
+    @objc func didTapOptBtn() {
+        print("Tapped -->")
+        let vc = PopOverVC.initWithStory(preferredFrame: CGSize(width: self.width / 3, height: self.height / 5), on: self.optBtn)
+        self.userInfoVC.navigationController?.present(vc, animated: true)
         
     }
     
     func setupUI() {
+        
         contentTable.register(UINib(nibName: "userInfoTVC", bundle: nil), forCellReuseIdentifier: "userInfoTVC")
         navBack.setTitle("", for: .normal)
         optBtn.setTitle("", for: .normal)
