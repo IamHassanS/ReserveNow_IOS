@@ -130,10 +130,10 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
         //HomeVc.initWithStory()
       
         homeNavigation = UINavigationController(rootViewController: homeTabVC)
-        let controller1 = UIViewController()
+        let controller1 = GetUserInfoVC.initWithStory(.phone)
         
         controller1.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 1)
-        let nav1 = UINavigationController(rootViewController: homeTabVC)
+        let nav1 = UINavigationController(rootViewController: controller1)
         
         let icon1 = UITabBarItem(title: lang1.expl_Title.capitalized, image: UIImage(named: "ic_search"), selectedImage: UIImage(named: "ic_search"))
         nav1.tabBarItem = icon1

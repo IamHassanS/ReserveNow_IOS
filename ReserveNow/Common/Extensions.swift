@@ -259,6 +259,12 @@ extension String {
         return phonePred.evaluate(with: self)
     }
     
+    func isValiduserName(Input:String) -> Bool {
+        let RegEx = "\\w{1,18}"
+        let Test = NSPredicate(format:"SELF MATCHES %@", RegEx)
+        return Test.evaluate(with: Input)
+    }
+    
 }
 
 public extension Bundle {

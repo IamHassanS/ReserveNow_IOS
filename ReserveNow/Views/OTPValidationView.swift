@@ -97,7 +97,8 @@ class OTPValidationView: BaseView  {
         
         AuthManager.shared.validateOTP(OTPcode:  self.otpView.otp!) { isValid in
             if isValid {
-                let infoVc = UserInfoVC.initWithStory()
+                let infoVc =  GetUserInfoVC.initWithStory(.phone)
+                //UserInfoVC.initWithStory()
                 self.otpValidationVC.navigationController?.pushViewController(infoVc, animated: true)
             } else {
                 self.otpView.invalidOTP()
