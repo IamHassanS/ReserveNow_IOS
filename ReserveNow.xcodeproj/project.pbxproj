@@ -98,6 +98,10 @@
 		F2F116482A77E98100531FF7 /* SpalashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F116472A77E98100531FF7 /* SpalashVC.swift */; };
 		F2F1164A2A77E9F000531FF7 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F116492A77E9F000531FF7 /* SplashView.swift */; };
 		F2F23F272AAAE74700B08BA0 /* PopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F23F262AAAE74700B08BA0 /* PopoverVC.swift */; };
+		F2F3F5FE2AB1CA4600C4E78C /* SigninHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F3F5FC2AB1CA4600C4E78C /* SigninHelpers.swift */; };
+		F2F3F5FF2AB1CA4600C4E78C /* SocialLoginHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F3F5FD2AB1CA4600C4E78C /* SocialLoginHandler.swift */; };
+		F2F3F6012AB1DCB000C4E78C /* GooglePlistKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F3F6002AB1DCB000C4E78C /* GooglePlistKeys.swift */; };
+		F2F3F6032AB1DF6600C4E78C /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F3F6022AB1DF6600C4E78C /* KeychainItem.swift */; };
 		F2FB9CF22A80BB0B00404662 /* BookingDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB9CF12A80BB0B00404662 /* BookingDetailsVC.swift */; };
 		F2FB9CF42A80BB2600404662 /* BookingDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB9CF32A80BB2600404662 /* BookingDetailsView.swift */; };
 		F2FB9CF62A80C16500404662 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB9CF52A80C16500404662 /* SpinnerView.swift */; };
@@ -200,6 +204,10 @@
 		F2F116472A77E98100531FF7 /* SpalashVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpalashVC.swift; sourceTree = "<group>"; };
 		F2F116492A77E9F000531FF7 /* SplashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		F2F23F262AAAE74700B08BA0 /* PopoverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverVC.swift; sourceTree = "<group>"; };
+		F2F3F5FC2AB1CA4600C4E78C /* SigninHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninHelpers.swift; sourceTree = "<group>"; };
+		F2F3F5FD2AB1CA4600C4E78C /* SocialLoginHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialLoginHandler.swift; sourceTree = "<group>"; };
+		F2F3F6002AB1DCB000C4E78C /* GooglePlistKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlistKeys.swift; sourceTree = "<group>"; };
+		F2F3F6022AB1DF6600C4E78C /* KeychainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
 		F2FB9CF12A80BB0B00404662 /* BookingDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailsVC.swift; sourceTree = "<group>"; };
 		F2FB9CF32A80BB2600404662 /* BookingDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailsView.swift; sourceTree = "<group>"; };
 		F2FB9CF52A80C16500404662 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
@@ -352,6 +360,7 @@
 		F241A6F729EE57550058C6DF /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F2F3F5FB2AB1C9CB00C4E78C /* SocialLoginHandler */,
 				F2EC620E2A7B815C00C1D84D /* CommonAlert */,
 				F21ECA3F2A791ACA00B8ED40 /* Loaders */,
 				F21ECA312A78DD1800B8ED40 /* Language */,
@@ -555,6 +564,17 @@
 			path = ppopover;
 			sourceTree = "<group>";
 		};
+		F2F3F5FB2AB1C9CB00C4E78C /* SocialLoginHandler */ = {
+			isa = PBXGroup;
+			children = (
+				F2F3F5FC2AB1CA4600C4E78C /* SigninHelpers.swift */,
+				F2F3F5FD2AB1CA4600C4E78C /* SocialLoginHandler.swift */,
+				F2F3F6002AB1DCB000C4E78C /* GooglePlistKeys.swift */,
+				F2F3F6022AB1DF6600C4E78C /* KeychainItem.swift */,
+			);
+			path = SocialLoginHandler;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -700,6 +720,7 @@
 				F2FB9CF42A80BB2600404662 /* BookingDetailsView.swift in Sources */,
 				F201D18E2A6AC5ED009D848A /* PlistKeys.swift in Sources */,
 				F2F116482A77E98100531FF7 /* SpalashVC.swift in Sources */,
+				F2F3F5FE2AB1CA4600C4E78C /* SigninHelpers.swift in Sources */,
 				F21ECA332A78DD9800B8ED40 /* Language.swift in Sources */,
 				F2869DB32A0E7F32003D6E6C /* LocationManager.swift in Sources */,
 				F2FB9CF22A80BB0B00404662 /* BookingDetailsVC.swift in Sources */,
@@ -723,7 +744,10 @@
 				F2F1164A2A77E9F000531FF7 /* SplashView.swift in Sources */,
 				F201D1842A6AC40F009D848A /* CodeHelpers.swift in Sources */,
 				F21ECA3E2A78E34400B8ED40 /* ExploreVC.swift in Sources */,
+				F2F3F6012AB1DCB000C4E78C /* GooglePlistKeys.swift in Sources */,
+				F2F3F5FF2AB1CA4600C4E78C /* SocialLoginHandler.swift in Sources */,
 				F21D25462A9F5D5900F4657B /* MenuVC.swift in Sources */,
+				F2F3F6032AB1DF6600C4E78C /* KeychainItem.swift in Sources */,
 				F21ECA492A79230100B8ED40 /* SharedPreferances.swift in Sources */,
 				F2D7085E29EFC77B0034ED71 /* TimeSelectorView.swift in Sources */,
 				F21ECA2E2A78D38000B8ED40 /* MainTabBarVC.swift in Sources */,

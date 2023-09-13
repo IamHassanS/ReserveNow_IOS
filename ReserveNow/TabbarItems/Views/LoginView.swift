@@ -8,6 +8,9 @@
 import Foundation
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
+import FBSDKLoginKit
+import AuthenticationServices
 
 extension LoginVIew : CountryListVCDelegate {
     func countrySelected(_ selectedcode: String) {
@@ -134,6 +137,9 @@ class LoginVIew: BaseView {
     var isHideViewModified = Bool()
     var pageType : pageType = .signup
     var userState = Bool()
+    var email = ""
+    let facebookReadPermissions = ["public_profile",
+                                   "email"]
     override func didLoad(baseVC: BaseViewController) {
         super.didLoad(baseVC: baseVC)
         self.loginVc = baseVC as? LoginVC
@@ -517,5 +523,119 @@ extension LoginVIew: UITextFieldDelegate {
         
     }
     
+
+}
+
+extension LoginVIew {
+    
+    //MARK: Google Login
+    func doGoogleLogin() {
+        guard  let googlePlist = PlistReader<GooglePlistKeys>(),
+               let clinetId : String = googlePlist.value(for: .clientId) else {
+                   print("Google Client ID Missing")
+                   return }
+        SocialLoginsHandler.shared.doGoogleLogin(VC: self.loginVc,
+                                                 clientID: clinetId) { result in
+            switch result {
+            case .success(let user):
+                print("\(user.accessToken)")
+                if let userID = user.userID,
+                   let profile = user.profile {
+
+                    let givenName = profile.givenName
+                    let familyName = profile.familyName
+                    let email = profile.email
+                    var dicts = [String: Any]()
+                    dicts["email"] = email
+                    self.email = email
+                    //self.loginVC.auth_type = "google"
+                   // self.loginVC.auth_id = user.userID ?? ""
+                    dicts["name"] = givenName! + familyName!
+                    dicts["provider"] =  "google"
+                    dicts["auth_type"] = "google"
+                    dicts["auth_id"] = user.userID
+                    if SocialLoginsHandler.shared.doGoogleHasProfile() {
+                        let dimension = round(120 * UIScreen.main.scale)
+                        let imageURL = profile.imageURL(withDimension: UInt(dimension))
+                        dicts["avatar_original"] = imageURL?.absoluteString
+                    }
+//                    self.loginVC.checkSocialMediaId(userData: dicts,
+//                                                           signUpType: .google(id: userID))
+                
+                } else {
+                    print("Data Missing")
+                }
+            case .failure(let error):
+                print(error)
+              //  AppDelegate.shared.createToastMessage(error.localizedDescription)
+            }
+        }
+    }
+
+    //MARK: Apple Login
+    func handleLogInWithAppleIDButtonPress() {
+        guard #available(iOS 13.0, *) else{return}
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self.loginVc
+        authorizationController.presentationContextProvider = self.loginVc
+        authorizationController.performRequests()
+    }
+
+
+    //MARK: Facebook Login
+    func doFacebookLogin() {
+        SocialLoginsHandler.shared.doFacebookLogin(permissions: self.facebookReadPermissions,
+                                                   ViewController: self.loginVc) { result in
+            switch result {
+            case .success(let fbResult):
+                if fbResult.doFacebookImagePermissionCheck() {
+                    let width = 1024
+                    let height = width
+                    SocialLoginsHandler.shared.doGetFacebookUserDetails(graphPath: "me",
+                                                                        parameters: ["fields": "id, name, first_name, last_name, birthday, email, picture.width(\(width)).height(\(height))"]) { response in
+                        switch response {
+                        case .success(let facebookResult):
+                            debug(print: "facebookResult : \(facebookResult.userDetails)")
+                            let userdetails = facebookResult.userDetails
+                            let email = userdetails.string("email")
+                            let firstName = userdetails.string("first_name")
+                            let lastName = userdetails.string("last_name")
+                            let fbID = userdetails.int("id")
+                            let fbImage = ((userdetails["picture"]as? JSON)?["data"] as? JSON)?.string("url")
+//                            Constants().STOREVALUE(value: facebookResult.accessToken,
+//                                                   keyname: CEO_FacebookAccessToken)
+//                            // Store Details
+//                            Constants().STOREVALUE(value: firstName,
+//                                                   keyname: USER_FIRST_NAME)
+//                            Constants().STOREVALUE(value: lastName,
+//                                                   keyname: USER_LAST_NAME)
+//                            Constants().STOREVALUE(value: fbID.description,
+//                                                   keyname: USER_FB_ID)
+//                            Constants().STOREVALUE(value: fbImage ?? "",
+//                                                   keyname: USER_IMAGE_THUMB)
+                            let dict : [String : Any] = ["email" : email,
+                                                         "name" : firstName + lastName,
+                                                         "provider" : "facebook",
+                                                         "avatar_original" : fbImage ?? "",
+                                                         "auth_type": "facebook",
+                                                    ]
+//                            self.loginVc.checkSocialMediaId(userData: dict,
+//                                                                   signUpType: .facebook(id: fbID.description))
+                            SocialLoginsHandler.shared.doFacebookLogout()
+                        case .failure(let error):
+                            SocialLoginsHandler.shared.doFacebookLogout()
+                            self.loginVc.sceneDelegate?.createToastMessage(error.localizedDescription, isFromWishList: true)
+                        }
+                    }
+                }
+            case .failure(let error):
+                SocialLoginsHandler.shared.doFacebookLogout()
+                self.loginVc.sceneDelegate?.createToastMessage(error.localizedDescription, isFromWishList: true)
+            }
+        }
+    }
 
 }

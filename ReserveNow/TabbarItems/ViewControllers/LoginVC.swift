@@ -7,6 +7,7 @@
 
 import UIKit
 import MobileCoreServices
+import AuthenticationServices
 
 class LoginVC: BaseViewController {
     @IBOutlet var loginView: LoginVIew!
@@ -87,3 +88,67 @@ class LoginVC: BaseViewController {
         
     }
 
+extension LoginVC : ASAuthorizationControllerDelegate {
+    @available(iOS 13.0, *)
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+    }
+    
+    @available(iOS 13.0, *)
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            // Create an account in your system.
+            // For the purpose of this demo app, store the these details in the keychain.
+            self.handleAppleData(forSuccess: appleIDCredential)
+            //Show Home View Controller
+        } else if let passwordCredential = authorization.credential as? ASPasswordCredential {
+            // Sign in using an existing iCloud Keychain credential.
+            let username = passwordCredential.user
+            let password = passwordCredential.password
+            print(username,password,
+                  separator: "|",
+                  terminator: ".")
+            // For the purpose of this demo app, show the password credential as an alert.
+        }
+    }
+    
+    @available(iOS 13.0, *)
+    func handleAppleData(forSuccess appleIDCredential : ASAuthorizationAppleIDCredential){
+        let email : String?
+        if let appleEmail = appleIDCredential.email {
+            email = appleEmail
+            KeychainItem.currentUserEmail = appleEmail
+        }else{
+            email = KeychainItem.currentUserEmail
+        }
+        var userData = [String : Any]()
+        if let fullName = appleIDCredential.fullName,
+           let givenName = fullName.givenName,
+           let familyName = fullName.familyName{
+            userData["first_name"] = givenName
+            userData["last_name"] = familyName
+            KeychainItem.currentUserFirstName = givenName
+            KeychainItem.currentUserLastName = familyName
+        }else{
+            userData["first_name"] = KeychainItem.currentUserFirstName
+            userData["last_name"] = KeychainItem.currentUserLastName
+        }
+        guard let validEmai = email else {
+            self.sceneDelegate?.createToastMessage("Login error")
+            return
+        }
+        userData["email"] = validEmai
+//        self.checkSocialMediaId(userData: userData,
+//                                signUpType: .apple(id: appleIDCredential.user,
+//                                                   email: validEmai))
+        if let identityTokenData = appleIDCredential.identityToken,
+           let identityTokenString = String(data: identityTokenData, encoding: .utf8) {
+            debug(print: "Identity Token \(identityTokenString)")
+        }
+    }
+}
+extension LoginVC : ASAuthorizationControllerPresentationContextProviding {
+    @available(iOS 13.0, *)
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
+    }
+}
