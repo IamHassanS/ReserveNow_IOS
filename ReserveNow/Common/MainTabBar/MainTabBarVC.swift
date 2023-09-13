@@ -14,12 +14,12 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
     
     private let indicatorView: UIView = {
           let view = UIView()
-          view.backgroundColor = .black
+          view.backgroundColor = .GuestThemeColor
           return view
       }()
     
     private lazy var indicatorWidth: Double = tabBar.bounds.width / CGFloat(tabBar.items?.count ?? 1)
-    private var indicatorColor: UIColor = .black
+    private var indicatorColor: UIColor = .appGuestThemeColor
     
     var menuButton = UIButton()
     
@@ -77,7 +77,7 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
 
         menuButton.backgroundColor = .clear
        
-        menuButton.setImage(UIImage(named: "TabIcon"), for: .normal)
+        menuButton.setImage(UIImage(named: ""), for: .normal)
      
         menuButton.borderWidth = 0
 
@@ -119,7 +119,7 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
         
         //let storyboard = UIStoryboard(name: "TabBarItems", bundle: nil)
         let lang1 = Language.getCurrentLanguage().getLocalizedInstance()
-        UITabBar.appearance().tintColor =  UIColor.appHostThemeColor
+        UITabBar.appearance().tintColor =  UIColor.GuestThemeColor
         UITabBar.appearance().barTintColor = UIColor.white
         //SharedVariables.sharedInstance.homeType = HomeType.all
         
@@ -136,7 +136,7 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
         controller1.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 1)
         let nav1 = UINavigationController(rootViewController: controller1)
         
-        let icon1 = UITabBarItem(title: lang1.expl_Title.capitalized, image: UIImage(named: "ic_search"), selectedImage: UIImage(named: "ic_search"))
+        let icon1 = UITabBarItem(title: lang1.expl_Title.capitalized, image: UIImage(systemName: "magnifyingglass.circle"), selectedImage: UIImage(systemName: "magnifyingglass.circle.fill"))
         nav1.tabBarItem = icon1
         
         //MARK: - WishList
@@ -149,7 +149,7 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
         
         let nav2 = UINavigationController(rootViewController: wishlistVC)
         
-        let icon2 = UITabBarItem(title: "Saved", image: UIImage(named: "ic_heart"), selectedImage: UIImage(named: "ic_heart"))
+        let icon2 = UITabBarItem(title: "Saved", image: UIImage(systemName: "heart"), selectedImage: UIImage(systemName: "heart.fill"))
         nav2.tabBarItem = icon2
         
         //MARK: - Trips
@@ -162,7 +162,7 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
         
         let nav3 = UINavigationController(rootViewController: tripsVC)
         
-        let icon3 = UITabBarItem(title: "", image: UIImage(named: "ic_trips"), selectedImage: UIImage(named: "ic_trips"))
+        let icon3 = UITabBarItem(title: "", image: UIImage(systemName: ""), selectedImage: UIImage(systemName: ""))
         nav3.tabBarItem = icon3
         
         //MARK: - Inbox
@@ -175,7 +175,7 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
         
         let nav4 = UINavigationController(rootViewController: inboxVC)
         
-        let icon4 = UITabBarItem(title: "Inbox", image: UIImage(named: "ic_inbox"), selectedImage: UIImage(named: "ic_inbox"))
+        let icon4 = UITabBarItem(title: "Inbox", image: UIImage(systemName: "tray"), selectedImage: UIImage(systemName: "tray.fill"))
         nav4.tabBarItem = icon4
         
         //MARK: Profile or Login
@@ -203,7 +203,7 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
     
         let nav5 = UINavigationController(rootViewController: FirstVC)
         
-        let icon5 = UITabBarItem(title: ProfileTittle, image: UIImage(named: "ic_profile"), selectedImage: UIImage(named: "ic_profile"))
+        let icon5 = UITabBarItem(title: ProfileTittle, image: UIImage(systemName: "person.circle"), selectedImage: UIImage(systemName: "person.circle.fill"))
         nav5.tabBarItem = icon5
         
         nav1.isNavigationBarHidden = true

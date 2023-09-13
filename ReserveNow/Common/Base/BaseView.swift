@@ -11,7 +11,7 @@ class BaseView: UIView{
     func didLoad(baseVC : BaseViewController){
         
 
-        self.backBtn?.setImage(UIImage(named: "back"), for: .normal)
+        self.backBtn?.setImage(UIImage(named: ""), for: .normal)
         self.backBtn?.setTitle(nil, for: .normal)
         self.baseVc = baseVC
         self.backgroundColor = .white

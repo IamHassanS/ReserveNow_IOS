@@ -736,14 +736,14 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vff-xS-tiK">
                                                 <rect key="frame" x="0.0" y="70.333333333333371" width="334.33333333333331" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z18-nL-NoV">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z18-nL-NoV">
                                                         <rect key="frame" x="159" y="4.6666666666666288" width="16.666666666666657" height="20.333333333333332"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                         <color key="textColor" red="0.14117647059999999" green="0.71372549019999998" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="Z18-nL-NoV" firstAttribute="centerY" secondItem="Vff-xS-tiK" secondAttribute="centerY" id="aBO-6x-A32"/>
                                                     <constraint firstItem="Z18-nL-NoV" firstAttribute="centerX" secondItem="Vff-xS-tiK" secondAttribute="centerX" id="yit-7W-5c2"/>
@@ -813,9 +813,10 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="restart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xRg-x5-IZT">
                                                 <rect key="frame" x="0.0" y="2" width="42.666666666666664" height="38.666666666666671"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="0.14117647059999999" green="0.71372549019999998" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="xRg-x5-IZT" secondAttribute="trailing" id="EOE-rF-ma1"/>

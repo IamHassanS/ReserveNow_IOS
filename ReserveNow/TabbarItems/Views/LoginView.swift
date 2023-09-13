@@ -221,50 +221,41 @@ class LoginVIew: BaseView {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             //let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
            
-            var frame = self.credentialsStack.frame
-            frame.origin.y -= keyboardSize.height / 2
-            //keyboardSize.height / 2
- if emailTF.isFirstResponder && !isShowViewModified {
-     isShowViewModified = true
-     UIView.transition(with: credentialsStack, duration: 0.33,
-       options: [.curveEaseOut],
-                       //, .transitionFlipFromTop
-       animations: {
-         self.credentialsStack.frame = frame
-         
-         self.contentHolderVIew.backgroundColor = .black.withAlphaComponent(0.5)
-         self.credentialsStack.alpha = 1
-         
-       },
-       completion: nil
-     )
-     print("")
- } else if passwordTF.isFirstResponder && !isShowViewModified  {
-     isShowViewModified = true
+//            var frame = self.credentialsStack.frame
+//            frame.origin.y -= keyboardSize.height / 2
+//            //keyboardSize.height / 2
+// if emailTF.isFirstResponder && !isShowViewModified {
+//     isShowViewModified = true
+//     UIView.transition(with: credentialsStack, duration: 0.33,
+//       options: [.curveEaseOut],
+//                       //, .transitionFlipFromTop
+//       animations: {
+//         self.credentialsStack.frame = frame
+//
+//         self.contentHolderVIew.backgroundColor = .black.withAlphaComponent(0.5)
+//         self.credentialsStack.alpha = 1
+//
+//       },
+//       completion: nil
+//     )
+//     print("")
+// } else if passwordTF.isFirstResponder && !isShowViewModified  {
+//     isShowViewModified = true
      UIView.transition(with: credentialsStack, duration: 0.33,
        options: [.curveEaseOut],
                  //, .transitionFlipFromTop]
        animations: {
-         self.credentialsStack.frame = frame
+         if self.frame.origin.y == 0 {
+               self.frame.origin.y -= keyboardSize.height
+           }
          self.contentHolderVIew.backgroundColor = .black.withAlphaComponent(0.5)
          self.credentialsStack.alpha = 1
        },
        completion: nil
      )
-     print("")
- }
-            
-//            else if phoneNumberFld.isFirstResponder && !isShowViewModified {
-//     isShowViewModified = true
-//     UIView.transition(with: mobileStack, duration: 0.33,
-//       options: [.curveEaseOut, .transitionFlipFromTop],
-//       animations: {
-//         self.mobileStack.frame = frame
-//       },
-//       completion: nil
-//     )
-//
+//     print("")
 // }
+          
         
         }
     }
@@ -272,45 +263,37 @@ class LoginVIew: BaseView {
     @objc
     func keyboardWillHide(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            var frame = self.credentialsStack.frame
-            frame.origin.y += keyboardSize.height / 2
- if emailTF.isFirstResponder && !isHideViewModified {
-     isHideViewModified = true
-     UIView.transition(with: credentialsStack, duration: 0.33,
-       options: [.curveEaseOut],
-                       //, .transitionFlipFromBottom
-       animations: {
-         self.credentialsStack.frame = frame
-         self.contentHolderVIew.backgroundColor = .white
-       },
-       completion: nil
-     )
-    
-     print("")
- } else if passwordTF.isFirstResponder && !isHideViewModified  {
-     isHideViewModified = true
+//            var frame = self.credentialsStack.frame
+//            frame.origin.y += keyboardSize.height / 2
+// if emailTF.isFirstResponder && !isHideViewModified {
+//     isHideViewModified = true
+//     UIView.transition(with: credentialsStack, duration: 0.33,
+//       options: [.curveEaseOut],
+//                       //, .transitionFlipFromBottom
+//       animations: {
+//         self.credentialsStack.frame = frame
+//         self.contentHolderVIew.backgroundColor = .white
+//       },
+//       completion: nil
+//     )
+//
+//     print("")
+// } else if passwordTF.isFirstResponder && !isHideViewModified  {
+//     isHideViewModified = true
      UIView.transition(with: credentialsStack, duration: 0.33,
        options: [.curveEaseOut],
        animations: {
          //, .transitionFlipFromBottom
-         self.credentialsStack.frame = frame
+         if self.frame.origin.y != 0 {
+                   self.frame.origin.y = 0
+               }
          self.contentHolderVIew.backgroundColor = .white
        },
        completion: nil
      )
-     print("")
- }
-     //else if phoneNumberFld.isFirstResponder  && !isHideViewModified  {
-//     isHideViewModified = true
-//     UIView.transition(with: mobileStack, duration: 0.33,
-//       options: [.curveEaseOut, .transitionFlipFromBottom],
-//       animations: {
-//         self.mobileStack.frame = frame
-//       },
-//       completion: nil
-//     )
 //     print("")
 // }
+    
         }
     }
     
