@@ -7,6 +7,26 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
+
+extension UserInfoView: PopOverVCDelegate {
+    func didTapRow(_ index: Int) {
+        if index == 2 {
+          
+            do {
+                try FirebaseAuth.Auth.auth().signOut()
+                LocalStorage.shared.setBool(LocalStorage.LocalValue.isUserLoggedin, value: false)
+                self.userInfoVC.sceneDelegate?.generateMakentLoginFlowChange(tabIcon: 4)
+            } catch {
+                print("Error")
+            }
+            
+        }
+    }
+    
+    
+}
+
 
 extension UserInfoView:  UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,6 +83,7 @@ class UserInfoView: BaseView, UIGestureRecognizerDelegate {
     @objc func didTapOptBtn() {
         print("Tapped -->")
         let vc = PopOverVC.initWithStory(preferredFrame: CGSize(width: self.width / 3, height: self.height / 5), on: self.optBtn)
+        vc.delegate = self
         self.userInfoVC.navigationController?.present(vc, animated: true)
         
     }

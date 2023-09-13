@@ -28,7 +28,7 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
         tabBar.addSubview(indicatorView)
       //  self.menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: tabBar.bounds.height / 1.7, height: tabBar.bounds.height / 1.7))
         let layer = CAShapeLayer()
-        layer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: self.tabBar.bounds.minY, width: self.tabBar.bounds.width, height: self.tabBar.bounds.height), cornerRadius: 10).cgPath
+        layer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: self.tabBar.bounds.minY, width: self.tabBar.bounds.width, height: self.tabBar.bounds.height), cornerRadius: 0).cgPath
         layer.shadowColor = UIColor.lightGray.cgColor
         layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
         layer.shadowRadius = 25.0
@@ -130,7 +130,8 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
         //HomeVc.initWithStory()
       
         homeNavigation = UINavigationController(rootViewController: homeTabVC)
-        let controller1 = GetUserInfoVC.initWithStory(.phone)
+        let controller1 = homeTabVC
+        //GetUserInfoVC.initWithStory(.email)
         
         controller1.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 1)
         let nav1 = UINavigationController(rootViewController: controller1)
@@ -181,33 +182,20 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
         
         let controller5 = UIViewController()
         controller5.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 5)
-        
-        
-//        let token = UserDefaults.standard.string(forKey: "Token2")
-        
-        let token = Constants().GETVALUE(keyname: "")
+
+        let state =  LocalStorage.shared.getBool(key: LocalStorage.LocalValue.isUserLoggedin)
         var FirstVC = UIViewController()
-        var ProfileTittle = "Profile"
+        var ProfileTittle = ""
         
-        if token == "" {
+        if !state {
             FirstVC = LoginVC.initWithStory()
-            //UserInfoVC.initWithStory()
-     
-            //LoginVC.initWithStory()
-//            let loginVC = LoginVc.initWithStory()
-//            loginVC.hidesBottomBarWhenPushed = true
-//            ProfileTittle = lang1.login_Title.capitalized
-//            FirstVC = loginVC
-            let inboxVC = UIViewController()
-            inboxVC.view.backgroundColor = .systemBackground
+            FirstVC.hidesBottomBarWhenPushed = true
+            ProfileTittle = "Log in"
         }else {
-            let inboxVC = UIViewController()
-            inboxVC.view.backgroundColor = .systemBackground
-//            let accountStroyBoard = UIStoryboard(name: "ProfileMainStoryboard", bundle: nil)
-//            let loginVC = accountStroyBoard.instantiateViewController(withIdentifier: "ProfileMainVC") as! ProfileMainVC
-//             loginVC.ProfileVM = ProfileViewModel()
-//            ProfileTittle = lang1.profi_Title.capitalized
-//            FirstVC = loginVC
+            FirstVC = UserInfoVC.initWithStory()
+            FirstVC.hidesBottomBarWhenPushed = false
+            ProfileTittle = "Profile"
+
         }
         
                

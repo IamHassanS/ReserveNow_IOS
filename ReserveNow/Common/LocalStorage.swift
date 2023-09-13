@@ -14,6 +14,7 @@ class LocalStorage {
     case user_longitude
         case deviceToken
         case fcmToken
+        case isUserLoggedin
     }
     
     func setSting(_ key:LocalValue,text:String = "" ){
@@ -22,6 +23,19 @@ class LocalStorage {
     
     func setDouble(_ key :LocalValue,value:Double = 0.0) {
         UserDefaults.standard.set(value, forKey: key.rawValue)
+    }
+    
+    func setBool(_ key :LocalValue,value:Bool = false) {
+        UserDefaults.standard.set(value, forKey: key.rawValue)
+    }
+    
+    func getBool(key:LocalValue)->Bool{
+        if UserDefaults.standard.object(forKey: key.rawValue) == nil {
+            self.setBool(key)
+        }
+     let result = UserDefaults.standard.bool(forKey: key.rawValue)
+            return result
+        
     }
     
     func getString(key:LocalValue)->String{

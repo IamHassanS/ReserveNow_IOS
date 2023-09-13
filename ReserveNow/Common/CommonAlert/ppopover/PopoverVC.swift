@@ -8,34 +8,16 @@
 
 import UIKit
 
-class InfoTVC: UITableViewCell {
-    
-    @IBOutlet weak var titleLbl: UILabel!
-    
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-    }
+protocol PopOverVCDelegate: AnyObject {
+    func didTapRow(_ index: Int)
 }
 
-extension PopOverVC: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: InfoTVC = tableView.dequeueReusableCell(withIdentifier: "InfoTVC", for: indexPath) as! InfoTVC
-        cell.titleLbl.text = strArr[indexPath.row]
-        return cell
-    }
-    
-    
-}
 
 class PopOverVC: UIViewController {
     
     
     @IBOutlet weak var contentTable: UITableView!
-    
+    var delegate: PopOverVCDelegate?
     let strArr = ["Edit", "Save", "Logout"]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,5 +63,37 @@ extension UIViewController{
         self.presentInFullScreen(infoWindow, animated: true) {
             infoWindow.toLOadData()
         }
+    }
+}
+
+
+
+
+extension PopOverVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: InfoTVC = tableView.dequeueReusableCell(withIdentifier: "InfoTVC", for: indexPath) as! InfoTVC
+        cell.titleLbl.text = strArr[indexPath.row]
+        cell.addTap {
+            self.dismiss(animated: true) {
+                self.delegate?.didTapRow(indexPath.row)
+            }
+        }
+        return cell
+    }
+    
+    
+}
+
+
+class InfoTVC: UITableViewCell {
+    
+    @IBOutlet weak var titleLbl: UILabel!
+    
+    override class func awakeFromNib() {
+        super.awakeFromNib()
     }
 }

@@ -133,6 +133,7 @@ class LoginVIew: BaseView {
     var isShowViewModified = Bool()
     var isHideViewModified = Bool()
     var pageType : pageType = .signup
+    var userState = Bool()
     override func didLoad(baseVC: BaseViewController) {
         super.didLoad(baseVC: baseVC)
         self.loginVc = baseVC as? LoginVC
@@ -158,6 +159,10 @@ class LoginVIew: BaseView {
         signUpEmailTF.delegate = self
         phoneNumberFld.keyboardType = .numberPad
         setToolBar(self.toolBar)
+        let state = LocalStorage.shared.getBool(key: LocalStorage.LocalValue.isUserLoggedin)
+        self.userState = state
+        signinLbl.isHidden = state
+        self.setPagetype(pageType: state == true ? .login : .signup)
         signinLbl.addTap {
             self.setPagetype(pageType: self.pageType == .login ? .signup : .login)
             self.signinLbl.text = self.pageType == .login ? "Sign up with mobile" : "Already have an Account? then sign in."
@@ -326,41 +331,48 @@ class LoginVIew: BaseView {
         //passwordTF.isSecureTextEntry = true
         topView.setSpecificCornersForBottom(cornerRadius: 25)
       //  self.phoneNumberFld.keyboardType = .phonePad
-        self.setPagetype(pageType: .signup)
+       
     }
     
     @IBAction func didTapLoginBtn(_ sender: Any) {
-//        guard let email = emailTF.text, !email.isEmpty , let password = passwordTF.text, !password.isEmpty else {return}
-//        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) {[weak self] result, error in
-//            guard let welf = self else {return}
-//            let appdelegate = UIApplication.shared.delegate as! AppDelegate
-//            guard  error == nil else {
-//                //Create Account
-//                welf.createAccount(email, password)
-//                return
-//            }
-//            self?.loginVc.sceneDelegate!.createToastMessage("Account created failed", isFromWishList: true)
-//         //   appdelegate.createToastMessage("Account created failed")
-//        }
-        let commonAlert = CommonAlert()
-        commonAlert.setupAlert(alert: "App name", alertDescription: "Hello user otp will be sent to given mobile number", okAction: "Ok",cancelAction: "Cancel")
-        commonAlert.addAdditionalOkAction(isForSingleOption: false) {
-            print("no action")
-           // isPayout ? self.PayoutAlert(comments: self.lang.payoutContent) : self.callAccDeleteApi()
-            
-            self.callOTPPage()
+        
+        if userState {
+            let email = self.emailTF.text!
+            let password = self.passwordTF.text!
+            FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) {success , failure in
+                if failure == nil {
+                    
+                 //   let mainStoryboard: UIStoryboard = UIStoryboard(name: "host_calendar", bundle: nil)
+                    var vc = UserInfoVC.initWithStory()
+                    self.loginVc.navigationController?.presentInFullScreen(vc, animated: true)
+                }
+            }
+    
+            }
+        else {
+            let commonAlert = CommonAlert()
+            commonAlert.setupAlert(alert: "App name", alertDescription: "Hello user otp will be sent to given mobile number", okAction: "Ok",cancelAction: "Cancel")
+            commonAlert.addAdditionalOkAction(isForSingleOption: false) {
+                print("no action")
+               // isPayout ? self.PayoutAlert(comments: self.lang.payoutContent) : self.callAccDeleteApi()
+                
+                self.callOTPPage()
+            }
+            commonAlert.addAdditionalCancelAction {
+                print("yes action")
+            }
         }
-        commonAlert.addAdditionalCancelAction {
-            print("yes action")
-        }
-        self.loginVc.sceneDelegate!.createToastMessage("Account created failed", isFromWishList: true)
+
+
     }
     
     func callOTPPage() {
         if self.pageType == .phone {
             guard let number = self.phoneNumberFld.text , !number.isEmpty else {return}
+            Shared.instance.showLoader(in: self)
             let validNumStr = Shared.instance.selectedPhoneCode == "" ? "+91\(number)" :  "\(Shared.instance.selectedPhoneCode)\(number)"
             AuthManager.shared.authenticatePhoneNumber(number: validNumStr) { isValid in
+                Shared.instance.removeLoader(in: self)
                if isValid {
                     let otp = OTPValidationVC.initWithStory()
                    // otp.hidesBottomBarWhenPushed = true
@@ -370,7 +382,7 @@ class LoginVIew: BaseView {
                 }
             }
         } else {
-            let otp = OTPValidationVC.initWithStory()
+            let otp = GetUserInfoVC.initWithStory(.email)
            // otp.hidesBottomBarWhenPushed = true
             self.loginVc.navigationController?.pushViewController(otp, animated: true)
         }
@@ -382,32 +394,7 @@ class LoginVIew: BaseView {
     
     
     
-    func createAccount(_ email: String, _ password: String) {
-        
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) {[weak self] result, error in
-            guard let welf = self else {return}
-            let appdelegate = UIApplication.shared.delegate as! AppDelegate
-            guard  error == nil else {
-                self?.loginVc.sceneDelegate!.createToastMessage("Account created successfully", isFromWishList: true)
-          //      appdelegate.createToastMessage("Account created successfully")
-                return
-            }
-            self?.loginVc.sceneDelegate!.createToastMessage("Account created successfully", isFromWishList: true)
-         //   appdelegate.createToastMessage("Account created failed")
-        }
-        
-//
-//        let commonAlert = CommonAlert()
-//        commonAlert.setupAlert(alert: "Care Taxi", alertDescription: "Are you sure want to create account", okAction: "Ok",cancelAction: "Cancel")
-//        commonAlert.addAdditionalOkAction(isForSingleOption: false) {
-//
-//
-//        }
-//        commonAlert.addAdditionalCancelAction {
-//            print("yes action")
-//        }
-        
-    }
+
     
     @IBAction
     private func textFieldDidChange(textField: UITextField) {

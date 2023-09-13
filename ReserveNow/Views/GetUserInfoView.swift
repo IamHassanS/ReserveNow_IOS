@@ -7,26 +7,16 @@
 
 import Foundation
 import UIKit
-
+import FirebaseAuth
 extension GetUserInfoView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == fnameFld {
-            checkButtonStatus(false)
-            lnameFld.becomeFirstResponder()
-        } else if textField == lnameFld {
-            checkButtonStatus(false)
-            passwordFld.becomeFirstResponder()
-        } else if textField == passwordFld {
-            checkButtonStatus(false)
-            retypePasswordFld.becomeFirstResponder()
-        } else if textField == retypePasswordFld {
-            checkButtonStatus(false)
-            self.endEditing(true)
-            self.resignFirstResponder()
-          
-            
-        }
+        self.endEditing(true)
+        textField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
 }
 
@@ -42,11 +32,14 @@ class GetUserInfoView: BaseView {
         switch type {
             
         case .phone:
-            self.mailORphoneFld.placeholder = "Enter your E-mail"
-            phoneORmailIV.image = UIImage(systemName:  "mail")
-        case .email:
+            
             self.mailORphoneFld.placeholder = "Enter your Phone number"
             phoneORmailIV.image = UIImage(systemName:  "phone.fill")
+        case .email:
+         
+            
+            self.mailORphoneFld.placeholder = "Enter your E-mail"
+            phoneORmailIV.image = UIImage(systemName:  "mail")
         }
     }
     
@@ -129,6 +122,7 @@ class GetUserInfoView: BaseView {
                 errorLbl.text = "First name cannot be empty"
                 return}
             if name.isValiduserName(Input: name) {
+                errorLbl.isHidden = true
                 self.isfnameVerified = true
                 checkButtonStatus(false)
                 
@@ -142,6 +136,7 @@ class GetUserInfoView: BaseView {
                 errorLbl.text = "Last name cannot be empty"
                 return}
             if name.isValiduserName(Input: name) {
+                errorLbl.isHidden = true
                 self.islnameVerified = true
                 checkButtonStatus(false)
             } else {
@@ -151,17 +146,20 @@ class GetUserInfoView: BaseView {
         }  else if textField == mailORphoneFld {
             guard let email = textField.text, !email.isEmpty else {
                 errorLbl.isHidden = false
-          
                 errorLbl.text = self.validationType == .phone  ? "phoneNumber cannot be empty" : "Email field cannot be empty"
                 return}
-            if self.validationType == .phone ? email.isValidMail : email.isValidPhoneNumber {
+            if self.validationType == .phone ? email.isValidPhoneNumber : email.isValidMail {
                 if self.validationType == .phone {
                     self.isMobileVerifed = true
+                    errorLbl.isHidden = true
                 } else if self.validationType == .email {
                     self.isEmailVerified = true
+                    errorLbl.isHidden = true
                 }
                 checkButtonStatus(false)
             } else {
+                errorLbl.isHidden = false
+                errorLbl.text =  self.validationType == .phone ? "Enter valid Phone number" : "Enter valid email"
                 self.isEmailVerified = false
                 self.isMobileVerifed = false
             }
@@ -182,15 +180,16 @@ class GetUserInfoView: BaseView {
             }
             
         }   else if textField == self.retypePasswordFld {
-            guard let passwd = textField.text, !passwd.isEmpty else {
-                
+            guard let passwd = passwordFld.text, !passwd.isEmpty else {
+                errorLbl.isHidden = false
+                self.errorLbl.text = "Fill password field first"
                 return}
-            if passwd.count>7 && passwd.containsSpecialCharacter {
+            if passwd == textField.text {
                 self.isRetypedPasswordVerified = true
                 errorLbl.isHidden = true
                 checkButtonStatus(false)
             } else {
-                // self.loginVc.sceneDelegate?.createToastMessage("Enter Valid password")
+             
                 errorLbl.isHidden = false
                 self.errorLbl.text = "Password mismatch."
                 self.isRetypedPasswordVerified = false
@@ -211,6 +210,55 @@ class GetUserInfoView: BaseView {
             btnNxt.alpha = 0.5
             btnNxt.isUserInteractionEnabled = false
         }
+    }
+    
+    @IBAction func didTapNxtbtn(_ sender: Any) {
+        doUserSignUP()
+    }
+    
+    func doUserSignUP() {
+
+        guard let email = mailORphoneFld.text, !email.isEmpty, let password = passwordFld.text, !password.isEmpty else {
+            return}
+        Shared.instance.showLoader(in: self)
+        if self.validationType == .phone ? email.isValidPhoneNumber : email.isValidMail {
+            if self.validationType == .email {
+                
+                FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) {[weak self] result, error in
+                    guard let welf = self else {return}
+                    Shared.instance.removeLoader(in: welf)
+                    guard  error == nil else {
+                        welf.createAccount(email, password)
+                        return
+                    }
+                    self?.getUserInfoVC.sceneDelegate!.createToastMessage("Account creation failed", isFromWishList: true)
+             
+                }
+                
+            
+            }
+        } else {
+       
+        }
+        
+        
+    }
+    
+    func createAccount(_ email: String, _ password: String) {
+
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) {[weak self] result, error in
+            guard let welf = self else {return}
+            if  error == nil  {
+                welf.getUserInfoVC.sceneDelegate!.createToastMessage("Account created successfully", isFromWishList: true)
+                LocalStorage.shared.setBool(LocalStorage.LocalValue.isUserLoggedin, value: true)
+                self?.getUserInfoVC.sceneDelegate?.generateMakentLoginFlowChange(tabIcon: 4)
+                
+                
+            }
+    
+        }
+        
+        
     }
     
 }
