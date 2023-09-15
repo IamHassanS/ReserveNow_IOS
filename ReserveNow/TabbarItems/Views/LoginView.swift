@@ -344,7 +344,7 @@ class LoginVIew: BaseView {
             FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) {success , failure in
                 Shared.instance.removeLoader(in: self)
                 if failure == nil {
-                    
+                    LocalStorage.shared.setBool(LocalStorage.LocalValue.isUserLoggedin, value: true)
                  //   let mainStoryboard: UIStoryboard = UIStoryboard(name: "host_calendar", bundle: nil)
                     let vc = UserInfoVC.initWithStory()
                     self.loginVc.navigationController?.pushViewController(vc, animated: true)

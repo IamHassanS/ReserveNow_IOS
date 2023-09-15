@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import FirebaseAuth
-
+import SDWebImage
 extension UserInfoView: PopOverVCDelegate {
     func didTapRow(_ index: Int) {
         if index == 2 {
@@ -53,6 +53,8 @@ extension UserInfoView:  UITableViewDelegate, UITableViewDataSource {
 class UserInfoView: BaseView, UIGestureRecognizerDelegate {
     @IBOutlet weak var navBack: UIButton!
    
+    @IBOutlet weak var lblUserName: UILabel!
+    @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var topNavView: UIView!
     @IBOutlet weak var optView: UIView!
     @IBOutlet weak var optBtn: UIButton!
@@ -96,6 +98,10 @@ class UserInfoView: BaseView, UIGestureRecognizerDelegate {
         contentTable.tableHeaderView = tableHeaderView
       //  toConfigureDynamicHeader()
         setBioLabel(count: 50, str: str, isExtended: false)
+        self.userImage.layer.cornerRadius = self.userImage.height / 2
+        self.userImage.sd_setImage(with: URL(string:Global_UserProfile.userImage),
+                                      completed: nil)
+        lblUserName.text = Global_UserProfile.firstName
         toConfigureDynamicHeader()
     }
     
