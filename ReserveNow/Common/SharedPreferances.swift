@@ -94,3 +94,34 @@ extension Shared{
         return false
     }
 }
+
+
+extension Shared {
+    func keyboardWillShowOrHideForView(keyboarHeight: CGFloat , btnView : UIView)
+    {
+        UIView.animate(withDuration: 0.1, animations: { () -> Void in
+            let rect = self.getScreenSize()
+            btnView.frame.origin.y = (rect.size.height) - btnView.frame.size.height - keyboarHeight
+        })
+    }
+    func getScreenSize() -> CGRect
+    {
+        var rect = UIScreen.main.bounds as CGRect
+        //let orientation = UIApplication.shared.statusBarOrientation as UIInterfaceOrientation
+        let orientation = UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.windowScene?.interfaceOrientation
+       
+        
+      //  if UberSupport().isPad()
+      //  {
+            if(orientation!.isLandscape)
+            {
+                rect = CGRect(x: 0, y:0,width: 1024 ,height: 768)
+            }
+            else
+            {
+                rect = CGRect(x: 0, y:0,width: 768 ,height: 1024)
+            }
+       // }
+        return rect
+    }
+}

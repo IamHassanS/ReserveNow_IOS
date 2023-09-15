@@ -337,20 +337,22 @@ class LoginVIew: BaseView {
     
     @IBAction func didTapLoginBtn(_ sender: Any) {
         
-        if userState {
+        if !userState && self.pageType == .login {
+            Shared.instance.showLoader(in: self)
             let email = self.emailTF.text!
             let password = self.passwordTF.text!
             FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) {success , failure in
+                Shared.instance.removeLoader(in: self)
                 if failure == nil {
                     
                  //   let mainStoryboard: UIStoryboard = UIStoryboard(name: "host_calendar", bundle: nil)
-                    var vc = UserInfoVC.initWithStory()
-                    self.loginVc.navigationController?.presentInFullScreen(vc, animated: true)
+                    let vc = UserInfoVC.initWithStory()
+                    self.loginVc.navigationController?.pushViewController(vc, animated: true)
                 }
             }
     
             }
-        else {
+        else if self.pageType == .signup {
             let commonAlert = CommonAlert()
             commonAlert.setupAlert(alert: "App name", alertDescription: "Hello user otp will be sent to given mobile number", okAction: "Ok",cancelAction: "Cancel")
             commonAlert.addAdditionalOkAction(isForSingleOption: false) {

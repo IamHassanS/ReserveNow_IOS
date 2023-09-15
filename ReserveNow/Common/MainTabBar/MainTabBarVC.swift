@@ -125,7 +125,7 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
         
         //MARK: - HOME
         
-        let homeTabVC = UIViewController()
+        let homeTabVC = GetUserInfoVC.initWithStory(.email)
         homeTabVC.view.backgroundColor = .label
         //HomeVc.initWithStory()
       

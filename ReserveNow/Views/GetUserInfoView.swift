@@ -76,7 +76,7 @@ class GetUserInfoView: BaseView {
     var isMobileVerifed = false
     var isTermsandConditionsVerified = false
     var validationType: validationTypes = .email
-   
+    var view = UIView()
     
     func setDelegates() {
         retypePasswordFld.delegate = self
@@ -99,6 +99,7 @@ class GetUserInfoView: BaseView {
         tosetViewType(self.getUserInfoVC.validate)
         setupUI()
         setDelegates()
+        initView()
     }
     
     func setupUI() {
@@ -118,7 +119,8 @@ class GetUserInfoView: BaseView {
     
     
     func initView() {
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @IBAction
@@ -188,6 +190,7 @@ class GetUserInfoView: BaseView {
             }
             
         }   else if textField == self.retypePasswordFld {
+            self.view = textField
             guard let passwd = passwordFld.text, !passwd.isEmpty else {
                 errorLbl.isHidden = false
                 self.errorLbl.text = "Fill password field first"
@@ -204,6 +207,47 @@ class GetUserInfoView: BaseView {
                 checkButtonStatus(false)
             }
             
+        }
+    }
+    
+    //Show the keyboard
+//    @objc
+//    func keyboardWillShow(notification: NSNotification) {
+//        let info = notification.userInfo!
+//        let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+//        Shared.instance.keyboardWillShowOrHideForView(keyboarHeight: keyboardFrame.size.height, btnView: self.fnameView)
+//
+//    }
+    
+    @objc
+    func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.frame.origin.y == 0 {
+                  self.frame.origin.y -= keyboardSize.height
+              }
+//     print("")
+// }
+          
+        
+        }
+    }
+    
+    //Hide the keyboard
+//    @objc
+//    func keyboardWillHide1(notification: NSNotification) {
+//        let info = notification.userInfo!
+//        let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+//        Shared.instance.keyboardWillShowOrHideForView(keyboarHeight: keyboardFrame.size.height, btnView: self.fnameView)
+//    }
+    
+    @objc
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.frame.origin.y != 0 {
+                      self.frame.origin.y = 0
+                  }
+    
         }
     }
     
