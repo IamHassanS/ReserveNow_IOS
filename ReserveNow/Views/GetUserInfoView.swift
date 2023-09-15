@@ -23,6 +23,7 @@ extension GetUserInfoView: UITextFieldDelegate {
 enum validationTypes {
   case phone
   case email
+  case socialLogin
 }
 
 
@@ -36,10 +37,17 @@ class GetUserInfoView: BaseView {
             self.mailORphoneFld.placeholder = "Enter your Phone number"
             phoneORmailIV.image = UIImage(systemName:  "phone.fill")
         case .email:
-         
-            
             self.mailORphoneFld.placeholder = "Enter your E-mail"
             phoneORmailIV.image = UIImage(systemName:  "mail")
+        case .socialLogin:
+            self.mailORphoneFld.text = Global_UserProfile.emailID
+            phoneORmailIV.image = UIImage(systemName:  "mail")
+            self.fnameFld.text = Global_UserProfile.firstName
+            self.lnameFld.text = Global_UserProfile.lastName
+            self.isfnameVerified  = !Global_UserProfile.firstName.isEmpty ? true : false
+            self.islnameVerified = !Global_UserProfile.lastName.isEmpty ? true : false
+            self.isEmailVerified = !Global_UserProfile.emailID.isEmpty  ? true : false
+           
         }
     }
     
@@ -203,7 +211,7 @@ class GetUserInfoView: BaseView {
         if isFirsttime {
             btnNxt.alpha = 0.5
             btnNxt.isUserInteractionEnabled = false
-        } else if  self.isfnameVerified && self.islnameVerified && self.isPasswordVerified && self.isRetypedPasswordVerified &&  self.validationType == .email ? self.isEmailVerified : self.isMobileVerifed {
+        } else if  self.isfnameVerified && self.islnameVerified && self.isPasswordVerified && self.isRetypedPasswordVerified &&  self.validationType == .email || self.validationType == .socialLogin ? self.isEmailVerified : self.isMobileVerifed {
             btnNxt.alpha = 1
             btnNxt.isUserInteractionEnabled = true
         } else {
@@ -222,7 +230,7 @@ class GetUserInfoView: BaseView {
             return}
         Shared.instance.showLoader(in: self)
         if self.validationType == .phone ? email.isValidPhoneNumber : email.isValidMail {
-            if self.validationType == .email {
+            if self.validationType == .email ||   self.validationType == .socialLogin {
                 
                 FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) {[weak self] result, error in
                     guard let welf = self else {return}

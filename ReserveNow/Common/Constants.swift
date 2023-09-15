@@ -28,6 +28,7 @@ var AppVersion : String? = { return Bundle.main.infoDictionary!["CFBundleShortVe
  */
 let userDefaults = UserDefaults.standard
 
+var Global_UserProfile = UserProfileDataModel()
 
 // MARK: - URLS and API Keys
 /**

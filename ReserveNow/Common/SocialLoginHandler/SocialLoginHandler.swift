@@ -40,17 +40,19 @@ class SocialLoginsHandler : NSObject {
     func doGoogleLogin(VC: UIViewController,
                        clientID : String,
                        completion: @escaping (Result<GIDGoogleUser,Error>) -> Void) {
-//        let config : GIDConfiguration = GIDConfiguration(clientID: clientID)
-//        GIDSignIn.sharedInstance.signIn(with: config,
-//                                        presenting: VC) { user, error in
-//            if error != nil || user == nil {
-//                guard let error = error else { return }
-//                completion(.failure(error))
-//            } else {
-//                guard let user = user else { return }
-//                completion(.success(user))
-//            }
-//        }
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+        //GIDSignIn.sharedInstance.
+        GIDSignIn.sharedInstance.signIn(withPresenting: VC) { user, error in
+            if error != nil || user == nil {
+                guard let error = error else { return }
+                completion(.failure(error))
+            } else {
+                guard let user = user else { return }
+                completion(.success(user.user))
+            }
+        }
     }
     public
     func doGoogleHasProfile() -> Bool {

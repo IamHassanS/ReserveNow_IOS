@@ -117,6 +117,12 @@ class LoginVIew: BaseView {
     @IBOutlet weak var orView: UIView!
     @IBOutlet weak var signUpEmailTF: UITextField!
     @IBOutlet weak var mobileSubPhoneView: UIView!
+    @IBOutlet weak var googleView: UIView!
+    
+    @IBOutlet weak var appleView: UIView!
+    
+    @IBOutlet weak var facebookview: UIView!
+    
     lazy var toolBar : UIToolbar = {
         let tool = UIToolbar(frame: CGRect(origin: CGPoint.zero,
                                               size: CGSize(width: self.frame.width,
@@ -194,6 +200,12 @@ class LoginVIew: BaseView {
             self.showPasswordHolderIV.image =  self.showPasswordHolderIV.image == UIImage(systemName: "eye") ?  UIImage(systemName: "eye.slash.fill") : UIImage(systemName: "eye")
             self.passwordTF.isSecureTextEntry = self.showPasswordHolderIV.image == UIImage(systemName: "eye.slash.fill") ? true : false
             
+        }
+        googleView.addTap {
+            self.doGoogleLogin()
+        }
+        appleView.addTap {
+            self.handleLogInWithAppleIDButtonPress()
         }
 
     }
@@ -539,9 +551,15 @@ extension LoginVIew {
             switch result {
             case .success(let user):
                 print("\(user.accessToken)")
+                Global_UserProfile = UserProfileDataModel()
                 if let userID = user.userID,
                    let profile = user.profile {
-
+                    
+                    Global_UserProfile.firstName = profile.givenName ?? ""
+                    Global_UserProfile.lastName =  profile.familyName ?? ""
+                    Global_UserProfile.emailID = profile.email
+                    
+                    
                     let givenName = profile.givenName
                     let familyName = profile.familyName
                     let email = profile.email
@@ -558,16 +576,19 @@ extension LoginVIew {
                         let dimension = round(120 * UIScreen.main.scale)
                         let imageURL = profile.imageURL(withDimension: UInt(dimension))
                         dicts["avatar_original"] = imageURL?.absoluteString
+                        Global_UserProfile.userImage = imageURL?.absoluteString ?? ""
                     }
 //                    self.loginVC.checkSocialMediaId(userData: dicts,
 //                                                           signUpType: .google(id: userID))
+                    let vc = GetUserInfoVC.initWithStory(.socialLogin)
+                    self.loginVc.navigationController?.pushViewController(vc, animated: true)
                 
                 } else {
                     print("Data Missing")
                 }
             case .failure(let error):
                 print(error)
-              //  AppDelegate.shared.createToastMessage(error.localizedDescription)
+                self.loginVc.sceneDelegate?.createToastMessage(error.localizedDescription, isFromWishList: true)
             }
         }
     }

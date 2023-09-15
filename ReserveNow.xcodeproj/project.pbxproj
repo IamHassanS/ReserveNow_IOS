@@ -18,6 +18,8 @@
 		F201D18E2A6AC5ED009D848A /* PlistKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F201D18D2A6AC5ED009D848A /* PlistKeys.swift */; };
 		F201D1902A6AC652009D848A /* APIResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F201D18F2A6AC652009D848A /* APIResponseHandler.swift */; };
 		F201D1922A6AC7D4009D848A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F201D1912A6AC7D4009D848A /* Extensions.swift */; };
+		F2064D902AB33F1D0079BAAF /* GlobalUserDataModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2064D8F2AB33F1D0079BAAF /* GlobalUserDataModal.swift */; };
+		F2064D942AB343930079BAAF /* Codable + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2064D932AB343930079BAAF /* Codable + Extensions.swift */; };
 		F21D25462A9F5D5900F4657B /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21D25452A9F5D5900F4657B /* MenuVC.swift */; };
 		F21D25482A9F5DBA00F4657B /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21D25472A9F5DBA00F4657B /* MenuView.swift */; };
 		F21ECA2E2A78D38000B8ED40 /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21ECA2D2A78D38000B8ED40 /* MainTabBarVC.swift */; };
@@ -66,6 +68,7 @@
 		F27BE87B2A7A964D003A49D9 /* Reservenow_demo.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F27BE87A2A7A964D003A49D9 /* Reservenow_demo.xcconfig */; };
 		F2869DB32A0E7F32003D6E6C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2869DB22A0E7F32003D6E6C /* LocationManager.swift */; };
 		F2869DB52A0E8039003D6E6C /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2869DB42A0E8039003D6E6C /* LocalStorage.swift */; };
+		F28E0FB02AB4316400F2C1D7 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E0FAF2AB4316400F2C1D7 /* GlobalVariables.swift */; };
 		F2B80CF72AB065CD007CF67B /* GetUserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B80CF62AB065CD007CF67B /* GetUserInfoVC.swift */; };
 		F2B80D052AB07F18007CF67B /* GetUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B80D042AB07F18007CF67B /* GetUserInfoView.swift */; };
 		F2BE9A5A29FA5AF5003A4046 /* CommonModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BE9A5929FA5AF5003A4046 /* CommonModal.swift */; };
@@ -122,6 +125,9 @@
 		F201D18D2A6AC5ED009D848A /* PlistKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistKeys.swift; sourceTree = "<group>"; };
 		F201D18F2A6AC652009D848A /* APIResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponseHandler.swift; sourceTree = "<group>"; };
 		F201D1912A6AC7D4009D848A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F2064D8F2AB33F1D0079BAAF /* GlobalUserDataModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUserDataModal.swift; sourceTree = "<group>"; };
+		F2064D912AB341BC0079BAAF /* Reserve-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Reserve-Bridging-Header.h"; sourceTree = "<group>"; };
+		F2064D932AB343930079BAAF /* Codable + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable + Extensions.swift"; sourceTree = "<group>"; };
 		F21D25452A9F5D5900F4657B /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		F21D25472A9F5DBA00F4657B /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		F21ECA2D2A78D38000B8ED40 /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
@@ -172,6 +178,7 @@
 		F27BE87A2A7A964D003A49D9 /* Reservenow_demo.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Reservenow_demo.xcconfig; sourceTree = "<group>"; };
 		F2869DB22A0E7F32003D6E6C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		F2869DB42A0E8039003D6E6C /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		F28E0FAF2AB4316400F2C1D7 /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		F2B80CF62AB065CD007CF67B /* GetUserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserInfoVC.swift; sourceTree = "<group>"; };
 		F2B80D042AB07F18007CF67B /* GetUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserInfoView.swift; sourceTree = "<group>"; };
 		F2BE9A5929FA5AF5003A4046 /* CommonModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModal.swift; sourceTree = "<group>"; };
@@ -253,6 +260,14 @@
 				F201D1872A6AC520009D848A /* APIResponseProtocol.swift */,
 			);
 			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		F2064D922AB3437F0079BAAF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F2064D932AB343930079BAAF /* Codable + Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F21ECA2C2A78D35300B8ED40 /* MainTabBar */ = {
@@ -360,6 +375,8 @@
 		F241A6F729EE57550058C6DF /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F28E0FAE2AB4315100F2C1D7 /* Helpers */,
+				F2064D922AB3437F0079BAAF /* Extensions */,
 				F2F3F5FB2AB1C9CB00C4E78C /* SocialLoginHandler */,
 				F2EC620E2A7B815C00C1D84D /* CommonAlert */,
 				F21ECA3F2A791ACA00B8ED40 /* Loaders */,
@@ -386,6 +403,7 @@
 				F2FCE6FD2A7D172500105359 /* Themes.swift */,
 				F2FB9CF52A80C16500404662 /* SpinnerView.swift */,
 				F2EC62152A7BE65500C1D84D /* TimelyEssential Code.swift */,
+				F2064D912AB341BC0079BAAF /* Reserve-Bridging-Header.h */,
 				F2D2D6662AA5C6F200A6B574 /* Restaurants.JSON */,
 			);
 			path = Common;
@@ -489,11 +507,20 @@
 			path = ConfigurationFiles;
 			sourceTree = "<group>";
 		};
+		F28E0FAE2AB4315100F2C1D7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F28E0FAF2AB4316400F2C1D7 /* GlobalVariables.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		F2BE9A5829FA5AE2003A4046 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
 				F2BE9A5929FA5AF5003A4046 /* CommonModal.swift */,
 				F24A43912A6FAD2300F6120B /* UploadJSON.swift */,
+				F2064D8F2AB33F1D0079BAAF /* GlobalUserDataModal.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -749,6 +776,7 @@
 				F21D25462A9F5D5900F4657B /* MenuVC.swift in Sources */,
 				F2F3F6032AB1DF6600C4E78C /* KeychainItem.swift in Sources */,
 				F21ECA492A79230100B8ED40 /* SharedPreferances.swift in Sources */,
+				F2064D942AB343930079BAAF /* Codable + Extensions.swift in Sources */,
 				F2D7085E29EFC77B0034ED71 /* TimeSelectorView.swift in Sources */,
 				F21ECA2E2A78D38000B8ED40 /* MainTabBarVC.swift in Sources */,
 				F2F116442A77C2BC00531FF7 /* PushNotificationManager.swift in Sources */,
@@ -766,6 +794,7 @@
 				F21ECA4B2A792D3B00B8ED40 /* StreachableHeaderView.swift in Sources */,
 				F2BE9A5D29FA5C18003A4046 /* HomeViewModal.swift in Sources */,
 				F2CC79412AA99AF2005AA162 /* AuthManager.swift in Sources */,
+				F2064D902AB33F1D0079BAAF /* GlobalUserDataModal.swift in Sources */,
 				F21D25482A9F5DBA00F4657B /* MenuView.swift in Sources */,
 				F241A6E329EE57380058C6DF /* SceneDelegate.swift in Sources */,
 				F241A6EB29EE57380058C6DF /* ReserveNow.xcdatamodeld in Sources */,
@@ -783,6 +812,7 @@
 				F2F025202AA88BDB00951621 /* OTPValidationView.swift in Sources */,
 				F201D18A2A6AC586009D848A /* Constants.swift in Sources */,
 				F2F025292AA8A69800951621 /* userInfoTVC.swift in Sources */,
+				F28E0FB02AB4316400F2C1D7 /* GlobalVariables.swift in Sources */,
 				F24927C52AA9C7B500D5BD3D /* CountryModal.swift in Sources */,
 				F2F0251E2AA88BBD00951621 /* OTPValidationVC.swift in Sources */,
 			);
