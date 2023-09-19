@@ -72,8 +72,11 @@ class ExploreView: BaseView {
         menuHolderView.addTap {
             print("::>--Tapped-->::")
             let menuvc = MenuVC.initWithStory(self)
-            self.exploreVC.modalPresentationStyle = .overCurrentContext
-            self.exploreVC.present(menuvc, animated: true)
+            self.exploreVC.modalPresentationStyle = .custom
+         
+            self.exploreVC.navigationController?.present(menuvc, animated: true)
+            
+      
         }
     }
     

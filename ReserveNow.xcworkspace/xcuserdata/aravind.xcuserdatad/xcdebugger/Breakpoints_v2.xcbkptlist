@@ -347,8 +347,8 @@
             filePath = "ReserveNow/Views/UserInfoView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "didTapOptBtn()"
             landmarkType = "7">
             <Locations>
@@ -380,6 +380,21 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "87"
                   endingLineNumber = "87"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  uuid = "8AD905CD-421B-4278-985C-7F21B473943D - fa06ade70cb7138"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReserveNow.UserInfoView.didTapOptBtn() -&gt; ()"
+                  moduleName = "ReserveNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trioangle/Documents/Service/ReserveNow_IOS/ReserveNow/Views/UserInfoView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
                   offsetFromSymbolStart = "280">
                </Location>
             </Locations>
@@ -427,10 +442,170 @@
             filePath = "ReserveNow/Views/UserInfoView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "setupUI()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C13D6B0D-D125-4165-93E2-67CFEEE96096"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/Views/BookingDetailsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B396EDC2-21E2-4F20-A36C-2ECAD589281F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/Views/InstaProfileSpinner.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "animateSpinner()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "279BFEA0-EB00-49A4-A511-6D92CC543103"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/Views/InstaProfileSpinner.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "animateSpinner()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "93C0F990-7253-4012-9E98-03738AC075D1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/Views/InstaProfileSpinner.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "animateSpinner()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B71A1FA1-FE43-4358-BAC4-02D2684D9739"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/TabbarItems/Views/MenuView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
+            landmarkName = "handleMenuPan(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B71A1FA1-FE43-4358-BAC4-02D2684D9739 - 29814933428520d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReserveNow.MenuView.handleMenuPan(__C.UIPanGestureRecognizer) -&gt; ()"
+                  moduleName = "ReserveNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trioangle/Documents/Service/ReserveNow_IOS/ReserveNow/TabbarItems/Views/MenuView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "234"
+                  endingLineNumber = "234"
+                  offsetFromSymbolStart = "844">
+               </Location>
+               <Location
+                  uuid = "B71A1FA1-FE43-4358-BAC4-02D2684D9739 - 298149334285232"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReserveNow.MenuView.handleMenuPan(__C.UIPanGestureRecognizer) -&gt; ()"
+                  moduleName = "ReserveNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trioangle/Documents/Service/ReserveNow_IOS/ReserveNow/TabbarItems/Views/MenuView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "233"
+                  endingLineNumber = "233"
+                  offsetFromSymbolStart = "840">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A13018EA-D321-4301-BBAF-FC9D30432A28"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/TabbarItems/Views/MenuView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
+            landmarkName = "handleMenuPan(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A13018EA-D321-4301-BBAF-FC9D30432A28 - 29814933428532a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReserveNow.MenuView.handleMenuPan(__C.UIPanGestureRecognizer) -&gt; ()"
+                  moduleName = "ReserveNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trioangle/Documents/Service/ReserveNow_IOS/ReserveNow/TabbarItems/Views/MenuView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "241"
+                  endingLineNumber = "241"
+                  offsetFromSymbolStart = "1712">
+               </Location>
+               <Location
+                  uuid = "A13018EA-D321-4301-BBAF-FC9D30432A28 - 29814933428532a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReserveNow.MenuView.handleMenuPan(__C.UIPanGestureRecognizer) -&gt; ()"
+                  moduleName = "ReserveNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trioangle/Documents/Service/ReserveNow_IOS/ReserveNow/TabbarItems/Views/MenuView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "241"
+                  endingLineNumber = "241"
+                  offsetFromSymbolStart = "1480">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

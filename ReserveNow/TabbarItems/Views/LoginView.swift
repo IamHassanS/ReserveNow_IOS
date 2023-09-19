@@ -583,6 +583,7 @@ extension LoginVIew {
 //                    self.loginVC.checkSocialMediaId(userData: dicts,
 //                                                           signUpType: .google(id: userID))
                     let vc = GetUserInfoVC.initWithStory(.socialLogin)
+                    
                     self.loginVc.navigationController?.pushViewController(vc, animated: true)
                 
                 } else {

@@ -171,8 +171,9 @@ class MenuView : BaseView{
     private let animationVelocity : CGFloat = 5.0
     private let animationDampning : CGFloat = 2.0
     private let viewOpacity : CGFloat = 0.3
+    var isRTLLanguage : Bool { get { return Language.getCurrentLanguage().isRTL } }
     func showMenu(){
-        //let isRTL = isRTLLanguage
+        let isRTL = isRTLLanguage
         let rtlValue : CGFloat =  -1
         //isRTL ? 1 :
         let width = self.frame.width
@@ -194,9 +195,9 @@ class MenuView : BaseView{
     }
 
     func hideMenuAndDismiss(){
-        //let isRTL = isRTLLanguage
-        let rtlValue : CGFloat =  -1
-        //isRTL ? 1 :
+        let isRTL = isRTLLanguage
+        let rtlValue : CGFloat = isRTL ? 1 : -1
+      //  isRTL ? 1 :
         let width = self.frame.width
         while animationDuration > 1.6{
             animationDuration = animationDuration * 0.1
@@ -218,8 +219,8 @@ class MenuView : BaseView{
         
     }
     @objc func handleMenuPan(_ gesture : UIPanGestureRecognizer){
-       // let isRTL = isRTLLanguage
-        let _ : CGFloat =  -1
+        let isRTL = isRTLLanguage
+        let _ : CGFloat =  isRTL ? 1 : -1
         //isRTL ? 1 :
         let translation = gesture.translation(in: self.sideMenuHolderView)
         let xMovement = translation.x
@@ -229,8 +230,9 @@ class MenuView : BaseView{
         print("~opcaity : ",opacity)
         switch gesture.state {
         case .began,.changed:
-            guard ( xMovement > 0) || (xMovement < 0) else {return}
+            guard isRTL && ( xMovement > 0) || !isRTL && (xMovement < 0) else {return}
            // isRTL && || !isRTL &&
+            
             self.sideMenuHolderView.transform = CGAffineTransform(translationX: xMovement, y: 0)
             self.backgroundColor = UIColor.black.withAlphaComponent(opacity)
         default:
