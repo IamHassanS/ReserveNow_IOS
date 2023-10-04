@@ -25,14 +25,14 @@ enum CustomFont {
     var instance:UIFont {
         switch self {
         case .bold(size: let size):
-            return UIFont(name: Fonts.CIRCULAR_BOLD, size: size) ?? UIFont.systemFont(ofSize: 14, weight: .medium)
+            return UIFont(name: Fonts.CIRCULAR_BOLD, size: size)!
         case .light(size: let size):
-            return UIFont(name: Fonts.CIRCULAR_LIGHT, size: size) ?? UIFont.systemFont(ofSize: 14, weight: .medium)
+            return UIFont(name: Fonts.CIRCULAR_LIGHT, size: size)!
         case .medium(size: let size):
-            return UIFont(name: Fonts.CIRCULAR_BOOK, size: size) ?? UIFont.systemFont(ofSize: 14, weight: .medium)
+            return UIFont(name: Fonts.CIRCULAR_BOOK, size: size)!
             
         case .logo(size: let size):
-            return UIFont(name: Fonts.MAKENT_LOGO_FONT1, size: size) ?? UIFont.systemFont(ofSize: 14, weight: .medium)
+            return UIFont(name: Fonts.MAKENT_LOGO_FONT1, size: size)!
         }
     }
 
@@ -75,7 +75,7 @@ extension UIColor {
 
     private static var _Colors = [String : UIColor]()
 
-    open class var GuestThemeColor : UIColor {
+    public class var GuestThemeColor : UIColor {
         get { return UIColor._Colors["GuestThemeColor"] ?? UIColor(hex: ThemeColors?.string("GuestThemeColor")) }
         set { UIColor._Colors["GuestThemeColor"] = newValue } }
 

@@ -223,9 +223,9 @@ class LoginVIew: BaseView {
 //        NotificationEnum.UIKeyboardWillShowNotification.addObserver(self, selector: "keyboardWillShow:")
 //        NotificationEnum.UIKeyboardWillHideNotification.addObserver(self, selector: "keyboardWillHide:")
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+       // NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+      //  NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
     
@@ -316,6 +316,7 @@ class LoginVIew: BaseView {
     }
     
     func setupUI() {
+    //    signinLbl.setFont(font: .medium(size: .BODY))
         if  Shared.instance.selectedPhoneCode.isEmpty {
             self.phoneCodeLbl.text = "+91"
         } else {
