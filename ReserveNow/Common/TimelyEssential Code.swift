@@ -183,3 +183,80 @@ class ProgressButton : UIButton{
 //           self.serviceTilePageControl.currentPage = visibleIndexPath.row
 //       }
 //   }
+
+
+//func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//    if let table = scrollView as? UITableView {
+//
+//        if pageType == .stays {
+//
+//            if table == self.exploreTable {
+//                if self.exploreData == nil {
+//                    return
+//                }
+//
+//                if (((table.contentOffset.y + self.exploreTable.frame.size.height) > self.exploreTable.contentSize.height && !isLoadingMorePages )){
+//                    var param = [String: Any]()
+//                    isLoadingMorePages = true
+//                    if self.staysPage >= (self.exploreData?.totalPage)!{
+//                        print("Page LImit reached")
+//                    } else {
+//                        self.staysPage = self.exploreData!.currentPage! + 1
+//                        print("API Called")
+//                        param["page"] = staysPage
+//                        param["token"] = LocalStorage.shared.getString(key: .access_token)
+//                        stayFilterParam.merge(param) {(_,new) in new}
+//
+//                        self.exploreVc.toGetExploreData(stayFilterParam)
+//                    }
+//                } else {
+//                    print("Not to call")
+//                }
+//            }
+//        }
+//
+//    }
+//}
+
+
+//func toGetExploreData(_ param: [String: Any]? = [String: Any](), _ page: Int = 1) {
+//// https://makent81.trioangledemo.com/api/explore?language=en&page=1&token=
+//   Shared.instance.showLoader(in: self.view, loaderType: .makentLoader)
+//    var param: JSON = param ?? [String: Any]()
+//
+//    if param.isEmpty {
+//        param["page"] = 1
+//        param["token"] = LocalStorage.shared.getString(key: .access_token)
+//    }
+//
+//    homeViewmodal.getExploreData(params: param, { (result) in
+//        switch result {
+//
+//        case .success(let responseDict):
+//            if responseDict.status_code == "1" {
+//                Shared.instance.removeLoader(in: self.view)
+//                self.exploreView.isLoadingMorePages = false
+//                dump(responseDict)
+//                LocalStorage.shared.setSting(.minPrice, text: responseDict.minPrice ?? "")
+//                LocalStorage.shared.setSting(.maxPrice, text: responseDict.maxPrice ?? "")
+//
+//                LocalStorage.shared.setSting(.minSize, text: responseDict.boat_min_size ?? "")
+//                LocalStorage.shared.setSting(.maxSize, text: responseDict.boat_max_size ?? "")
+//
+//                self.exploreData = responseDict
+//                self.exploreView.exploreData = self.exploreData
+//                self.exploreView.details.append(contentsOf: responseDict.details ?? [Details]())
+//
+//            } else {
+//                Shared.instance.removeLoader(in: self.view)
+//                self.exploreView.isForStays = true
+//                self.exploreView.details.removeAll()
+//                self.exploreView.toswitchPage(.noResults)
+//            }
+//            self.exploreView.toLoadStaysData()
+//        case .failure(let error):
+//            Shared.instance.removeLoader(in: self.view)
+//            print("\(error.localizedDescription)")
+//        }
+//    })
+//}
