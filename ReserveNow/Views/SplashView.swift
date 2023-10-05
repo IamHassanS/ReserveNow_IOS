@@ -25,7 +25,8 @@ class SplashView: BaseView{
     }
     
     func initView(){
-        
+        //infoPlist?.value(for: .ReleaseVersion)
+        let _ : String = (infoPlist?.value(for: .UserType) ?? "")
         Timer.scheduledTimer(timeInterval:3.0, target: self, selector: #selector(self.onSetRootViewController), userInfo: nil, repeats: false)
         }
         

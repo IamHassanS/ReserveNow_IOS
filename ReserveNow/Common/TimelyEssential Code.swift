@@ -34,7 +34,8 @@ class ProgressButton : UIButton{
                     
     {
         self.delegate = delegate
-        self.dragImg.image = UIImage(named: "right")?.withRenderingMode(.alwaysTemplate)
+        self.dragImg.image = UIImage(systemName: "arrowshape.forward.fill")
+        //?.withRenderingMode(.alwaysTemplate)
         self.dragImg.tintColor = .white
         self.dragImg.alpha = dragImgMaxAlpha
         self.btnState = .normal
@@ -173,3 +174,12 @@ class ProgressButton : UIButton{
         }
     }
 }
+
+
+//func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//       let visibleRect = CGRect(origin: self.bannercollectionview.contentOffset, size: self.bannercollectionview.bounds.size)
+//       let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+//       if let visibleIndexPath = self.bannercollectionview.indexPathForItem(at: visiblePoint) {
+//           self.serviceTilePageControl.currentPage = visibleIndexPath.row
+//       }
+//   }

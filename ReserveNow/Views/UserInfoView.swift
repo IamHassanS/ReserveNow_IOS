@@ -103,9 +103,9 @@ class UserInfoView: BaseView, UIGestureRecognizerDelegate {
       //  toConfigureDynamicHeader()
         setBioLabel(count: 50, str: str, isExtended: false)
         self.userImage.layer.cornerRadius = self.userImage.height / 2
-        self.userImage.sd_setImage(with: URL(string:Global_UserProfile.userImage),
-                                      completed: nil)
-        lblUserName.text = Global_UserProfile.firstName
+      //  self.userImage.sd_setImage(with: URL(string:Global_UserProfile.userImage),
+                                   //   completed: nil)
+     //   lblUserName.text = Global_UserProfile.firstName
         toConfigureDynamicHeader()
     }
     

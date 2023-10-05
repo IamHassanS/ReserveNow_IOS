@@ -37,7 +37,7 @@ extension BookingDetailsView: UICollectionViewDelegate, UICollectionViewDataSour
 class BookingDetailsView: BaseView, ProgressButtonDelegates {
     func didActivateProgress() {
         print("Swipe")
-        self.tripProgressBtn.initialize(self, ProgressState.normal)
+        self.tripProgressBtn.initialize(self, ProgressState.loading)
     }
     
     @IBOutlet weak var statusCollectionView: UICollectionView!
@@ -65,7 +65,7 @@ class BookingDetailsView: BaseView, ProgressButtonDelegates {
         statusCollectionView.delegate = self
         statusCollectionView.dataSource = self
         self.tripProgressBtn.setTitleColor(.appGuestThemeColor, for: .normal)
-        self.tripProgressBtn.titleLabel?.setFont(font: .medium(size: .BODY))
+       // self.tripProgressBtn.titleLabel?.setFont(font: .medium(size: .BODY))
         backholderView.layer.cornerRadius = backholderView.height / 2
         backholderView.elevate(4)
         backholderView.addTap {

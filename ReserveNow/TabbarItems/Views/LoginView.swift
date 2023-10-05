@@ -316,6 +316,12 @@ class LoginVIew: BaseView {
     }
     
     func setupUI() {
+        googleView.elevate(4)
+        appleView.elevate(4)
+        facebookview.elevate(4)
+        
+      //  googleView.isHidden = true
+        
     //    signinLbl.setFont(font: .medium(size: .BODY))
         if  Shared.instance.selectedPhoneCode.isEmpty {
             self.phoneCodeLbl.text = "+91"
@@ -348,6 +354,7 @@ class LoginVIew: BaseView {
                     LocalStorage.shared.setBool(LocalStorage.LocalValue.isUserLoggedin, value: true)
                  //   let mainStoryboard: UIStoryboard = UIStoryboard(name: "host_calendar", bundle: nil)
                     let vc = UserInfoVC.initWithStory()
+                    vc.hidesBottomBarWhenPushed = false
                     self.loginVc.navigationController?.pushViewController(vc, animated: true)
                 }
             }
