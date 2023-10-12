@@ -260,3 +260,74 @@ class ProgressButton : UIButton{
 //        }
 //    })
 //}
+
+
+//override func didLayoutSubviews(baseVC: BaseViewController) {
+//    super.didLayoutSubviews(baseVC: baseVC)
+//    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+//        if self.priceTable.contentSize.height + 10 >=  self.height - self.height * 0.07 - 10 {
+//            self.priceViewHeight.constant = self.height - self.height * 0.07 - 50
+//        } else {
+//            self.priceViewHeight.constant = self.priceTable.contentSize.height + 10
+//        }
+//    }
+//}
+
+
+//extension UIApplication {
+//
+//    class func getTopViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+//
+//        if let nav = base as? UINavigationController {
+//            return getTopViewController(base: nav.visibleViewController)
+//
+//        } else if let tab = base as? UITabBarController, let selected = tab.selectedViewController {
+//            return getTopViewController(base: selected)
+//
+//        } else if let presented = base?.presentedViewController {
+//            return getTopViewController(base: presented)
+//        }
+//        return base
+//    }
+//}
+
+
+//let newNav = UINavigationController(rootViewController: chatView)
+//
+//let viewController2 = UIApplication.getTopViewController()
+//print(viewController2)
+//let viewController = UIApplication.shared.keyWindow?.rootViewController
+//if viewController2 is CommonChatVC {
+//    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationReceived"), object: nil)
+//} else {
+//    currentNav.hidesBottomBarWhenPushed = true
+//
+//    currentNav.presentInFullScreen(newNav, animated: true)
+//    //currentNav.navigationController?.pushViewController(chatView, animated: true)
+//}
+
+
+//if (appDelegate.window?.subviews.contains(self.composeView))! {
+//    appDelegate.window?.subviews.forEach({
+//        print("þþþþ \($0)")
+//        print("þþþþ \($0 is MessageComposerView)")
+//        if ($0 is MessageComposerView){
+//            appDelegate.window!.removeAddedSubview(view: $0)
+//        }
+//
+//        //appDelegate.window?.removeAddedSubview(view: $0)
+//    })
+//   // appDelegate.window!.removeAddedSubview(view: self.composeView)
+//}
+
+//move to target
+
+//if Bundle(identifier: "com.trioangle.makent.FlutterWave")?.path(forResource: "FlutterWave", ofType: "storyboardc") != nil {
+//    print("target is there")
+//}
+//
+//let storyBoard = UIStoryboard(name: "FlutterWave", bundle: Bundle(identifier: "com.trioangle.makent.FlutterWave"))
+//        let contactView = storyBoard.instantiateViewController(withIdentifier: "FlutterWaveAddPayoutVC")
+////        self.navigationController?.pushViewController(FlutterWaveAddPayoutVC.initWithStory(pageType: .flutterwave, payoutDelegate: self), animated: true)
+//UserDefaults.standard.set("Flutterwave", forKey: "PageType")
+//self.navigationController?.pushViewController(contactView, animated: true)

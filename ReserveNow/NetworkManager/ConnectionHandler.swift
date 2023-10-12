@@ -227,8 +227,8 @@ final class ConnectionHandler : NSObject {
            case .success(let value):
                let responseDict = value as! [String : Any]
 //            if self.userIsActive(from: responseDict)  {
-//                print("ØØ  \(responseDict)")
-//                complete(responseDict)
+                print("ØØ  \(responseDict)")
+                complete(responseDict)
 //            }
                print(responseDict)
            case .failure(let error):
