@@ -70,10 +70,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func setTabbarForSwithUsers()
     {
 
-        let splashVc = self.generateMakentLoginFlowChange(tabIcon: 0)
-       // splashVc.settabbar()
-    //    let navControler = UINavigationController(rootViewController: splashVc)
-       // self.window?.rootViewController?.presentInFullScreen(navControler, animated: true, completion: nil)
+        let splashVc = LoginVC.initWithStory()
+        
+        //self.generateMakentLoginFlowChange(tabIcon: 0)
         self.window?.rootViewController = splashVc
     }
     
@@ -84,7 +83,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       //  self.setsemantic()
         self.makentTabBarCtrler.guestTabBarSetup()
         window?.rootViewController = makentTabBarCtrler
-     
+      
         //self.window?.makeKeyAndVisible()
        // self.pushNotificationHanlder?.regiserForRemoteNotification()
 

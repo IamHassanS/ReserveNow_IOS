@@ -17,7 +17,7 @@ extension LoginVIew : CountryListVCDelegate {
         phoneCodeLbl.text = selectedcode
     }
     
-    
+     
 }
 class LoginVIew: BaseView {
     
@@ -38,11 +38,14 @@ class LoginVIew: BaseView {
             self.credentialsStack.isHidden = false
             signUpbtn.setTitle("Login", for: .normal)
             self.passwordValidationLbl.text = "Password should be alphanumeric, special character, min 8 char & max16, combination upper case."
+            welcombackLbl.text = "Welcome back"
+            self.signinLbl.isHidden = false
             self.signinLbl.text = "Sign up with mobile"
             self.backHolderView.isHidden = true
            // self.emailTF.becomeFirstResponder()
             
         case .signup:
+            welcombackLbl.text = "Signup"
             self.pageType = .signup
             self.mobileStack.isHidden = false
             self.credentialsStack.isHidden = true
@@ -62,7 +65,8 @@ class LoginVIew: BaseView {
             signUpbtn.setTitle("Send OTP", for: .normal)
             orView.isHidden = true
             self.signinLbl.text = "Already have an Account? then sign in."
-            backHolderView.isHidden = false
+          //  backHolderView.isHidden = false
+            backHolderView.isHidden = true
             self.signUpEmailTF.becomeFirstResponder()
         case .phone:
             self.pageType = .phone
@@ -75,7 +79,8 @@ class LoginVIew: BaseView {
             signUpbtn.setTitle("Send OTP", for: .normal)
             self.signinLbl.text = "Already have an Account? then sign in."
             self.phoneNumberFld.becomeFirstResponder()
-            backHolderView.isHidden = false
+            backHolderView.isHidden = true
+         //   backHolderView.isHidden = false
         case .def:
             self.pageType = .signup
             self.mobileStack.isHidden = false
@@ -88,40 +93,53 @@ class LoginVIew: BaseView {
         }
     }
     
+    //MARK: Common
     @IBOutlet weak var backHolderView: UIView!
     @IBOutlet weak var topView: UIView!
-    
-    @IBOutlet weak var shoeHidePasswordView: UIView!
-    @IBOutlet weak var mobileSubEmailView: UIView!
-    
-    @IBOutlet weak var showPasswordHolderIV: UIImageView!
-    
-    
-    
-  
-    
-    @IBOutlet weak var mobileStack: UIStackView!
-    @IBOutlet weak var credentialsStack: UIStackView!
+    @IBOutlet weak var contentHolderVIew: UIView!
+    @IBOutlet weak var googleView: UIView!
+    @IBOutlet weak var appleView: UIView!
+    @IBOutlet weak var facebookview: UIView!
     @IBOutlet weak var passwordValidationLbl: UILabel!
     @IBOutlet weak var signUpbtn: UIButton!
-    @IBOutlet weak var emailTF: UITextField!
-    @IBOutlet weak var passwordTF: UITextField!
-    
     @IBOutlet weak var signinLbl: UILabel!
-    @IBOutlet weak var phoneNumberFld: UITextField!
-
-    @IBOutlet weak var contentHolderVIew: UIView!
+    @IBOutlet weak var welcombackLbl: UILabel!
+    
+    @IBOutlet weak var appLogoIV: UIView!
+    
+    
+    //MARK: - OTP Flow Signup
+    @IBOutlet weak var mobileStack: UIStackView!
     @IBOutlet weak var phoneCodeView: UIView!
     @IBOutlet weak var phoneCodeLbl: UILabel!
-    
     @IBOutlet weak var orView: UIView!
     @IBOutlet weak var signUpEmailTF: UITextField!
     @IBOutlet weak var mobileSubPhoneView: UIView!
-    @IBOutlet weak var googleView: UIView!
+    @IBOutlet weak var mobileSubEmailView: UIView!
+    @IBOutlet weak var phoneNumberFld: UITextField!
     
-    @IBOutlet weak var appleView: UIView!
+    //MARK: - LOGIN FLOW
+    @IBOutlet weak var credentialsStack: UIStackView!
+    @IBOutlet weak var loginEmailorUsernameView: UIView!
+    @IBOutlet weak var loginPasswordView: UIView!
+    @IBOutlet weak var shoeHidePasswordView: UIView!
+    @IBOutlet weak var showPasswordHolderIV: UIImageView!
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
     
-    @IBOutlet weak var facebookview: UIView!
+    @IBOutlet weak var closeholderView: UIView!
+    
+  
+    
+  
+
+ 
+
+    
+   
+
+
+
     
     lazy var toolBar : UIToolbar = {
         let tool = UIToolbar(frame: CGRect(origin: CGPoint.zero,
@@ -141,7 +159,7 @@ class LoginVIew: BaseView {
     var isSignupEmailVerified = false
     var isShowViewModified = Bool()
     var isHideViewModified = Bool()
-    var pageType : pageType = .signup
+    var pageType : pageType = .login
     var userState = Bool()
     var email = ""
     let facebookReadPermissions = ["public_profile",
@@ -154,6 +172,40 @@ class LoginVIew: BaseView {
         initNotifcations()
        
     }
+    
+    
+    func setupUI() {
+        appLogoIV.elevate(4)
+        appLogoIV.layer.cornerRadius = 20
+        closeholderView.elevate(4)
+        closeholderView.layer.cornerRadius = closeholderView.height / 2
+        googleView.elevate(4)
+        appleView.elevate(4)
+        facebookview.elevate(4)
+        loginPasswordView.layer.cornerRadius =  loginPasswordView.height / 2
+        loginPasswordView.elevate(4)
+        loginEmailorUsernameView.layer.cornerRadius =  loginPasswordView.height / 2
+        loginEmailorUsernameView.elevate(4)
+        mobileSubEmailView.elevate(4)
+        mobileSubEmailView.layer.cornerRadius =  loginPasswordView.height / 2
+        mobileSubPhoneView.elevate(4)
+        mobileSubPhoneView.layer.cornerRadius =  loginPasswordView.height / 2
+        if  Shared.instance.selectedPhoneCode.isEmpty {
+            self.phoneCodeLbl.text = "+91"
+        } else {
+            self.phoneCodeLbl.text = Shared.instance.selectedPhoneCode
+        }
+        checkButtonStatus(true)
+        passwordValidationLbl.isHidden = true
+        signUpbtn.elevate(4)
+        signUpbtn.layer.cornerRadius = signUpbtn.height / 2
+   
+        mobileStack.isUserInteractionEnabled = true
+        topView.setSpecificCornersForBottom(cornerRadius: 25)
+        
+       
+    }
+    
     @objc func doneAction(){
         isHideViewModified = false
         isShowViewModified = false
@@ -171,7 +223,7 @@ class LoginVIew: BaseView {
         signUpEmailTF.delegate = self
         phoneNumberFld.keyboardType = .numberPad
         setToolBar(self.toolBar)
-        let state = LocalStorage.shared.getBool(key: LocalStorage.LocalValue.isUserLoggedin)
+        let state = !LocalStorage.shared.getBool(key: LocalStorage.LocalValue.isUserLoggedin)
         self.userState = state
         signinLbl.isHidden = state
         self.setPagetype(pageType: state == true ? .login : .signup)
@@ -180,6 +232,11 @@ class LoginVIew: BaseView {
             self.signinLbl.text = self.pageType == .login ? "Sign up with mobile" : "Already have an Account? then sign in."
         }
         
+        closeholderView.addTap {
+            self.loginVc.sceneDelegate?.generateMakentLoginFlowChange(tabIcon: 0)
+        }
+        
+
         phoneCodeView.addTap {
             let vc = CountryListVC.initWithStory()
             vc.delegate = self
@@ -315,36 +372,12 @@ class LoginVIew: BaseView {
         }
     }
     
-    func setupUI() {
-        googleView.elevate(4)
-        appleView.elevate(4)
-        facebookview.elevate(4)
-        
-      //  googleView.isHidden = true
-        
-    //    signinLbl.setFont(font: .medium(size: .BODY))
-        if  Shared.instance.selectedPhoneCode.isEmpty {
-            self.phoneCodeLbl.text = "+91"
-        } else {
-            self.phoneCodeLbl.text = Shared.instance.selectedPhoneCode
-        }
-        checkButtonStatus(true)
-        passwordValidationLbl.isHidden = true
-        signUpbtn.elevate(4)
-        signUpbtn.layer.cornerRadius = signUpbtn.height / 2
-        credentialsStack.elevate(4)
-        mobileSubEmailView.elevate(4)
-        mobileSubPhoneView.elevate(4)
-        mobileStack.isUserInteractionEnabled = true
-        //passwordTF.isSecureTextEntry = true
-        topView.setSpecificCornersForBottom(cornerRadius: 25)
-      //  self.phoneNumberFld.keyboardType = .phonePad
-       
-    }
+
     
     @IBAction func didTapLoginBtn(_ sender: Any) {
         
-        if !userState && self.pageType == .login {
+        if self.pageType == .login {
+            // !userState &&
             Shared.instance.showLoader(in: self)
             let email = self.emailTF.text!
             let password = self.passwordTF.text!
@@ -360,14 +393,14 @@ class LoginVIew: BaseView {
             }
     
             }
-        else if self.pageType == .signup {
+        else if self.pageType == .signup || self.pageType == .phone  {
             let commonAlert = CommonAlert()
             commonAlert.setupAlert(alert: "App name", alertDescription: "Hello user otp will be sent to given mobile number", okAction: "Ok",cancelAction: "Cancel")
             commonAlert.addAdditionalOkAction(isForSingleOption: false) {
                 print("no action")
                // isPayout ? self.PayoutAlert(comments: self.lang.payoutContent) : self.callAccDeleteApi()
                 
-                self.callOTPPage()
+              //  self.callOTPPage()
             }
             commonAlert.addAdditionalCancelAction {
                 print("yes action")
@@ -378,7 +411,7 @@ class LoginVIew: BaseView {
     }
     
     func callOTPPage() {
-        if self.pageType == .phone {
+        if self.pageType == .signup  || self.pageType == .phone {
             guard let number = self.phoneNumberFld.text , !number.isEmpty else {return}
             Shared.instance.showLoader(in: self)
             let validNumStr = Shared.instance.selectedPhoneCode == "" ? "+91\(number)" :  "\(Shared.instance.selectedPhoneCode)\(number)"
@@ -416,9 +449,13 @@ class LoginVIew: BaseView {
                     return}
                 if email.isValidMail {
                     isEmailVerified = true
+                    passwordValidationLbl.isHidden = true
+                    passwordValidationLbl.text = ""
                     checkButtonStatus(false)
                 } else {
                   //  self.loginVc.sceneDelegate?.createToastMessage("Enter Valid Email", isFromWishList: true)
+                    passwordValidationLbl.isHidden = false
+                    passwordValidationLbl.text = "Please enter valid email"
                     isEmailVerified = false
                     checkButtonStatus(false)
                 }
@@ -435,6 +472,7 @@ class LoginVIew: BaseView {
                 } else {
                     // self.loginVc.sceneDelegate?.createToastMessage("Enter Valid password")
                     passwordValidationLbl.isHidden = false
+                    passwordValidationLbl.text = "Password should be alphanumeric, special character, min 8 char & max16, combination upper case."
                     self.isPasswoordVerified = false
                     checkButtonStatus(false)
                 }

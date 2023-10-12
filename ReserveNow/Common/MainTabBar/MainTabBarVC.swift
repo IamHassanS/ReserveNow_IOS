@@ -116,7 +116,9 @@ class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
     }
     
     func guestTabBarSetup(_ index:Int? = 0) {
-        
+//        if index == 4 {
+//            self.hidesBottomBarWhenPushed = true
+//        }
         //let storyboard = UIStoryboard(name: "TabBarItems", bundle: nil)
         let lang1 = Language.getCurrentLanguage().getLocalizedInstance()
         UITabBar.appearance().tintColor =  UIColor.GuestThemeColor

@@ -69,7 +69,6 @@
 		F2869DB32A0E7F32003D6E6C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2869DB22A0E7F32003D6E6C /* LocationManager.swift */; };
 		F2869DB52A0E8039003D6E6C /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2869DB42A0E8039003D6E6C /* LocalStorage.swift */; };
 		F28E0FB02AB4316400F2C1D7 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E0FAF2AB4316400F2C1D7 /* GlobalVariables.swift */; };
-		F2AF679B2ACEEC7F0046CF43 /* Codabel+safeDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AF67992ACEEC7F0046CF43 /* Codabel+safeDecode.swift */; };
 		F2AF679C2ACEEC7F0046CF43 /* CommonResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AF679A2ACEEC7F0046CF43 /* CommonResponseModel.swift */; };
 		F2B33C5D2AB9B98100DBA7D0 /* ReserverveNowHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B33C5C2AB9B98100DBA7D0 /* ReserverveNowHomeVC.swift */; };
 		F2B33C612AB9BA3A00DBA7D0 /* ServiceTileTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B33C5F2AB9BA3A00DBA7D0 /* ServiceTileTVC.swift */; };
@@ -187,7 +186,6 @@
 		F2869DB22A0E7F32003D6E6C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		F2869DB42A0E8039003D6E6C /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		F28E0FAF2AB4316400F2C1D7 /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
-		F2AF67992ACEEC7F0046CF43 /* Codabel+safeDecode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Codabel+safeDecode.swift"; sourceTree = "<group>"; };
 		F2AF679A2ACEEC7F0046CF43 /* CommonResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonResponseModel.swift; sourceTree = "<group>"; };
 		F2B33C5C2AB9B98100DBA7D0 /* ReserverveNowHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserverveNowHomeVC.swift; sourceTree = "<group>"; };
 		F2B33C5F2AB9BA3A00DBA7D0 /* ServiceTileTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTileTVC.swift; sourceTree = "<group>"; };
@@ -531,7 +529,6 @@
 		F28E0FAE2AB4315100F2C1D7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				F2AF67992ACEEC7F0046CF43 /* Codabel+safeDecode.swift */,
 				F2AF679A2ACEEC7F0046CF43 /* CommonResponseModel.swift */,
 				F28E0FAF2AB4316400F2C1D7 /* GlobalVariables.swift */,
 			);
@@ -842,7 +839,6 @@
 				F2EC620B2A7B7FEE00C1D84D /* LoginVC.swift in Sources */,
 				F241A70229EE58F10058C6DF /* ViewUX.swift in Sources */,
 				F2EC620D2A7B7FFB00C1D84D /* LoginView.swift in Sources */,
-				F2AF679B2ACEEC7F0046CF43 /* Codabel+safeDecode.swift in Sources */,
 				F2FB9CF62A80C16500404662 /* SpinnerView.swift in Sources */,
 				F2F23F272AAAE74700B08BA0 /* PopoverVC.swift in Sources */,
 				F201D1802A6AC3AA009D848A /* ConnectionHandler.swift in Sources */,
