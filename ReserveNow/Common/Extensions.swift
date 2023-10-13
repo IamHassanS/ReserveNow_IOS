@@ -79,19 +79,19 @@ extension UIColor {
         get { return UIColor._Colors["GuestThemeColor"] ?? UIColor(hex: ThemeColors?.string("GuestThemeColor")) }
         set { UIColor._Colors["GuestThemeColor"] = newValue } }
 
-    open class var HostThemeColor : UIColor {
+    public class var HostThemeColor : UIColor {
         get { return UIColor._Colors["HostThemeColor"] ?? UIColor(hex: ThemeColors?.string("HostThemeColor")) }
         set { UIColor._Colors["HostThemeColor"] = newValue } }
 
-    open class var GuestDarkThemeColor : UIColor { return UIColor(hex: ThemeColors?.string("GuestDarkThemeColor")) }
+    public class var GuestDarkThemeColor : UIColor { return UIColor(hex: ThemeColors?.string("GuestDarkThemeColor")) }
 
-    open class var CovidSheildColor : UIColor { return UIColor(hex: ThemeColors?.string("CovidSheildColor")) }
+    public class var CovidSheildColor : UIColor { return UIColor(hex: ThemeColors?.string("CovidSheildColor")) }
 
-    open class var FavoriteColor: UIColor { return UIColor(hex: ThemeColors?.string("FavoriteColor")) }
+    public class var FavoriteColor: UIColor { return UIColor(hex: ThemeColors?.string("FavoriteColor")) }
 
-    open class var LightFavoriteColor: UIColor { return UIColor(hex: ThemeColors?.string("FavoriteColor")).withAlphaComponent(0.5) }
+    public class var LightFavoriteColor: UIColor { return UIColor(hex: ThemeColors?.string("FavoriteColor")).withAlphaComponent(0.5) }
 
-    open class var InstantBookColor : UIColor { return UIColor(hex: ThemeColors?.string("InstantBookColor")) }
+    public class var InstantBookColor : UIColor { return UIColor(hex: ThemeColors?.string("InstantBookColor")) }
     
     
     //MARK: hex Extention

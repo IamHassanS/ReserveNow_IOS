@@ -331,3 +331,25 @@ class ProgressButton : UIButton{
 ////        self.navigationController?.pushViewController(FlutterWaveAddPayoutVC.initWithStory(pageType: .flutterwave, payoutDelegate: self), animated: true)
 //UserDefaults.standard.set("Flutterwave", forKey: "PageType")
 //self.navigationController?.pushViewController(contactView, animated: true)
+
+
+//extension UILabel {
+//    func setMultiColorString(_ attrkeyString: String, _ sessionTitle: String, _ originalString: String) {
+////        let keyFont = attrkeyString
+////        let sessionTitle = sessionTitle
+////        let orginalTxt = originalString
+//   //     self.attributedText = MakentSupport().addAttributeFont(originalText: orginalTxt, attributedText: keyFont as String, attributedFontName: Fonts.CIRCULAR_BOOK, attributedColor:  .appHostThemeColor, attributedFontSize: 14)
+//
+//        let attrs1 = [NSAttributedString.Key.font : UIFont(name: Fonts.CIRCULAR_BOOK, size: 14), NSAttributedString.Key.foregroundColor : UIColor.appHostThemeColor]
+//
+//        let attrs2 = [NSAttributedString.Key.font : UIFont(name: Fonts.CIRCULAR_BOOK, size: 14), NSAttributedString.Key.foregroundColor : UIColor.black]
+//
+//        let attributedString1 = NSMutableAttributedString(string:attrkeyString, attributes:attrs1)
+//
+//        let attributedString2 = NSMutableAttributedString(string: " \(sessionTitle)", attributes:attrs2)
+//
+//        attributedString1.append(attributedString2)
+//        self.attributedText = attributedString1
+//
+//    }
+//}

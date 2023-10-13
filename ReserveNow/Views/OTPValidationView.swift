@@ -92,18 +92,20 @@ class OTPValidationView: BaseView  {
     }
     
     @IBAction func didTapNxtBtn(_ sender: Any) {
-        
+                        let infoVc =  GetUserInfoVC.initWithStory(.email)
+                        
+                        self.otpValidationVC.navigationController?.pushViewController(infoVc, animated: true)
       //  AuthManager.shared.authenticatePhoneNumber(number: <#T##String#>, completion: <#T##(Bool) -> ()#>)
         
-        AuthManager.shared.validateOTP(OTPcode:  self.otpView.otp!) { isValid in
-            if isValid {
-                let infoVc =  GetUserInfoVC.initWithStory(.email)
-                //UserInfoVC.initWithStory()
-                self.otpValidationVC.navigationController?.pushViewController(infoVc, animated: true)
-            } else {
-                self.otpView.invalidOTP()
-            }
-        }
+//        AuthManager.shared.validateOTP(OTPcode:  self.otpView.otp!) { isValid in
+//            if isValid {
+//                let infoVc =  GetUserInfoVC.initWithStory(.email)
+//                //UserInfoVC.initWithStory()
+//                self.otpValidationVC.navigationController?.pushViewController(infoVc, animated: true)
+//            } else {
+//                self.otpView.invalidOTP()
+//            }
+//        }
         
       
     }

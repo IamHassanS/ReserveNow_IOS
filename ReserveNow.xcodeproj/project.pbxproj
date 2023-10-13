@@ -36,6 +36,8 @@
 		F21ECA492A79230100B8ED40 /* SharedPreferances.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21ECA482A79230100B8ED40 /* SharedPreferances.swift */; };
 		F21ECA4B2A792D3B00B8ED40 /* StreachableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21ECA4A2A792D3B00B8ED40 /* StreachableHeaderView.swift */; };
 		F21ECA4E2A792D6400B8ED40 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21ECA4D2A792D6400B8ED40 /* ExploreView.swift */; };
+		F226EC9D2AD9115A00A8B721 /* LoginImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F226EC9B2AD9115A00A8B721 /* LoginImageCVC.swift */; };
+		F226EC9E2AD9115A00A8B721 /* LoginImageCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F226EC9C2AD9115A00A8B721 /* LoginImageCVC.xib */; };
 		F241A6E129EE57380058C6DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241A6E029EE57380058C6DF /* AppDelegate.swift */; };
 		F241A6E329EE57380058C6DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241A6E229EE57380058C6DF /* SceneDelegate.swift */; };
 		F241A6E529EE57380058C6DF /* HomeVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = F241A6E429EE57380058C6DF /* HomeVc.swift */; };
@@ -151,6 +153,8 @@
 		F21ECA482A79230100B8ED40 /* SharedPreferances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedPreferances.swift; sourceTree = "<group>"; };
 		F21ECA4A2A792D3B00B8ED40 /* StreachableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreachableHeaderView.swift; sourceTree = "<group>"; };
 		F21ECA4D2A792D6400B8ED40 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		F226EC9B2AD9115A00A8B721 /* LoginImageCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginImageCVC.swift; sourceTree = "<group>"; };
+		F226EC9C2AD9115A00A8B721 /* LoginImageCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginImageCVC.xib; sourceTree = "<group>"; };
 		F241A6DD29EE57380058C6DF /* ReserveNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReserveNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F241A6E029EE57380058C6DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F241A6E229EE57380058C6DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -307,6 +311,7 @@
 		F21ECA3C2A78E31D00B8ED40 /* TabbarItems */ = {
 			isa = PBXGroup;
 			children = (
+				F226EC972AD910D300A8B721 /* LoginFlow */,
 				F27BE8642A7A60BD003A49D9 /* CellandXIB */,
 				F21ECA4F2A792D6A00B8ED40 /* Views */,
 				F21ECA4C2A792D5000B8ED40 /* ViewControllers */,
@@ -329,7 +334,6 @@
 			children = (
 				F21ECA3D2A78E34400B8ED40 /* ExploreVC.swift */,
 				F2EC62062A7B7FC400C1D84D /* WelcomeVC.swift */,
-				F2EC620A2A7B7FEE00C1D84D /* LoginVC.swift */,
 				F21D25452A9F5D5900F4657B /* MenuVC.swift */,
 			);
 			path = ViewControllers;
@@ -340,10 +344,44 @@
 			children = (
 				F21ECA4D2A792D6400B8ED40 /* ExploreView.swift */,
 				F2EC62082A7B7FD500C1D84D /* WelcomeVIew.swift */,
-				F2EC620C2A7B7FFB00C1D84D /* LoginView.swift */,
 				F21D25472A9F5DBA00F4657B /* MenuView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F226EC972AD910D300A8B721 /* LoginFlow */ = {
+			isa = PBXGroup;
+			children = (
+				F226EC9A2AD9111500A8B721 /* CellandXIB */,
+				F226EC992AD9110C00A8B721 /* VC */,
+				F226EC982AD9110600A8B721 /* View */,
+			);
+			path = LoginFlow;
+			sourceTree = "<group>";
+		};
+		F226EC982AD9110600A8B721 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F2EC620C2A7B7FFB00C1D84D /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F226EC992AD9110C00A8B721 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				F2EC620A2A7B7FEE00C1D84D /* LoginVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		F226EC9A2AD9111500A8B721 /* CellandXIB */ = {
+			isa = PBXGroup;
+			children = (
+				F226EC9B2AD9115A00A8B721 /* LoginImageCVC.swift */,
+				F226EC9C2AD9115A00A8B721 /* LoginImageCVC.xib */,
+			);
+			path = CellandXIB;
 			sourceTree = "<group>";
 		};
 		F241A6D429EE57380058C6DF = {
@@ -710,6 +748,7 @@
 				F21ECA302A78DB1C00B8ED40 /* TabBarItems.storyboard in Resources */,
 				F241A6ED29EE57390058C6DF /* Assets.xcassets in Resources */,
 				F241A6E829EE57380058C6DF /* Account.storyboard in Resources */,
+				F226EC9E2AD9115A00A8B721 /* LoginImageCVC.xib in Resources */,
 				F24A43942A6FB13000F6120B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -787,6 +826,7 @@
 				F241A6E529EE57380058C6DF /* HomeVc.swift in Sources */,
 				F247E6D82A12775300D0C91D /* MapFilterRoomCVC.swift in Sources */,
 				F2D7085C29EFC6CD0034ED71 /* TimeSelectotVc.swift in Sources */,
+				F226EC9D2AD9115A00A8B721 /* LoginImageCVC.swift in Sources */,
 				F2B80CF72AB065CD007CF67B /* GetUserInfoVC.swift in Sources */,
 				F201D1822A6AC3E0009D848A /* CacheHandler.swift in Sources */,
 				F241A6E129EE57380058C6DF /* AppDelegate.swift in Sources */,

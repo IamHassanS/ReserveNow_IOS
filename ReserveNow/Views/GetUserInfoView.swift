@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-import FirebaseAuth
+//import FirebaseAuth
 extension GetUserInfoView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.endEditing(true)
@@ -276,17 +276,17 @@ class GetUserInfoView: BaseView {
         if self.validationType == .phone ? email.isValidPhoneNumber : email.isValidMail {
             if self.validationType == .email ||   self.validationType == .socialLogin {
                 
-                FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) {[weak self] result, error in
-                    guard let welf = self else {return}
-                    Shared.instance.removeLoader(in: welf)
-                    guard  error == nil else {
-                        welf.createAccount(email, password)
-                        return
-                    }
-                    self?.getUserInfoVC.sceneDelegate!.createToastMessage("Account creation failed", isFromWishList: true)
-             
-                }
-                
+//                FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) {[weak self] result, error in
+//                    guard let welf = self else {return}
+//                    Shared.instance.removeLoader(in: welf)
+//                    guard  error == nil else {
+//                        welf.createAccount(email, password)
+//                        return
+//                    }
+//                    self?.getUserInfoVC.sceneDelegate!.createToastMessage("Account creation failed", isFromWishList: true)
+//
+//                }
+                self.createAccount(email, password)
             
             }
         } else {
@@ -298,19 +298,21 @@ class GetUserInfoView: BaseView {
     
     func createAccount(_ email: String, _ password: String) {
 
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) {[weak self] result, error in
-            guard let welf = self else {return}
-            if  error == nil  {
-                welf.getUserInfoVC.sceneDelegate!.createToastMessage("Account created successfully", isFromWishList: true)
-                LocalStorage.shared.setBool(LocalStorage.LocalValue.isUserLoggedin, value: true)
-                self?.getUserInfoVC.sceneDelegate?.generateMakentLoginFlowChange(tabIcon: 4)
-                
-                
-            }
-    
-        }
+//        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) {[weak self] result, error in
+//            guard let welf = self else {return}
+//            if  error == nil  {
+//                welf.getUserInfoVC.sceneDelegate!.createToastMessage("Account created successfully", isFromWishList: true)
+//                LocalStorage.shared.setBool(LocalStorage.LocalValue.isUserLoggedin, value: true)
+//                self?.getUserInfoVC.sceneDelegate?.generateMakentLoginFlowChange(tabIcon: 4)
+//
+//
+//            }
+//
+//        }
         
-        
+        self.getUserInfoVC.sceneDelegate!.createToastMessage("Account created successfully", isFromWishList: true)
+        LocalStorage.shared.setBool(LocalStorage.LocalValue.isUserLoggedin, value: true)
+        self.getUserInfoVC.sceneDelegate?.generateMakentLoginFlowChange(tabIcon: 4)
     }
     
 }

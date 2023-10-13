@@ -7,19 +7,19 @@
 
 import Foundation
 import UIKit
-import FirebaseAuth
+//import FirebaseAuth
 import SDWebImage
 extension UserInfoView: PopOverVCDelegate {
     func didTapRow(_ index: Int) {
         if index == 2 {
           
-            do {
-                try FirebaseAuth.Auth.auth().signOut()
-                LocalStorage.shared.setBool(LocalStorage.LocalValue.isUserLoggedin, value: false)
-                self.userInfoVC.sceneDelegate?.generateMakentLoginFlowChange(tabIcon: 4)
-            } catch {
-                print("Error")
-            }
+//            do {
+//                try FirebaseAuth.Auth.auth().signOut()
+//                LocalStorage.shared.setBool(LocalStorage.LocalValue.isUserLoggedin, value: false)
+//                self.userInfoVC.sceneDelegate?.generateMakentLoginFlowChange(tabIcon: 4)
+//            } catch {
+//                print("Error")
+//            }
             
         }
     }

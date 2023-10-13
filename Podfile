@@ -7,11 +7,11 @@ target 'ReserveNow' do
 
 
   # Pods for ReserveNow
-   pod 'FirebaseAuth'
-   pod 'Firebase/Database'
-   pod 'Firebase/Messaging'
-   pod 'GoogleSignIn'
-   pod 'FBSDKLoginKit'
+  # pod 'FirebaseAuth'
+ #  pod 'Firebase/Database'
+  # pod 'Firebase/Messaging'
+  # pod 'GoogleSignIn'
+  # pod 'FBSDKLoginKit'
    pod 'SDWebImage'
    pod 'Alamofire'
 

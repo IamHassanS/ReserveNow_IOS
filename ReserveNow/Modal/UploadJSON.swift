@@ -4,9 +4,9 @@
 //
 //  Created by trioangle on 25/07/23.
 //
-import FirebaseDatabase
+//import FirebaseDatabase
 import Foundation
-import Firebase
+//import Firebase
 
 
 class Address: Codable {
@@ -105,100 +105,100 @@ class Hotels: Codable {
  
 }
 
-class DataBaseConfigure {
-    
-    private let dataBase = Database.database().reference()
-    
-    var addressDict = [String: Any]()
-
-    var tagsDict = [String: Any]()
-
-    var restaurantDict = [String: Any]()
-    
-    init(addressDict: [String: Any], tagsDict: [String: Any], restaurantDict: [String: Any]) {
-        self.restaurantDict = restaurantDict
-        self.addressDict = addressDict
-        self.tagsDict = tagsDict
-    }
-    
-    func toUploadData() {
-      //  let coreData = coreData()
-        do {
-           // let jsonData = try JSONSerialization.data(withJSONObject: self.restaurantDict) as! NSDictionary
-          //  let jsonArray = jsonData.value(forKey: "")
-          //  let instance = try JSONDecoder().decode(Hotels.self, from: jsonData)
-          //  print(instance)
-          //  Shared.instance.hotels = instance
-        } catch {
-            print(error)
-        }
-        let restaurantsRef = self.dataBase.child("restaurants")
-        let url = Bundle.main.path(forResource: "Restaurants", ofType: "json")
-        //let data = try! Data(contentsOf: URL(string: url?) ?? URL())
-        
-      //  restaurantsRef.setValue(data)
-    }
-    
-     func remove() {
-
-        let ref = self.dataBase.child("restaurants")
-
-        ref.removeValue { error, _ in
-
-            print(error)
-        }
-    }
-    
-    func toCheckExistanceAndUpload() {
-        dataBase.child("restaurants").observeSingleEvent(of: .value, with: { (snapshot) in
-
-                if snapshot.exists(){
-
-                   
-
-                }else{
-
-                    self.toUploadData()
-                }
-
-            })
-    }
-    
-    func toRetriveData() {
-        Shared.instance.showLoaderInWindow()
-        dataBase.child("restaurants").observeSingleEvent(of: .value, with: { (snapshot) in
-                if snapshot.exists(){
-                    Shared.instance.removeLoaderInWindow()
-                  //  print(snapshot.value)
-                    guard let value = snapshot.value as? JSON else { return }
-                    print(value)
-                    do {
-                        let jsonData = try JSONSerialization.data(withJSONObject: value)
-                        let instance = try JSONDecoder().decode(Hotels.self, from: jsonData)
-                        print(instance)
-                        Shared.instance.hotels = instance
-                    } catch {
-                        print(error)
-                    }
-                }else{
-                    Shared.instance.removeLoaderInWindow()
-                    return
-                   // self.toUploadData()
-                }
-
-            })
-    }
-    
-    
-    func parse(json: Data) {
-        let decoder = JSONDecoder()
-
-        if let jsonPetitions = try? decoder.decode(Hotels.self, from: json) {
-            //   let hotels = jsonPetitions.results
-            print(jsonPetitions)
-            // tableView.reloadData()
-        }
-        }
-    
-}
+//class DataBaseConfigure {
+//
+//    private let dataBase = Database.database().reference()
+//
+//    var addressDict = [String: Any]()
+//
+//    var tagsDict = [String: Any]()
+//
+//    var restaurantDict = [String: Any]()
+//
+//    init(addressDict: [String: Any], tagsDict: [String: Any], restaurantDict: [String: Any]) {
+//        self.restaurantDict = restaurantDict
+//        self.addressDict = addressDict
+//        self.tagsDict = tagsDict
+//    }
+//
+//    func toUploadData() {
+//      //  let coreData = coreData()
+//        do {
+//           // let jsonData = try JSONSerialization.data(withJSONObject: self.restaurantDict) as! NSDictionary
+//          //  let jsonArray = jsonData.value(forKey: "")
+//          //  let instance = try JSONDecoder().decode(Hotels.self, from: jsonData)
+//          //  print(instance)
+//          //  Shared.instance.hotels = instance
+//        } catch {
+//            print(error)
+//        }
+//        let restaurantsRef = self.dataBase.child("restaurants")
+//        let url = Bundle.main.path(forResource: "Restaurants", ofType: "json")
+//        //let data = try! Data(contentsOf: URL(string: url?) ?? URL())
+//
+//      //  restaurantsRef.setValue(data)
+//    }
+//
+//     func remove() {
+//
+//        let ref = self.dataBase.child("restaurants")
+//
+//        ref.removeValue { error, _ in
+//
+//            print(error)
+//        }
+//    }
+//
+//    func toCheckExistanceAndUpload() {
+//        dataBase.child("restaurants").observeSingleEvent(of: .value, with: { (snapshot) in
+//
+//                if snapshot.exists(){
+//
+//
+//
+//                }else{
+//
+//                    self.toUploadData()
+//                }
+//
+//            })
+//    }
+//
+//    func toRetriveData() {
+//        Shared.instance.showLoaderInWindow()
+//        dataBase.child("restaurants").observeSingleEvent(of: .value, with: { (snapshot) in
+//                if snapshot.exists(){
+//                    Shared.instance.removeLoaderInWindow()
+//                  //  print(snapshot.value)
+//                    guard let value = snapshot.value as? JSON else { return }
+//                    print(value)
+//                    do {
+//                        let jsonData = try JSONSerialization.data(withJSONObject: value)
+//                        let instance = try JSONDecoder().decode(Hotels.self, from: jsonData)
+//                        print(instance)
+//                        Shared.instance.hotels = instance
+//                    } catch {
+//                        print(error)
+//                    }
+//                }else{
+//                    Shared.instance.removeLoaderInWindow()
+//                    return
+//                   // self.toUploadData()
+//                }
+//
+//            })
+//    }
+//
+//
+//    func parse(json: Data) {
+//        let decoder = JSONDecoder()
+//
+//        if let jsonPetitions = try? decoder.decode(Hotels.self, from: json) {
+//            //   let hotels = jsonPetitions.results
+//            print(jsonPetitions)
+//            // tableView.reloadData()
+//        }
+//        }
+//
+//}
 

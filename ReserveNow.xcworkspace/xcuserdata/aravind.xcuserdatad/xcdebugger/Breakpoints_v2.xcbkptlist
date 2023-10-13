@@ -78,9 +78,9 @@
             filePath = "ReserveNow/TabbarItems/Views/LoginView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "343"
-            endingLineNumber = "343"
-            landmarkName = "didTapLoginBtn(_:)"
+            startingLineNumber = "376"
+            endingLineNumber = "376"
+            landmarkName = "keyboardWillHide(notification:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -156,9 +156,9 @@
             filePath = "ReserveNow/TabbarItems/Views/LoginView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "346"
-            endingLineNumber = "346"
-            landmarkName = "didTapLoginBtn(_:)"
+            startingLineNumber = "379"
+            endingLineNumber = "379"
+            landmarkName = "keyboardWillHide(notification:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -204,10 +204,10 @@
             filePath = "ReserveNow/TabbarItems/Views/LoginView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
-            landmarkName = "initData()"
-            landmarkType = "7">
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "LoginVIew"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -220,9 +220,9 @@
             filePath = "ReserveNow/TabbarItems/Views/LoginView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "344"
-            endingLineNumber = "344"
-            landmarkName = "didTapLoginBtn(_:)"
+            startingLineNumber = "377"
+            endingLineNumber = "377"
+            landmarkName = "keyboardWillHide(notification:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -283,9 +283,9 @@
             filePath = "ReserveNow/TabbarItems/Views/LoginView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "340"
-            endingLineNumber = "340"
-            landmarkName = "didTapLoginBtn(_:)"
+            startingLineNumber = "373"
+            endingLineNumber = "373"
+            landmarkName = "keyboardWillHide(notification:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -299,9 +299,9 @@
             filePath = "ReserveNow/TabbarItems/Views/LoginView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "355"
-            endingLineNumber = "355"
-            landmarkName = "didTapLoginBtn(_:)"
+            startingLineNumber = "388"
+            endingLineNumber = "388"
+            landmarkName = "keyboardWillHide(notification:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -606,6 +606,166 @@
                   offsetFromSymbolStart = "1480">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EF193333-0885-4856-9980-3E3F90986EDB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/TabbarItems/LoginFlow/View/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "indexOfMajorCell()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "38981930-B833-4B46-AA7F-2AFBBF8093A0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/TabbarItems/LoginFlow/View/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
+            landmarkName = "scrollViewWillEndDragging(_:withVelocity:targetContentOffset:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B7C6CE19-BB85-4BF8-9B9A-1C40DC562EE9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/TabbarItems/LoginFlow/View/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "scrollViewWillEndDragging(_:withVelocity:targetContentOffset:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0D8E04A3-2419-4B43-98FB-D94206D6539D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/TabbarItems/LoginFlow/View/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "calculateSectionInset()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6E38963F-665B-40B1-9D69-3B04D1AF5675"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/TabbarItems/LoginFlow/View/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "scrollViewWillBeginDragging(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EE98FB0D-46AE-4FFA-AE62-438BC55F4D36"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/TabbarItems/LoginFlow/View/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "536"
+            endingLineNumber = "536"
+            landmarkName = "didTapLoginBtn(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AD5419EA-B169-4EA8-AB7F-E8C2F583FD6C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/TabbarItems/LoginFlow/View/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "538"
+            endingLineNumber = "538"
+            landmarkName = "didTapLoginBtn(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AD5419EA-B169-4EA8-AB7F-E8C2F583FD6C - 259ef453cc95d44c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in ReserveNow.LoginVIew.didTapLoginBtn(Any) -&gt; ()"
+                  moduleName = "ReserveNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trioangle/Documents/Service/ReserveNow_IOS/ReserveNow/TabbarItems/LoginFlow/View/LoginView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "538"
+                  endingLineNumber = "538"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "AD5419EA-B169-4EA8-AB7F-E8C2F583FD6C - 259ef453cc95d44c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in ReserveNow.LoginVIew.didTapLoginBtn(Any) -&gt; ()"
+                  moduleName = "ReserveNow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trioangle/Documents/Service/ReserveNow_IOS/ReserveNow/TabbarItems/LoginFlow/View/LoginView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "538"
+                  endingLineNumber = "538"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "347E0455-8FFE-4B4B-805F-D4F3843A9FB3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReserveNow/TabbarItems/LoginFlow/View/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "567"
+            endingLineNumber = "567"
+            landmarkName = "callOTPPage()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

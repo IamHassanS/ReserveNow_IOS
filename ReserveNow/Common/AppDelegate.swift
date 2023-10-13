@@ -7,8 +7,8 @@
 
 import UIKit
 import CoreData
-import Firebase
-import FirebaseMessaging
+//import Firebase
+//import FirebaseMessaging
 import UserNotifications
 
 @main
@@ -19,15 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static var shared : AppDelegate{
         return UIApplication.shared.delegate as! AppDelegate
     }
-    var pushNotificationHanlder : PushNotificationHandler?
+  //  var pushNotificationHanlder : PushNotificationHandler?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        FirebaseApp.configure()
-      //  self.window = UIWindow(frame:UIScreen.main.bounds)
-      //  self.initializeObjects(for: application, usingOptions: launchOptions)
-       // self.initializeModules()
-        //self.makeSplashView(isFirstTime: true)
+      
+       // FirebaseApp.configure()
+  
        
         return true
     }
@@ -35,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, willEncodeRestorableStateWith coder: NSCoder) {
-        self.pushNotificationHanlder?.regiserForRemoteNotification()
+      //  self.pushNotificationHanlder?.regiserForRemoteNotification()
     }
     
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -104,16 +101,16 @@ extension AppDelegate{
     
     func initializeObjects(for application : UIApplication,
                            usingOptions options: [UIApplication.LaunchOptionsKey: Any]? ){
-        self.pushNotificationHanlder =
-            PushNotificationHandler(for: application,
-                                    usingOptions: options)
+//        self.pushNotificationHanlder =
+//            PushNotificationHandler(for: application,
+//                                    usingOptions: options)
     }
     /**
      To initialize 3rd party modules
      */
     func initializeModules(){
         //Push notification and FCM
-        self.pushNotificationHanlder?.regiserForRemoteNotification()
+    //    self.pushNotificationHanlder?.regiserForRemoteNotification()
 //        self.pushNotificationHanlder?.getRegisteredFCMToken({ (token) in
 //
 //
