@@ -32,8 +32,8 @@ class SplashVC: BaseViewController{
         
         if let sceneDelegate = self.view?.window?.windowScene?.delegate as? SceneDelegate {
           
-            sceneDelegate.setTabbarForSwithUsers()
-            
+            sceneDelegate.setLoginPage()
+          //  sceneDelegate.setTabbarForSwithUsers()
         }
         
 //        var paramDict = JSON()

@@ -450,4 +450,14 @@ extension UIView{
             self?.isUserInteractionEnabled = true
         }
     }
+    
+    func setGradient() {
+      //  var gradientView = UIView(frame: CGRect(x: 0, y: 0, width: self.width, height: self.height))
+        let gradientLayer:CAGradientLayer = CAGradientLayer()
+        gradientLayer.frame.size = self.frame.size
+        gradientLayer.colors =
+        [UIColor.white.cgColor,UIColor.black.withAlphaComponent(0.5).cgColor]
+       //Use diffrent colors
+        self.layer.addSublayer(gradientLayer)
+    }
 }

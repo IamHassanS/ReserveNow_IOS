@@ -17,9 +17,13 @@ class LoginImageCVC: UICollectionViewCell {
     
     @IBOutlet weak var descriptionLbl: UILabel!
     
+    @IBOutlet weak var gradientView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.gradientView.layer.insertSublayer(self.gradient, at: 0)
+        
+       // self.layer.insertSublayer(self.gradient, at: .max)
         
 
     }
@@ -39,5 +43,18 @@ class LoginImageCVC: UICollectionViewCell {
         }
     }
     
+    //Gradient to add in the cell
+    private lazy var gradient: CAGradientLayer = {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.white.cgColor,UIColor.init(hex: "#00004d").withAlphaComponent(0.5).cgColor]
+        //[UIColor.black.cgColor, UIColor.orange.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 1, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+        gradientLayer.frame = self.bounds
+        return gradientLayer
+    }()
+    override func prepareForReuse() {
+      //  self.gradientView.layer.insertSublayer(self.gradient, at: 0)
+    }
 
 }

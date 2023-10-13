@@ -115,7 +115,7 @@ class LoginVIew: BaseView {
     
     
     func toLOadData() {
-        for i in 0...10 {
+        for i in 0...2 {
             data.append("\(i)")
         }
         self.collectionViewExplore.dataSource = self
@@ -368,7 +368,7 @@ class LoginVIew: BaseView {
         }
         
         closeholderView.addTap {
-            self.loginVc.sceneDelegate?.generateMakentLoginFlowChange(tabIcon: 0)
+            self.loginVc.sceneDelegate?.setTabbarForSwithUsers()
         }
         
 
@@ -526,8 +526,8 @@ class LoginVIew: BaseView {
 //                    self.loginVc.navigationController?.pushViewController(vc, animated: true)
 //                }
 //            }
-            let vc = UserInfoVC.initWithStory()
-            vc.hidesBottomBarWhenPushed = false
+            let vc = ExploreVC.initWithStory()
+            vc.hidesBottomBarWhenPushed = true
             self.loginVc.navigationController?.pushViewController(vc, animated: true)
             
             }
@@ -864,6 +864,10 @@ extension LoginVIew {
                    // cell.viewBg.elevate(4)
                 cell.contentHolderView.elevate(4)
                 cell.contentHolderView.layer.cornerRadius = 12
+                cell.imageHolderVIew.layer.cornerRadius =  cell.imageHolderVIew.height / 2
+                cell.imageIV.layer.cornerRadius =  cell.imageIV.height / 2
+                cell.gradientView.setSpecificCornersForBottom(cornerRadius: 12)
+               // cell.gradientView.setGradient()
                     return cell
               
             }

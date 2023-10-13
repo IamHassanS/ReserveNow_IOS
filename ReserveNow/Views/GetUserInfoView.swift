@@ -89,7 +89,7 @@ class GetUserInfoView: BaseView {
         mailORphoneFld.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         lnameFld.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         fnameFld.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        self.fnameFld.becomeFirstResponder()
+      //  self.fnameFld.becomeFirstResponder()
     }
     
     

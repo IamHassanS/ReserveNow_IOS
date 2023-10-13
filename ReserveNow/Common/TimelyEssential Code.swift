@@ -353,3 +353,55 @@ class ProgressButton : UIButton{
 //
 //    }
 //}
+//func imageUploadService(urlString:String, parameters:[String:Any], image:[UIImage]?=nil, imageName:[String] = ["image"], complete:@escaping (_ response: [String:Any]) -> Void, onError : @escaping ((Error?)-> Void)) {
+//        
+//    MakentSupport().showProgressInWindow(showAnimation: true)
+//    UIApplication.shared.beginIgnoringInteractionEvents()
+//
+//
+//    AF.upload(multipartFormData: { (multipartFormData) in
+//
+//        if let images = image,images.count > 0 {
+//            for (index,orgimage) in images.enumerated() {
+//                let imageType = "jpeg"
+//                let fileName = String(Date().timeIntervalSince1970 * 1000) + "Image.\(imageType)"
+//                let imgData: Data? = orgimage.jpegData(compressionQuality: 0.4)
+//                if imgData != nil {
+//                    multipartFormData.append(imgData!, withName: imageName[index],fileName: fileName, mimeType: "\(imageName)/\(imageType)")
+//                }
+//            }
+//
+//        }
+//
+//        for (key, value) in parameters {
+//            multipartFormData.append(String(describing: value).data(using: String.Encoding.utf8, allowLossyConversion: true)!, withName: key)
+//        } //Optional for extra parameters
+//    }, to: "\(APIUrl)\(urlString)")
+//    .responseJSON(completionHandler: { response in
+//            MakentSupport().removeProgressInWindow()
+//            UIApplication.shared.endIgnoringInteractionEvents()
+//
+//       switch response.result {
+//       case .success(let value):
+//           let responseDict = value as! [String : Any]
+//        if self.userIsActive(from: responseDict)  {
+//            print("ØØ  \(responseDict)")
+//            complete(responseDict)
+//        }
+//           print(responseDict)
+//       case .failure(let error):
+//           print(error)
+//           onError(error)
+//           if error._code == 4 {
+//               self.appDelegate.createToastMessage("We are having trouble fetching the menu. Please try again.")
+//           }
+//           else {
+//               self.appDelegate.createToastMessage(error.localizedDescription)
+//           }
+//       }
+//
+//
+//
+//
+//   })
+//}

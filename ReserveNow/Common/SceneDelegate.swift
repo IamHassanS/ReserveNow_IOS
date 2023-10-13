@@ -61,19 +61,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func generateMakentLoginFlowChange(tabIcon: Int) -> UITabBarController
     {
-
-       makentTabBarCtrler.guestTabBarSetup(tabIcon)
-       
+        makentTabBarCtrler.guestTabBarSetup(tabIcon)
         return makentTabBarCtrler
     }
     
+    
     func setTabbarForSwithUsers()
     {
-
-        let splashVc = LoginVC.initWithStory()
-        
+        let splashVc = self.generateMakentLoginFlowChange(tabIcon: 0)
+         self.window?.rootViewController = splashVc
+    }
+    
+    func setLoginPage()
+    {
+        let loginVC = LoginVC.initWithStory()
+        //ExploreVC.initWithStory()
+        //
+        let rootController = UINavigationController(rootViewController: loginVC)
         //self.generateMakentLoginFlowChange(tabIcon: 0)
-        self.window?.rootViewController = splashVc
+        self.window?.rootViewController = rootController
     }
     
     func generateMakentHostTabbarController() -> UITabBarController

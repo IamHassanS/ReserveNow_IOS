@@ -50,7 +50,7 @@ class MenuView : BaseView{
             frame.size.height = 150
             self.headerView.frame = frame
             self.menuTable.tableHeaderView = headerView
-            self.avatarName.text = "RIYA"
+            self.avatarName.text = "Hello user"
             self.logoutLbl.text = "Logout"
         } else {
             var frame = headerView.frame
@@ -258,14 +258,8 @@ extension MenuView : UITableViewDelegate,UITableViewDataSource{
         guard let item = self.menuVC.menuItems.value(atSafe: indexPath.row) else{return cell}
         cell.ThemeUpdate()
         cell.lblName?.text = item.title
-        if let image = item.imgName {
-            cell.menuIcon?.image = UIImage(named: image)?.withRenderingMode(.alwaysTemplate)
-            cell.menuIcon?.clipsToBounds = true
-            //cell.menuIcon?. contentMode = .scaleAspectFit
-        }else{
-           // cell.menuIcon?.image = nil
-        }
-        cell.menuIcon?.isHidden = true
+        cell.menuIcon?.image = item.imgName
+       // cell.menuIcon?.isHidden = true
       //  cell.lblName?.textAlignment = .left
         // isRTL ? .right :
 
@@ -308,7 +302,10 @@ extension MenuView : UITableViewDelegate,UITableViewDataSource{
             })
         
         }
-        cell.holderView.backgroundColor = .gray
+        cell.holderView.elevate(4)
+        cell.holderView.layer.cornerRadius = 15
+        cell.selectionStyle = .none
+      //  cell.holderView.backgroundColor = .gray
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

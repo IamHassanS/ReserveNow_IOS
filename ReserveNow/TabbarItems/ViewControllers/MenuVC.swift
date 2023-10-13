@@ -29,17 +29,17 @@ extension MenuResponseProtocol where Self : UIViewController{
         self.hidesBottomBarWhenPushed = true
         self.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(view, animated: true)
-       // NotificationCenter.default.post(name: NSNotification.Name(rawValue: "backAction"), object: self, userInfo: nil)
-     //   self.navigationController?.pushViewController(view, animated: true)
-       // self.navigationController?.presentInFullScreen(view, animated: true, completion: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "backAction"), object: self, userInfo: nil)
+        self.navigationController?.pushViewController(view, animated: true)
+        self.navigationController?.presentInFullScreen(view, animated: true, completion: nil)
     }
     func routeToHome(_ view: UIViewController) {
         self.hidesBottomBarWhenPushed = true
         self.modalPresentationStyle = .overFullScreen
         self.navigationController?.presentInFullScreen(view, animated: true, completion: nil)
-       // NotificationCenter.default.post(name: NSNotification.Name(rawValue: "backAction"), object: self, userInfo: nil)
-     //   self.navigationController?.pushViewController(view, animated: true)
-       // self.navigationController?.presentInFullScreen(view, animated: true, completion: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "backAction"), object: self, userInfo: nil)
+        self.navigationController?.pushViewController(view, animated: true)
+        self.navigationController?.presentInFullScreen(view, animated: true, completion: nil)
     }
     func changeFont() {
         //self.openChangeFontSheet()
@@ -178,18 +178,35 @@ class MenuVC: BaseViewController {
 //    }
     
     func getMenuItems() -> [MenuItemModel] {
-        var cliqBuyItems = [MenuItemModel]()
-        return cliqBuyItems
+        var menuitems = [MenuItemModel]()
+      //  return menuitems
 //
 //
-//        let Homeview  = HomeVc.initWithStory()
+       let dashBoard  = UIViewController()
+        dashBoard.view.backgroundColor = .red
+            //.initWithStory()
 //
 //        Homeview.hidesBottomBarWhenPushed = false
-//      //  AppDelegate.shared.onSetRootViewController(viewCtrl: Homeview)
+      //  AppDelegate.shared.onSetRootViewController(viewCtrl: Homeview)
 //
-//        let homeItem = MenuItemModel(withTitle: self.lang.home_Tit.capitalized,
-//                                        image: "Payment",
-//                                        VC: Homeview)
+        let dashBoardItem = MenuItemModel(withTitle: "Dashboard",
+                                        image: UIImage(systemName: "list.dash.header.rectangle"),
+                                        VC: dashBoard)
+        
+        let squareOne  = UIViewController()
+        squareOne.view.backgroundColor = .orange
+        
+        let squareOneItem = MenuItemModel(withTitle: "Square One",
+                                        image: UIImage(systemName: "square.split.2x2.fill"),
+                                        VC: dashBoard)
+        
+        
+        let dataPage  = UIViewController()
+        dataPage.view.backgroundColor = .yellow
+        
+        let dataPageItem = MenuItemModel(withTitle: "Data Page",
+                                        image: UIImage(systemName: "info.bubble.fill"),
+                                        VC: dashBoard)
 //
 //
 //        let accountView = ViewAccountVC.initWithStory()
@@ -215,7 +232,9 @@ class MenuVC: BaseViewController {
 //
 //
 //        if Shared.instance.user_logged_in == true {
-//            cliqBuyItems.append(homeItem)
+            menuitems.append(dashBoardItem)
+        menuitems.append(squareOneItem)
+        menuitems.append(dataPageItem)
 //            cliqBuyItems.append(accountItem)
 //            cliqBuyItems.append(purchaseItem)
 //            cliqBuyItems.append(wishListItem)
@@ -225,7 +244,7 @@ class MenuVC: BaseViewController {
 //            cliqBuyItems.append(languageItem)
 //        }
 //
-//        return cliqBuyItems
+        return menuitems
     }
     
     //MARK:- initWithStory
@@ -308,10 +327,10 @@ class MenuVC: BaseViewController {
 
 class MenuItemModel{
     var title : String
-    var imgName : String?
+    var imgName : UIImage?
     var viewController : UIViewController?
     var vm : BaseModel?
-    init(withTitle title :String,image : String? = nil,VC : UIViewController?, vm: BaseModel? = BaseModel() ){
+    init(withTitle title :String,image : UIImage? = nil,VC : UIViewController?, vm: BaseModel? = BaseModel() ){
         self.title = title
         self.imgName = image
         self.viewController = VC

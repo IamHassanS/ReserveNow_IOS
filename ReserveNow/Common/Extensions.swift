@@ -7,9 +7,9 @@ let ThemeColors : JSON? = infoPlist?.value(for: .ThemeColors)
 
 
 class Fonts:NSObject{
-    static let CIRCULAR_BOLD = "CircularAirPro-Bold"
-    static let CIRCULAR_LIGHT = "CircularAirPro-Light"
-    static let CIRCULAR_BOOK = "CircularAirPro-Book"
+    static let CIRCULAR_BOLD = "Apple Symbols"
+    static let CIRCULAR_LIGHT = "Apple Symbols"
+    static let CIRCULAR_BOOK = "Apple Symbols"
     static let MAKENT_LOGO_FONT1 = "makent1"
     static let MAKENT_LOGO_FONT2 = "makent2"
     static let MAKENT_LOGO_FONT3 = "makent3"
